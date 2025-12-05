@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خطة مساق أخلاقيات عصر المعلومات</title>
+    <title>خطة مساق أخلاقيات عصر المعلومات - التعليم الإلكتروني</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,40 +23,75 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            background-color: #f5f7fa;
+            color: #333;
             padding: 20px;
-            min-height: 100vh;
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
         
         .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
             color: white;
-            padding: 40px;
+            padding: 40px 30px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
         }
         
         .header h1 {
-            font-size: 2.2em;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
         }
         
-        .course-code {
-            background: rgba(255,255,255,0.2);
-            display: inline-block;
+        .header h2 {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        .badge {
+            background: rgba(255, 255, 255, 0.15);
             padding: 8px 20px;
-            border-radius: 20px;
-            margin-top: 10px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .content {
@@ -53,100 +99,160 @@
         }
         
         .section {
-            margin-bottom: 35px;
-            padding: 25px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-right: 5px solid #667eea;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8fafc;
+            border-radius: 15px;
+            border-right: 6px solid var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
         }
         
-        .section h2 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.5em;
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 1.6rem;
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-        
-        .section h2::before {
-            content: '●';
-            color: #667eea;
-        }
-        
-        .instructor-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(52, 152, 219, 0.2);
+        }
+        
+        .section-title i {
+            color: var(--secondary-color);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             margin-top: 15px;
         }
         
-        .info-item {
+        .info-card {
             background: white;
-            padding: 12px;
-            border-radius: 8px;
-            border-right: 3px solid #667eea;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--secondary-color);
         }
         
-        .info-label {
-            font-weight: bold;
-            color: #667eea;
-            margin-left: 5px;
+        .info-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
         }
         
         .assessment-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
         
         .assessment-item {
             background: white;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .assessment-item:hover {
+            transform: translateY(-5px);
         }
         
         .percentage {
-            background: #667eea;
+            background: var(--secondary-color);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
+            padding: 8px 18px;
+            border-radius: 50px;
             font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .schedule-container {
+            overflow-x: auto;
+            margin-top: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .schedule-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
+            min-width: 800px;
         }
         
         .schedule-table th {
-            background: #667eea;
+            background: var(--primary-color);
             color: white;
-            padding: 15px;
+            padding: 18px 15px;
             text-align: center;
+            font-weight: 600;
         }
         
         .schedule-table td {
-            padding: 12px;
+            padding: 15px;
             border-bottom: 1px solid #e0e0e0;
             text-align: center;
         }
         
-        .schedule-table tr:hover {
-            background: #f5f5f5;
+        .schedule-table tr:nth-child(even) {
+            background-color: #f9f9f9;
         }
         
-        .special-week {
-            background: #fff3cd !important;
+        .schedule-table tr:hover {
+            background-color: #f0f7ff;
+        }
+        
+        .exam-week {
+            background-color: #fff3cd !important;
             font-weight: bold;
+            color: #856404;
+        }
+        
+        .online-week {
+            background-color: #d4edda !important;
+            color: #155724;
+        }
+        
+        .book-info {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .book-cover {
+            width: 120px;
+            height: 160px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .book-details {
+            flex: 1;
         }
         
         .notes-list {
@@ -156,188 +262,344 @@
         
         .notes-list li {
             background: white;
-            padding: 12px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            border-right: 3px solid #764ba2;
-            padding-right: 15px;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            border-right: 4px solid var(--secondary-color);
+            padding-right: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
         }
         
-        .notes-list li::before {
-            content: '✓';
-            color: #764ba2;
-            font-weight: bold;
-            margin-left: 10px;
+        .notes-list li i {
+            color: var(--secondary-color);
+            margin-top: 3px;
+        }
+        
+        .platforms {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .platform {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        .platform i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-top: 5px solid var(--secondary-color);
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+            opacity: 0.9;
         }
         
         @media (max-width: 768px) {
-            .assessment-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .header h1 {
-                font-size: 1.5em;
+                font-size: 1.8rem;
             }
             
             .content {
                 padding: 20px;
             }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .book-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .badges {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        .important-note {
+            background: #fff3cd;
+            border-right: 6px solid #ffc107;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+        
+        .important-note h3 {
+            color: #856404;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .learning-outcomes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .outcome-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--success-color);
+        }
+        
+        .outcome-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>أخلاقيات عصر المعلومات</h1>
-            <div class="course-code">DINF 1101</div>
-            <p style="margin-top: 15px;">الكلية الجامعية للعلوم التطبيقية</p>
-            <p style="margin-top: 5px; font-size: 0.95em; opacity: 0.9;">دبلوم أمن المعلومات</p>
+            <h1><i class="fas fa-laptop-code"></i> أخلاقيات عصر المعلومات</h1>
+            <h2>مساق تعليم إلكتروني - دبلوم أمن المعلومات</h2>
+            <div class="badges">
+                <div class="badge"><i class="fas fa-user-graduate"></i> الكلية الجامعية للعلوم التطبيقية</div>
+                <div class="badge"><i class="fas fa-code"></i> DINF 1101</div>
+                <div class="badge"><i class="fas fa-clock"></i> ساعة معتمدة واحدة</div>
+                <div class="badge"><i class="fas fa-globe"></i> تعليم إلكتروني كامل</div>
+            </div>
         </div>
         
         <div class="content">
             <div class="section">
-                <h2>معلومات المساق</h2>
-                <div class="instructor-info">
-                    <div class="info-item">
-                        <span class="info-label">المدرس:</span>
-                        م. محمود الشيخ خليل
+                <h2 class="section-title"><i class="fas fa-info-circle"></i> معلومات المساق والمحاضر</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fas fa-chalkboard-teacher"></i> المحاضر</h3>
+                        <p>م. محمود الشيخ خليل</p>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">الساعات المعتمدة:</span>
-                        ساعة واحدة
+                    <div class="info-card">
+                        <h3><i class="fas fa-envelope"></i> البريد الإلكتروني</h3>
+                        <p>makhalil@ucas.edu.ps</p>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">البريد الإلكتروني:</span>
-                        makhalil@ucas.edu.ps
+                    <div class="info-card">
+                        <h3><i class="fas fa-book"></i> المتطلبات السابقة</h3>
+                        <p>لا يوجد</p>
                     </div>
                 </div>
             </div>
             
             <div class="section">
-                <h2>الوصف العام</h2>
-                <p>يهدف هذا المساق إلى دراسة وتحليل التطور السريع في المعلومات والنمو الكبير في القضايا الأخلاقية والتساؤلات المتعلقة بتلك المعلومات وطرق جمعها واستخدامها ومجالاتها والجوانب المتعلقة بوسائل التحكم فيها. يدرس المساق توعية مدير الأعمال ومحترفي تقنية المعلومات للتأثير الهائل للقضايا الأخلاقية المتعلقة بالمعلومات على عالم الأعمال الحديث وجميع النواحي والأبعاد (الدينية، الأخلاقية والاقتصادية، التربوية والثقافية).</p>
+                <h2 class="section-title"><i class="fas fa-book-open"></i> الوصف العام للمساق</h2>
+                <p>يهدف هذا المساق إلى دراسة وتحليل التطور السريع في المعلومات والنمو الكبير في القضايا الأخلاقية والتساؤلات المتعلقة بتلك المعلومات وطرق جمعها واستخدامها ومجالاتها والجوانب المتعلقة بوسائل التحكم فيها. يدرس المساق توعية مديري الأعمال ومحترفي تقنية المعلومات للتأثير الهائل للقضايا الأخلاقية المتعلقة بالمعلومات على عالم الأعمال الحديث وجميع النواحي والأبعاد (الدينية، الأخلاقية والاقتصادية، التربوية والثقافية) ناهيك عن العولمة ومدى تأثيرها على المستقبل القريب للبشرية.</p>
+                <p>كما يهتم المساق بتقديم تصور واضح للطالب عن الأخلاق في ظل عصر المعلومات ويعطيه الأساس المتين الذي يمكنه من اتخاذ القرارات المناسبة عند مواجهة المواقف الصعبة وإحداث تأثير إيجابي في مجال تكنولوجيا المعلومات.</p>
             </div>
             
             <div class="section">
-                <h2>أهداف المساق</h2>
-                <ul class="notes-list">
-                    <li>توعية الطالب بمبادئ المجتمع المشتركة والاندماج كأعضاء في المهن المتعلقة بتكنولوجيا المعلومات</li>
-                    <li>توعية الطالب بالأخلاقيات المترتبة على خياراتهم المهنية وكيفية التعامل مع أرباب العمل والزبائن والمجتمع</li>
-                    <li>تمكين الطالب من استخدام المفاهيم الأخلاقية لحل المشكلات في حياتهم العملية</li>
-                    <li>مساعدة الطالب على فهم الأنظمة المهنية داخل المؤسسات</li>
-                </ul>
+                <h2 class="section-title"><i class="fas fa-bullseye"></i> أهداف المساق والمخرجات التعليمية</h2>
+                <div class="learning-outcomes">
+                    <div class="outcome-card">
+                        <h4><i class="fas fa-users"></i> المعرفة المجتمعية</h4>
+                        <p>توعية الطالب بمبادئ المجتمع المشتركة والاندماج كأعضاء في المهن المتعلقة بتكنولوجيا المعلومات</p>
+                    </div>
+                    <div class="outcome-card">
+                        <h4><i class="fas fa-handshake"></i> الممارسات المهنية</h4>
+                        <p>توعية الطالب بالأخلاقيات المترتبة على خياراتهم المهنية وكيفية التعامل مع أرباب العمل والزبائن والمجتمع</p>
+                    </div>
+                    <div class="outcome-card">
+                        <h4><i class="fas fa-lightbulb"></i> حل المشكلات</h4>
+                        <p>تمكين الطالب من استخدام المفاهيم الأخلاقية لحل المشكلات في حياتهم العملية</p>
+                    </div>
+                    <div class="outcome-card">
+                        <h4><i class="fas fa-building"></i> الأنظمة المؤسسية</h4>
+                        <p>مساعدة الطالب على فهم الأنظمة المهنية داخل المؤسسات التي يمكن أن تساعدهم في التعامل مع القضايا المهنية</p>
+                    </div>
+                </div>
             </div>
             
             <div class="section">
-                <h2>طرق التقييم</h2>
+                <h2 class="section-title"><i class="fas fa-laptop-house"></i> آلية التدريس الإلكتروني</h2>
+                <p>نظرًا لأن هذا المساق سيكون إلكترونيًا بالكامل، سيتم استخدام الاستراتيجيات التالية:</p>
+                <div class="platforms">
+                    <div class="platform">
+                        <i class="fas fa-video"></i>
+                        <h3>محاضرات افتراضية</h3>
+                        <p>محاضرات مسجلة عبر منصة Youtube يمكنك مشاهدتها في أي وقت</p>
+                    </div>
+                    <div class="platform">
+                        <i class="fab fa-google"></i>
+                        <h3>Google Classroom</h3>
+                        <p>النشرات، الواجبات، والتواصل الرئيسي مع المحاضر والزملاء</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-book"></i> الكتاب المقرر والمراجع</h2>
+                <div class="book-info">
+                    <div class="book-cover">ETHICS IN INFORMATION TECHNOLOGY</div>
+                    <div class="book-details">
+                        <h3>الكتاب المقرر الرئيسي:</h3>
+                        <p><strong>ETHICS IN INFORMATION TECHNOLOGY</strong></p>
+                        <p><strong>المؤلف:</strong> George W. Reynolds, Strayer University</p>
+                        <p><strong>الطبعة:</strong> Fifth Edition, 2015</p>
+                        <p><strong>المراجع الإضافية:</strong> شرائح البوربوينت الخاصة بالمحاضر مع مصادر مختلفة عبر الإنترنت</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-clipboard-check"></i> طرق التقييم</h2>
                 <div class="assessment-grid">
                     <div class="assessment-item">
-                        <span>واجبات</span>
+                        <div>
+                            <h3><i class="fas fa-tasks"></i> الواجبات</h3>
+                            <p>أنشطة أسبوعية وتكليفات</p>
+                        </div>
                         <span class="percentage">15%</span>
                     </div>
                     <div class="assessment-item">
-                        <span>عرض تقديمي</span>
+                        <div>
+                            <h3><i class="fas fa-chart-bar"></i> عرض تقديمي إلكتروني</h3>
+                            <p>عرض جماعي عبر منصة إلكترونية</p>
+                        </div>
                         <span class="percentage">15%</span>
                     </div>
                     <div class="assessment-item">
-                        <span>امتحان نصفي</span>
+                        <div>
+                            <h3><i class="fas fa-file-alt"></i> امتحان نصفي إلكتروني</h3>
+                            <p>امتحان عبر المنصة التعليمية</p>
+                        </div>
                         <span class="percentage">30%</span>
                     </div>
                     <div class="assessment-item">
-                        <span>امتحان نهائي</span>
+                        <div>
+                            <h3><i class="fas fa-graduation-cap"></i> امتحان نهائي</h3>
+                            <p>امتحان شامل للمساق</p>
+                        </div>
                         <span class="percentage">40%</span>
                     </div>
                 </div>
             </div>
             
             <div class="section">
-                <h2>الجدول الدراسي</h2>
-                <table class="schedule-table">
-                    <thead>
-                        <tr>
-                            <th>الأسبوع</th>
-                            <th>الموضوع</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>الأول</td>
-                            <td>مقدمة عن أخلاقيات عصر المعلومات</td>
-                        </tr>
-                        <tr>
-                            <td>الثاني</td>
-                            <td>مقدمة عن أخلاقيات عصر المعلومات</td>
-                        </tr>
-                        <tr>
-                            <td>الثالث</td>
-                            <td>أخلاقيات مهن تكنولوجيا المعلومات والمستخدمين</td>
-                        </tr>
-                        <tr>
-                            <td>الرابع</td>
-                            <td>أخلاقيات مهن تكنولوجيا المعلومات والمستخدمين</td>
-                        </tr>
-                        <tr>
-                            <td>الخامس</td>
-                            <td>الكمبيوتر وجرائم الإنترنت</td>
-                        </tr>
-                        <tr>
-                            <td>السادس</td>
-                            <td>الكمبيوتر وجرائم الإنترنت</td>
-                        </tr>
-                        <tr>
-                            <td>السابع</td>
-                            <td>الخصوصية</td>
-                        </tr>
-                        <tr class="special-week">
-                            <td>الثامن</td>
-                            <td>الامتحان النصفي</td>
-                        </tr>
-                        <tr>
-                            <td>التاسع</td>
-                            <td>حرية التعبير في عصر المعلومات</td>
-                        </tr>
-                        <tr>
-                            <td>العاشر</td>
-                            <td>الملكية الفكرية</td>
-                        </tr>
-                        <tr>
-                            <td>الحادي عشر</td>
-                            <td>الملكية الفكرية</td>
-                        </tr>
-                        <tr>
-                            <td>الثاني عشر</td>
-                            <td>تطوير البرمجيات</td>
-                        </tr>
-                        <tr>
-                            <td>الثالث عشر</td>
-                            <td>تطوير البرمجيات</td>
-                        </tr>
-                        <tr>
-                            <td>الرابع عشر</td>
-                            <td>تطوير البرمجيات</td>
-                        </tr>
-                        <tr>
-                            <td>الخامس عشر</td>
-                            <td>مراجعة</td>
-                        </tr>
-                        <tr class="special-week">
-                            <td>السادس عشر</td>
-                            <td>الامتحان النهائي</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h2 class="section-title"><i class="fas fa-calendar-alt"></i> الجدول الدراسي الإلكتروني (12 أسبوع)</h2>
+                <div class="schedule-container">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>الأسبوع</th>
+                                <th>الموضوع الرئيسي</th>
+                                <th>نوع النشاط</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="online-week">
+                                <td>الأول</td>
+                                <td>مقدمة عن أخلاقيات عصر المعلومات</td>
+                                <td>محاضرة افتراضية</td>
+                            </tr>
+                            <tr class="online-week">
+                                <td>الثاني</td>
+                                <td>أخلاقيات عصر المعلومات - مفاهيم أساسية</td>
+                                <td>محاضرة افتراضية</td>
+                            </tr>
+                            <tr class="online-week">
+                                <td>الثالث</td>
+                                <td>أخلاقيات مهن تكنولوجيا المعلومات والمستخدمين</td>
+                                <td>محاضرة افتراضية</td>
+                            </tr>
+                            <tr class="online-week">
+                                <td>الرابع</td>
+                                <td>أخلاقيات مهن تكنولوجيا المعلومات والمستخدمين</td>
+                                <td>محاضرة افتراضية</td>
+                            </tr>
+                            <tr class="online-week">
+                                <td>الخامس</td>
+                                <td>الكمبيوتر وجرائم الإنترنت</td>
+                                <td>محاضرة افتراضية</td>
+                            </tr>
+                            <tr class="online-week">
+                                <td>السادس</td>
+                                <td>الكمبيوتر وجرائم الإنترنت</td>
+                                <td>محاضرة افتراضية</td>
+                            </tr>
+                            <tr class="online-week">
+                                <td>السابع</td>
+                                <td>الخصوصية في العصر الرقمي</td>
+                                <td>محاضرة افتراضية</td>
+                            </tr>
+                            <tr class="exam-week">
+                                <td>الثامن</td>
+                                <td><strong>الامتحان النصفي الإلكتروني</strong></td>
+                                <td>امتحان</td>
+                            </tr>
+                            <tr class="online-week">
+                                <td>التاسع</td>
+                                <td>حرية التعبير في عصر المعلومات</td>
+                                <td>محاضرة افتراضية</td>
+                            </tr>
+                            <tr class="online-week">
+                                <td>العاشر</td>
+                                <td>الملكية الفكرية</td>
+                                <td>محاضرة افتراضية</td>
+                            </tr>
+                            <tr class="online-week">
+                                <td>الحادي عشر</td>
+                                <td>الملكية الفكرية</td>
+                                <td>محاضرة افتراضية</td>
+                            </tr>
+                            <tr class="online-week">
+                                <td>الثاني عشر</td>
+                                <td>تطوير البرمجيات</td>
+                                <td>محاضرة افتراضية</td>
+                            </tr>
+                            <tr class="exam-week">
+                                <td>الثالث عشر</td>
+                                <td><strong>الامتحان النهائي</strong></td>
+                                <td>امتحان</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             
             <div class="section">
-                <h2>ملاحظات مهمة</h2>
+                <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> ملاحظات وسياسات عامة</h2>
                 <ul class="notes-list">
-                    <li>وجوب الالتزام بالشعبة المسجلة حسب برنامج التسجيل</li>
-                    <li>تسليم الواجبات حسب المواعيد المتفق عليها</li>
-                    <li>استخدام Google Classroom لتسليم الواجبات والتواصل</li>
-                    <li>التعاون مطلوب ولكن تجنب الغش والانتحال</li>
-                    <li>الحضور والمشاركة الفعالة ضروريان للنجاح</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>التسليم الإلكتروني:</strong> جميع الواجبات والتكاليف تسلم عبر Google Classroom فقط حسب المواعيد المحددة</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>المشاركة الإلكترونية:</strong> الحضور الافتراضي والمشاركة في المحاضرات الإلكترونية تعتبر جزءًا من التقييم</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>النزاهة الأكاديمية:</strong> يحظر الغش أو الانتحال في الأعمال المقدمة وسيتم تطبيق العقوبات المنصوص عليها</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>الالتزام بالجدول:</strong> المحاضرات الافتراضية ستكون حسب الجدول المعلن ويجب الالتزام بالحضور</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>التواصل:</strong> يكون التواصل مع المحاضر عبر البريد الإلكتروني أو منصة Classroom</li>
                 </ul>
             </div>
+        </div>
+        
+        <div class="footer">
+            <p><i class="fas fa-university"></i> الكلية الجامعية للعلوم التطبيقية - قسم أمن المعلومات</p>
+            <p><i class="fas fa-envelope"></i> للاستفسارات: makhalil@ucas.edu.ps | <i class="fab fa-google"></i> Google Classroom: DINF1101</p>
+            <p>© 2025 خطة مساق أخلاقيات عصر المعلومات - مصممة خصيصًا للتعليم الإلكتروني</p>
         </div>
     </div>
 </body>
