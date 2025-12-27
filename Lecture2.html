@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسبوع الثاني: أخلاقيات عصر المعلومات - مفاهيم أساسية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --model-resource: #8e44ad;
+            --model-product: #16a085;
+            --model-goal: #c0392b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            background-color: #f5f7fa;
+            color: #333;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .header h2 {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .week-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            display: inline-block;
+            margin-top: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8fafc;
+            border-radius: 15px;
+            border-right: 6px solid var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(52, 152, 219, 0.2);
+        }
+        
+        .section-title i {
+            color: var(--secondary-color);
+        }
+        
+        .learning-objectives {
+            background: #e8f4fc;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-right: 5px solid var(--secondary-color);
+        }
+        
+        .learning-objectives h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .objectives-list {
+            list-style: none;
+            padding-right: 20px;
+        }
+        
+        .objectives-list li {
+            margin-bottom: 12px;
+            padding-right: 10px;
+            position: relative;
+        }
+        
+        .objectives-list li::before {
+            content: "✓";
+            color: var(--success-color);
+            font-weight: bold;
+            position: absolute;
+            right: -20px;
+        }
+        
+        .concept-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        .concept-title {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .comparison-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 18px 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            text-align: right;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .example-box {
+            background: #fff8e1;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 4px solid var(--warning-color);
+        }
+        
+        .example-title {
+            color: #856404;
+            margin-bottom: 10px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .case-study-box {
+            background: #e8f5e9;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-right: 5px solid var(--success-color);
+        }
+        
+        .case-title {
+            color: #2e7d32;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .case-questions {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-right: 3px solid var(--warning-color);
+        }
+        
+        .solution-box {
+            background: #e3f2fd;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 25px;
+            border-right: 5px solid var(--secondary-color);
+        }
+        
+        .solution-title {
+            color: #1565c0;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .strategy-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .strategy-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        
+        .step-box {
+            background: #f8f9fa;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-right: 4px solid var(--secondary-color);
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-top: 5px solid var(--secondary-color);
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+        
+        .key-point {
+            background: #e8f6ef;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-right: 3px solid var(--success-color);
+        }
+        
+        .quote {
+            background: #f0f7ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-style: italic;
+            border-right: 4px solid var(--secondary-color);
+            text-align: center;
+        }
+        
+        .quote-author {
+            text-align: left;
+            margin-top: 10px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .definition-box {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-right: 3px solid #ff9800;
+        }
+        
+        .important-definition {
+            background: #e1f5fe;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-right: 3px solid #0288d1;
+            font-weight: bold;
+        }
+        
+        .expert-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .expert-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-top: 3px solid var(--secondary-color);
+        }
+        
+        .relationship-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .relationship-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-right: 4px solid var(--accent-color);
+        }
+        
+        .relationship-title {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .certification-types {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .cert-card {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .cert-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .organization-list {
+            list-style: none;
+            padding-right: 0;
+        }
+        
+        .organization-list li {
+            background: #f8f9fa;
+            margin-bottom: 10px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-right: 3px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* نموذج جديد: المورد-المنتج-الهدف */
+        .model-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .model-card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-top: 6px solid;
+            transition: transform 0.3s ease;
+        }
+        
+        .model-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .model-card.resource {
+            border-color: var(--model-resource);
+        }
+        
+        .model-card.product {
+            border-color: var(--model-product);
+        }
+        
+        .model-card.goal {
+            border-color: var(--model-goal);
+        }
+        
+        .model-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .model-resource { color: var(--model-resource); }
+        .model-product { color: var(--model-product); }
+        .model-goal { color: var(--model-goal); }
+        
+        .model-example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: right;
+            font-size: 0.9rem;
+        }
+        
+        /* تحديات المجتمع المعلوماتي */
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .challenge-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-right: 4px solid var(--warning-color);
+        }
+        
+        .challenge-title {
+            color: #856404;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* القيادة الأخلاقية */
+        .leadership-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .leadership-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        /* الواجب العملي */
+        .assignment-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .assignment-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .grading-table {
+            width: 100%;
+            background: white;
+            color: #333;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .grading-table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .grading-table td {
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+        }
+        
+        .grading-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .ethical-frameworks {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .framework-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-right: 4px solid #9b59b6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-laptop-code"></i> الأسبوع الثاني: أخلاقيات عصر المعلومات - مفاهيم أساسية</h1>
+            <h2>مساق أخلاقيات عصر المعلومات - دبلوم أمن المعلومات</h2>
+            <div class="week-badge"><i class="fas fa-calendar-week"></i> الأسبوع الثاني | المحاضرة الافتراضية</div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="learning-objectives">
+                    <h3><i class="fas fa-bullseye"></i> أهداف التعلم لهذا الأسبوع</h3>
+                    <ul class="objectives-list">
+                        <li>التعرف على خصائص خبراء تكنولوجيا المعلومات ومتطلبات الخبرة في هذا المجال</li>
+                        <li>تحليل العلاقات المهنية المختلفة التي يديرها خبراء تكنولوجيا المعلومات</li>
+                        <li>فهم القضايا الأخلاقية الأساسية في العلاقات المهنية لتكنولوجيا المعلومات</li>
+                        <li>التعرف على دور المنظمات المهنية في دعم الممارسات الأخلاقية</li>
+                        <li>تمييز أنواع الشهادات المتعلقة بمهن تكنولوجيا المعلومات وخصائص كل نوع</li>
+                        <li>فهم نموذج "المورد-المنتج-الهدف" كإطار لتحليل القضايا الأخلاقية</li>
+                        <li>التعرف على تحديات المجتمع المعلوماتي المعاصر مثل الفجوة الرقمية والتخمة المعلوماتية</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-user-tie"></i> خبراء تكنولوجيا المعلومات</h2>
+                
+                <div class="important-definition">
+                    <p><strong>الخبير في تكنولوجيا المعلومات:</strong> هو الشخص الذي يمتلك المعرفة المتخصصة والخبرة العملية في مجال تكنولوجيا المعلومات، مما يمكنه من حل المشكلات المعقدة واتخاذ القرارات المهنية المسؤولة.</p>
+                </div>
+                
+                <div class="concept-box">
+                    <h3 class="concept-title"><i class="fas fa-graduation-cap"></i> متطلبات الخبرة في تكنولوجيا المعلومات</h3>
+                    <div style="display: flex; gap: 20px; margin-top: 15px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 250px;">
+                            <h4><i class="fas fa-book"></i> المعرفة المتخصصة</h4>
+                            <p>كم المعلومات الأساسية التي تتيح للشخص اكتساب المبادئ والأساسيات في أي وظيفة، ويتم التحصيل الأساسي عادة عن طريق التحضير الأكاديمي الطويل والمكثف.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px;">
+                            <h4><i class="fas fa-briefcase"></i> الخبرة العملية</h4>
+                            <p>عملية استخدام المعلومات الأساسية والمبادئ التي تم اكتسابها وتسخيرها في حل المشكلات التي تواجه الموظف في مجال تخصصه، مما يؤدي إلى اكتساب الخبرة والمهارة.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="concept-box">
+                    <h3 class="concept-title"><i class="fas fa-users"></i> أمثلة على خبراء تكنولوجيا المعلومات</h3>
+                    <div class="expert-types">
+                        <div class="expert-card">
+                            <i class="fas fa-code" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 10px;"></i>
+                            <h4>المبرمجون</h4>
+                        </div>
+                        <div class="expert-card">
+                            <i class="fas fa-sitemap" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 10px;"></i>
+                            <h4>محللو الأنظمة</h4>
+                        </div>
+                        <div class="expert-card">
+                            <i class="fas fa-cogs" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 10px;"></i>
+                            <h4>مهندسو البرمجيات</h4>
+                        </div>
+                        <div class="expert-card">
+                            <i class="fas fa-database" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 10px;"></i>
+                            <h4>مديرو قواعد البيانات</h4>
+                        </div>
+                        <div class="expert-card">
+                            <i class="fas fa-network-wired" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 10px;"></i>
+                            <h4>مديرو الشبكات</h4>
+                        </div>
+                        <div class="expert-card">
+                            <i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 10px;"></i>
+                            <h4>مهندسو أمن المعلومات</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قسم جديد: نموذج المورد-المنتج-الهدف -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-cube"></i> نموذج "المورد-المنتج-الهدف": إطار لفهم أخلاقيات المعلومات</h2>
+                
+                <div class="definition-box">
+                    <p>لمواجهة تعقيدات المجتمع المعلوماتي، يقدم الفلاسفة والمختصون نماذج منهجية لفهم أخلاقيات المعلومات. أحد هذه النماذج هو نموذج <strong>"المورد-المنتج-الهدف"</strong> الذي يعامل المعلومات في ثلاث لحظات أساسية، مشابهاً لنموذج "المورد-المنتج-النفايات" في الأخلاقيات البيئية.</p>
+                </div>
+                
+                <div class="model-container">
+                    <div class="model-card resource">
+                        <div class="model-icon">
+                            <i class="fas fa-database model-resource"></i>
+                        </div>
+                        <h3 style="color: var(--model-resource);">المورد<br>(Information as Resource)</h3>
+                        <p>كيف نتعامل مع المعلومات كمواد خام؟ يشمل هذا البعد أخلاقيات <strong>جمع، تخزين، تنظيم، ونشر</strong> المعلومات. القضايا هنا تدور حول الدقة، الإنصاف في الوصول، الملكية الفكرية، وشفافية المصادر.</p>
+                        <div class="model-example">
+                            <strong>مثال تطبيقي:</strong> سياسة جمع البيانات في تطبيق ما، أو قرار شركة تكنولوجيا بتخزين بيانات المستخدمين في دولة معينة.
+                        </div>
+                    </div>
+                    
+                    <div class="model-card product">
+                        <div class="model-icon">
+                            <i class="fas fa-code model-product"></i>
+                        </div>
+                        <h3 style="color: var(--model-product);">المنتج<br>(Information as Product)</h3>
+                        <p>كيف نصنع ونصمم المعلومات؟ يركز هذا البعد على أخلاقيات <strong>معالجة، تطوير، وتصميم</strong> الأنظمة والبرمجيات. القضايا تشمل جودة الأنظمة، الموثوقية، الأمان، وتجنب التحيز في الخوارزميات.</p>
+                        <div class="model-example">
+                            <strong>مثال تطبيقي:</strong> تصميم خوارزمية توصيات غير متحيزة، أو تطوير نظام بنكي يضمن دقة المعاملات المالية.
+                        </div>
+                    </div>
+                    
+                    <div class="model-card goal">
+                        <div class="model-icon">
+                            <i class="fas fa-bullseye model-goal"></i>
+                        </div>
+                        <h3 style="color: var(--model-goal);">الهدف<br>(Information as Target)</h3>
+                        <p>ماذا نحمي ولماذا؟ يهتم هذا البعد بأخلاقيات <strong>سرية، سلامة، وخصوصية</strong> المعلومات. القضايا هنا هي القرصنة، حماية الخصوصية، مكافحة المراقبة الجماعية، والحفاظ على السرية التجارية.</p>
+                        <div class="model-example">
+                            <strong>مثال تطبيقي:</strong> حماية بيانات المرضى في نظام صحي، أو منع هجمات الاختراق على البنية التحتية الحيوية.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="key-point">
+                    <p><strong>الفوائد العملية للنموذج:</strong> يساعد هذا النموذج الخبراء والمؤسسات على تحليل المواقف المعقدة بشكل منهجي. عند مواجهة معضلة أخلاقية، يمكن السؤال: ما الجوانب المتعلقة بالمعلومات كمورد؟ كمنتج؟ كهدف؟ هذا يضمن تغطية شاملة للأبعاد الأخلاقية.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-handshake"></i> العلاقات المهنية لخبراء تكنولوجيا المعلومات</h2>
+                
+                <div class="definition-box">
+                    <p>يشارك خبراء تكنولوجيا المعلومات في العديد من العلاقات المهنية المختلفة التي تتطلب إدارة دقيقة ووعيًا أخلاقيًا. كل علاقة تحمل تحديات أخلاقية فريدة تتطلب حلاً مدروساً.</p>
+                </div>
+                
+                <div class="relationship-grid">
+                    <div class="relationship-card">
+                        <h3 class="relationship-title"><i class="fas fa-building"></i> مع أصحاب العمل</h3>
+                        <p>تشمل القضايا الأخلاقية الرئيسية: قرصنة البرامج، حماية الأسرار التجارية، والإبلاغ عن المخالفات. قد يواجه الخبير تضاربًا بين المسؤولية الأخلاقية والمصلحة المهنية.</p>
+                    </div>
+                    
+                    <div class="relationship-card">
+                        <h3 class="relationship-title"><i class="fas fa-user-tag"></i> مع العملاء</h3>
+                        <p>تتطلب هذه العلاقة التوثيق الدقيق عبر العقود، والوضوح في التوقعات، والتواصل الفعال. من التحديات الرئيسية: تغيير نطاق المشروع وضعف الاتصال بين الطرفين.</p>
+                    </div>
+                    
+                    <div class="relationship-card">
+                        <h3 class="relationship-title"><i class="fas fa-truck-loading"></i> مع الموردين</h3>
+                        <p>يحتاج الخبير لبناء علاقات جيدة مع الموردين مع الحفاظ على الحياد والنزاهة. من التحديات: تلقي الهدايا التي قد تعتبر رشوة وتفضيل مورد على آخر دون مبرر موضوعي.</p>
+                    </div>
+                    
+                    <div class="relationship-card">
+                        <h3 class="relationship-title"><i class="fas fa-users-cog"></i> مع المتخصصين الآخرين</h3>
+                        <p>تشمل الولاء المهني والمساعدة المتبادلة، ولكن قد تنشأ مشاكل أخلاقية مثل تضخيم السيرة الذاتية أو المشاركة غير المناسبة لمعلومات الشركة.</p>
+                    </div>
+                    
+                    <div class="relationship-card">
+                        <h3 class="relationship-title"><i class="fas fa-user"></i> مع المستخدمين</h3>
+                        <p>واجب الخبير فهم متطلبات المستخدمين وتقديم أفضل خدمة تناسب احتياجاتهم مع تأسيس بيئة تدعم السلوك الأخلاقي.</p>
+                    </div>
+                    
+                    <div class="relationship-card">
+                        <h3 class="relationship-title"><i class="fas fa-globe"></i> مع المجتمع</h3>
+                        <p>يتحمل الخبير مسؤولية اجتماعية تجاه المجتمع الذي قد يتأثر بأفعاله. من الأمثلة: تصميم أنظمة قد تؤثر على سلامة الأفراد إذا فشلت.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قسم جديد: تحديات المجتمع المعلوماتي -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> تحديات المجتمع المعلوماتي المعاصر</h2>
+                
+                <div class="concept-box">
+                    <h3 class="concept-title"><i class="fas fa-globe-americas"></i> الفجوة الرقمية (Digital Divide)</h3>
+                    <p>لا تقتصر الفجوة الرقمية على مجرد الوصول إلى الإنترنت، بل تتطور إلى مستويات متعددة:</p>
+                    
+                    <div class="challenge-grid">
+                        <div class="challenge-card">
+                            <h4 class="challenge-title"><i class="fas fa-wifi"></i> فجوة الوصول</h4>
+                            <p>التفاوت في إمكانية الوصول المادي إلى الأجهزة والاتصالات. لا يزال ملايين الأشخاص، خاصة في المناطق الريفية والدول النامية، يفتقرون إلى اتصال إنترنت موثوق.</p>
+                        </div>
+                        
+                        <div class="challenge-card">
+                            <h4 class="challenge-title"><i class="fas fa-user-graduate"></i> فجوة المهارات</h4>
+                            <p>التفاوت في القدرة على استخدام التكنولوجيا بفعالية. حتى مع وجود الوصول، يفتقر الكثيرون للمهارات الرقمية الأساسية أو المتقدمة للمنافسة في سوق العمل الحديث.</p>
+                        </div>
+                        
+                        <div class="challenge-card">
+                            <h4 class="challenge-title"><i class="fas fa-brain"></i> فجوة الاستخدام</h4>
+                            <p>التفاوت في نوعية وكفاءة استخدام التكنولوجيا المتاحة. بعض الفئات تستخدم الإنترنت للتعلم والتطوير، بينما يقتصر استخدام الآخرين على الترفيه الأساسي.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="key-point">
+                        <p><strong>المسؤولية الأخلاقية:</strong> على خبراء تكنولوجيا المعلومات والمؤسسات التكنولوجية أن يدركوا تأثير منتجاتهم وخدماتهم على تعميق أو تضييق هذه الفجوة. تطوير حلول شاملة وسهلة الاستخدام وتوفير التدريب يعتبر جزءاً من المسؤولية الاجتماعية.</p>
+                    </div>
+                </div>
+                
+                <div class="concept-box">
+                    <h3 class="concept-title"><i class="fas fa-tachometer-alt"></i> التخمة المعلوماتية (Information Overload)</h3>
+                    <p>في عصر يتدفق فيه كم هائل من المعلومات بسرعة كبيرة، يواجه الأفراد صعوبة في <strong>تصفية، معالجة، وتقييم</strong> جودة المعلومات الواردة. هذه الظاهرة تؤدي إلى:</p>
+                    <ul style="padding-right: 20px; margin-top: 10px;">
+                        <li>صعوبة التمييز بين المعلومات الدقيقة والمضللة.</li>
+                        <li>اتخاذ قرارات سيئة بسبب عدم القدرة على تحليل جميع البيانات المتاحة.</li>
+                        <li>الإجهاد الذهني وانخفاض الإنتاجية.</li>
+                    </ul>
+                    <p>المسؤولية الأخلاقية للخبير هنا تكمن في تصميم أنظمة وواجهات تساعد المستخدم على <strong>إدارة المعلومات بفعالية</strong>، وليس مجرد تقديم المزيد منها.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> تحدي قرصنة البرامج في بيئة العمل</h2>
+                
+                <div class="example-box">
+                    <h4 class="example-title"><i class="fas fa-exclamation-circle"></i> المشكلة الأخلاقية</h4>
+                    <p>على الرغم من أن المستخدمين النهائيين غالبًا ما يتحملون اللوم عند استخدام نسخ غير قانونية من البرامج التجارية، فإن قرصنة البرامج في بيئة الشركة تعود بشكل مباشر إلى خبراء تكنولوجيا المعلومات. فهم إما يسمحون بحدوثها أو يشاركون فيها بنشاط، وغالبًا ما يكون الهدف من هذا السلوك تقليل الإنفاق.</p>
+                </div>
+                
+                <div class="concept-box">
+                    <h3 class="concept-title"><i class="fas fa-alliance"></i> دور تحالف برمجيات الأعمال (BSA)</h3>
+                    <p>تحالف برمجيات الأعمال (Business Software Alliance) هو مجموعة تجارية تمثل أكبر مصنعي البرمجيات والأجهزة في العالم. تتمثل مهمتها في وقف النسخ غير المصرح به للبرامج.</p>
+                    
+                    <div class="key-point">
+                        <p><strong>حقائق مهمة عن BSA:</strong></p>
+                        <ul style="padding-right: 20px; margin-top: 10px;">
+                            <li>يتلقى أكثر من 2500 تقرير عن القرصنة سنويًا</li>
+                            <li>يدفع مكافآت للإبلاغ عن القرصنة قد تصل إلى مليون دولار</li>
+                            <li>دفع ما مجموعه 136 مليون دولار كمكافآت في عام 2008</li>
+                            <li>معظم المخبرين يختارون عدم المشاركة في برنامج المكافآت، بدافع "فعل الشيء الصحيح"</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="concept-box">
+                    <h3 class="concept-title"><i class="fas fa-building"></i> أعضاء BSA العالميون (أمثلة)</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px;">
+                        <div style="background: #f8f9fa; padding: 10px 20px; border-radius: 8px; border: 1px solid #ddd;">Microsoft</div>
+                        <div style="background: #f8f9fa; padding: 10px 20px; border-radius: 8px; border: 1px solid #ddd;">IBM</div>
+                        <div style="background: #f8f9fa; padding: 10px 20px; border-radius: 8px; border: 1px solid #ddd;">Intel</div>
+                        <div style="background: #f8f9fa; padding: 10px 20px; border-radius: 8px; border: 1px solid #ddd;">Oracle</div>
+                        <div style="background: #f8f9fa; padding: 10px 20px; border-radius: 8px; border: 1px solid #ddd;">Cisco</div>
+                        <div style="background: #f8f9fa; padding: 10px 20px; border-radius: 8px; border: 1px solid #ddd;">Adobe</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-shield-alt"></i> حماية الأسرار التجارية</h2>
+                
+                <div class="definition-box">
+                    <p><strong>السر التجاري:</strong> هو معلومات غير معروفة للجمهور بشكل عام، تفيد الشركة وقد اتخذت تدابير قوية للحفاظ على سرية. إنه يمثل شيئًا ذا قيمة اقتصادية يتطلب جهدًا أو تكلفة لتطويره وله درجة معينة من الجدة أو الحداثة.</p>
+                </div>
+                
+                <div class="example-box">
+                    <h4 class="example-title"><i class="fas fa-industry"></i> أمثلة على الأسرار التجارية</h4>
+                    <ul style="padding-right: 20px; margin-top: 10px;">
+                        <li>تصميم كود برمجي جديد وفريد</li>
+                        <li>تصميمات الأجهزة المتطورة</li>
+                        <li>خطط العمل الاستراتيجية</li>
+                        <li>عمليات التصنيع الخاصة</li>
+                        <li>وصفات المنتجات (مثل وصفة كوكاكولا)</li>
+                        <li>عمليات تصنيع الشرائح الإلكترونية (مثل إنتل)</li>
+                    </ul>
+                </div>
+                
+                <div class="key-point">
+                    <p><strong>التحدي الأخلاقي:</strong> يخشى أصحاب العمل أن يكشف الموظفون عن أسرارهم للعامة، خاصة عند مغادرتهم الشركة. لذلك غالبًا ما يطلبون توقيع اتفاقيات السرية والتعهد بعدم الكشف عن الأسرار التجارية.</p>
+                </div>
+            </div>
+            
+            <!-- قسم جديد: القيادة الأخلاقية في الشركات -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-chess-king"></i> القيادة الأخلاقية في الشركات التكنولوجية</h2>
+                
+                <div class="definition-box">
+                    <p>تتحمل الشركات الرائدة في مجال التكنولوجيا مسؤولية خاصة في وضع معايير الممارسة الأخلاقية. يتجاوز دورها الامتثال القانوني إلى تبني <strong>القيادة الأخلاقية الاستباقية</strong> التي تؤثر على الصناعة بأكملها.</p>
+                </div>
+                
+                <div class="leadership-examples">
+                    <div class="leadership-card">
+                        <h4><i class="fab fa-microsoft"></i> Microsoft: لجان أخلاقيات الذكاء الاصطناعي</h4>
+                        <p>أنشأت Microsoft "لجنة AETHER (الأخلاقيات والهندسة في أبحاث وتصميم الذكاء الاصطناعي)" الداخلية لمراجعة المشاريع الحساسة. كما تبنت مبادئ الذكاء الاصطناعي المسؤول: العدالة، الموثوقية والسلامة، الخصوصية والأمان، الشمولية، الشفافية، والمساءلة.</p>
+                    </div>
+                    
+                    <div class="leadership-card">
+                        <h4><i class="fas fa-cloud"></i> Salesforce: مقاربة 1-1-1 الخيرية</h4>
+                        <p>تبنت Salesforce نموذج "1-1-1" للعطاء الخيري، حيث تخصص 1% من رأس مالها، 1% من منتجاتها، و1% من وقت موظفيها للأعمال الخيرية. هذا النموذج يجعل المسؤولية الاجتماعية جزءاً أساسياً من هوية الشركة، وليس مجرد نشاط جانبي.</p>
+                    </div>
+                    
+                    <div class="leadership-card">
+                        <h4><i class="fas fa-industry"></i> التوريد الأخلاقي (Ethical Sourcing)</h4>
+                        <p>تقوم شركات مثل Apple وGoogle بمراجعة دقيقة لسلاسل توريدها لضمان خلوها من انتهاكات حقوق الإنسان، واستخدام عمالة الأطفال، أو الأضرار البيئية الكبيرة. هذه الممارسة تحول الأخلاقيات من شعار إلى معيار عملياتي ملموس.</p>
+                    </div>
+                </div>
+                
+                <div class="key-point">
+                    <p><strong>الدروس للمهنيين:</strong> تعلم من هذه الممارسات أن الأخلاقيات يمكن أن تكون محركاً للابتكار وبناء السمعة، وليس مجرد قيد على الأعمال. كخبير تكنولوجيا معلومات، يمكنك أن تكون مناصراً للأخلاقيات داخل مؤسستك.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-university"></i> دعم الممارسات الأخلاقية - المنظمات المهنية</h2>
+                
+                <div class="definition-box">
+                    <p>لا يوجد نص عالمي يحدد أخلاقيات وسلوكيات التعامل في مجال تكنولوجيا المعلومات، ولم تظهر أي مؤسسة رسمية فردية تنفرد بوضع القوانين التي تنظم العمل في هذا المجال. لكن ظهرت بعض المؤسسات والمنظمات المهنية التي انتشرت عالمياً من أجل دعم الممارسات الأخلاقية.</p>
+                </div>
+                
+                <ul class="organization-list">
+                    <li><i class="fas fa-laptop-code"></i> <strong>ACM</strong> - جمعية الحوسبة الآلية (www.acm.org) - تهتم بوضع المبادئ التوجيهية والأخلاقية، ولديها مدونة أخلاقيات مهنية مفصلة</li>
+                    <li><i class="fas fa-network-wired"></i> <strong>AITP</strong> - رابطة محترفي تقنية المعلومات (www.aitp.org) - تركز على الندوات والمؤتمرات وتطوير المهنيين</li>
+                    <li><i class="fas fa-microchip"></i> <strong>IEEE-CS</strong> - جمعية الحاسبات من معهد مهندسي الكهرباء والإلكترونيات (www.ieee.org) - تضع معايير تقنية وأخلاقية عالية</li>
+                    <li><i class="fas fa-project-diagram"></i> <strong>PMI</strong> - معهد إدارة المشاريع (www.pmi.org) - يركز على أخلاقيات إدارة المشاريع التكنولوجية</li>
+                </ul>
+                
+                <div class="concept-box">
+                    <h3 class="concept-title"><i class="fas fa-clipboard-list"></i> مكونات لوائح السلوك المهني</h3>
+                    <ul style="padding-right: 20px; margin-top: 10px;">
+                        <li>تعريف وتحديد وتقييد الاستخدام المناسب لمصادر تكنولوجيا المعلومات</li>
+                        <li>وضع الإرشادات لاستخدام برامج الشركة</li>
+                        <li>تأسيس نظام أمن معلومات لحماية البيانات والمعلومات</li>
+                        <li>تأسيس حدود لقبول أو عدم قبول الأداء</li>
+                        <li>آليات الإبلاغ عن المخالفات وحماية المبلغين</li>
+                    </ul>
+                </div>
+                
+                <div class="key-point">
+                    <p><strong>فوائد تطبيق لوائح السلوك:</strong> تعزز مستويات عالية من الممارسات الأخلاقية بين العاملين، تعزز الثقة والاحترام بين عامة الناس، وتوفر مؤشرًا للتقييم، وتحمي المؤسسة من المخاطر القانونية والسمعية.</p>
+                </div>
+            </div>
+            
+            <!-- قسم جديد: أطر أخلاقية للمساعدة في اتخاذ القرار -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-balance-scale"></i> أطر أخلاقية للمساعدة في اتخاذ القرار</h2>
+                
+                <div class="definition-box">
+                    <p>عند مواجهة معضلة أخلاقية معقدة، يمكن للمهنيين الاستعانة بأطر نظرية منهجية لتقييم الموقف واتخاذ قرار مدروس. هذه الأطر تعمل كـ "عدسات" مختلفة لرؤية المشكلة.</p>
+                </div>
+                
+                <div class="ethical-frameworks">
+                    <div class="framework-card">
+                        <h4><i class="fas fa-balance-scale-right"></i> مبدأ المنفعة (العواقبية)</h4>
+                        <p>يركز على <strong>عواقب</strong> الفعل. القرار الأخلاقي هو الذي يحقق أكبر فائدة لأكبر عدد من الناس. <em>مثال:</em> هل يجوز جمع بيانات المستخدمين إذا كان ذلك يحسن الخدمة للغالبية؟</p>
+                    </div>
+                    
+                    <div class="framework-card">
+                        <h4><i class="fas fa-gavel"></i> مبدأ الواجب (الكانتي)</h4>
+                        <p>يركز على <strong>النوايا والقواعد</strong>. هناك واجبات مطلقة (مثل الصدق، الاحترام) يجب اتباعها بغض النظر عن النتائج. <em>مثال:</em> يجب الإفصاح عن جمع البيانات لأن الكذب خطأ بحد ذاته.</p>
+                    </div>
+                    
+                    <div class="framework-card">
+                        <h4><i class="fas fa-heart"></i> مبدأ الفضيلة (الأرسطي)</h4>
+                        <p>يركز على <strong>شخصية الفاعل</strong>. القرار الأخلاقي هو الذي يتخذه الشخص الفاضل (الصادق، الشجاع، العادل). <em>مثال:</em> ماذا سيفعل المهني النزيه في هذا الموقف؟</p>
+                    </div>
+                </div>
+                
+                <div class="key-point">
+                    <p><strong>كيفية الاستخدام:</strong> عند تحليل حالة، جرب النظر إليها من خلال كل إطار. قد يعطيك إطار "مبدأ المنفعة" إجابة مختلفة عن إطار "مبدأ الواجب". الفهم المتعدد يثري تفكيرك ويساعدك على تبرير قرارك بشكل أكثر شمولاً.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-certificate"></i> الشهادات في مجال تكنولوجيا المعلومات</h2>
+                
+                <div class="important-definition">
+                    <p><strong>الشهادة:</strong> تشير إلى امتلاك مجموعة معينة من المهارات والمعارف والقدرات في رأي منظمة موثوقة. قد تمنح للأفراد أو للمنتجات لتشير إلى مطابقتها لمواصفات معينة.</p>
+                </div>
+                
+                <div class="certification-types">
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <h4><i class="fas fa-university"></i> الشهادات الحكومية</h4>
+                        </div>
+                        <p>الشهادات التي يتم الحصول عليها من المؤسسات الأكاديمية مثل شهادات البكالوريوس والدبلوم.</p>
+                        <div class="key-point" style="margin-top: 10px;">
+                            <p><strong>خصائصها:</strong></p>
+                            <ul style="padding-right: 15px; margin-top: 5px;">
+                                <li>تدعم الحصول على آخر المستجدات في التكنولوجيا</li>
+                                <li>توفر خبرة عملية بشكل عام</li>
+                                <li>مرخصة محلياً ومعترف بها عالمياً</li>
+                            </ul>
+                        </div>
+                        <p><strong>أمثلة:</strong> بكالوريوس هندسة الأمن السيبراني، دبلوم أمن المعلومات</p>
+                    </div>
+                    
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <h4><i class="fas fa-building"></i> الشهادات التجارية</h4>
+                        </div>
+                        <p>برامج شهادات تقدمها شركات تكنولوجيا المعلومات مثل سيسكو، مايكروسوفت، أوراكل.</p>
+                        <div class="key-point" style="margin-top: 10px;">
+                            <p><strong>خصائصها:</strong></p>
+                            <ul style="padding-right: 15px; margin-top: 5px;">
+                                <li>تتعلق بوظائف خاصة في موضوع معين</li>
+                                <li>تحتاج إلى خبرة عملية</li>
+                                <li>تتطلب اجتياز امتحان كتابي أو عملي</li>
+                                <li>تحتاج للتحديث المستمر</li>
+                            </ul>
+                        </div>
+                        <p><strong>مصدر تعليمي:</strong> <a href="https://www.cbtnuggets.com/" target="_blank">www.cbtnuggets.com</a></p>
+                    </div>
+                    
+                    <div class="cert-card">
+                        <div class="cert-header">
+                            <h4><i class="fas fa-chalkboard-teacher"></i> شهادات التدريب</h4>
+                        </div>
+                        <p>شهادات يتم الحصول عليها من مراكز التدريب المحلية والدولية.</p>
+                        <div class="key-point" style="margin-top: 10px;">
+                            <p><strong>خصائصها:</strong></p>
+                            <ul style="padding-right: 15px; margin-top: 5px;">
+                                <li>متخصصة في موضوع معين</li>
+                                <li>تحتاج إلى خبرة عملية</li>
+                                <li>يتم مراقبتها أحياناً من مؤسسات حكومية</li>
+                                <li>لا تحتاج عادة للتحديث</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- الواجب العملي -->
+            <div class="assignment-box">
+                <h2 class="assignment-title"><i class="fas fa-tasks"></i> الواجب العملي: معضلة أخلاقية في مفترق الطرق</h2>
+                
+                <div style="background: rgba(255,255,255,0.9); padding: 25px; border-radius: 12px; color: #333;">
+                    <h3><i class="fas fa-file-alt"></i> السيناريو: السرية التجارية، المسؤولية المجتمعية، والولاء الوظيفي</h3>
+                    
+                    <p><strong>أنت مهندس أمن معلومات في شركة ناشئة تعمل على تطوير تطبيق ذكي لجمع البيانات الصحية من المستخدمين.</strong> أثناء مراجعة الشفرة المصدرية، تكتشف أن فريق التطوير يدمج مكتبة برمجية تابعة لجهة خارجية تقوم <strong>بجمع بيانات الموقع الدقيقة للمستخدمين ونشاطهم على الهاتف بشكل مخفي</strong>، دون الإفصاح عن ذلك بوضوح في سياسة الخصوصية. البيانات تُرسل إلى خوادم التطبيق وربما تُباع لجهات تسويقية.</p>
+                    
+                    <p>عند مواجهة مديرك التقني، يقول: <em>"هذه ممارسة شائعة لتحسين التخصيص وتمويل التطبيق المجاني. المنافسون جميعهم يفعلون ذلك. إصلاح الأمر سيتطلب إعادة هندسة كاملة ويؤخر إطلاقنا للسوق بشهور، مما قد يؤدي إلى إفلاس الشركة"</em>. كما يذكرك بأنك وقعت على <strong>اتفاقية سرية صارمة</strong> تحظر الكشف عن أسرار العمل.</p>
+                    
+                    <h4 style="margin-top: 20px; color: #764ba2;"><i class="fas fa-question-circle"></i> مهمتك:</h4>
+                    <p>طبق خطوات استراتيجية اتخاذ القرار الأخلاقي (الواردة في الأسبوع الأول) <strong>وأطر اتخاذ القرار الأخلاقي</strong> التي تعلمتها اليوم على هذه الحالة. قم بتحليلها وإعداد تقرير مفصل.</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.9); padding: 25px; border-radius: 12px; color: #333; margin-top: 20px;">
+                    <h4><i class="fas fa-list-ol"></i> أسئلة التحليل المطلوبة:</h4>
+                    <ol style="padding-right: 20px; margin-top: 10px;">
+                        <li><strong>تحليل الوضع:</strong> من هم أصحاب المصلحة الرئيسيون؟ وما هي الحقائق الأخلاقية والقانونية (انتهاك الخصوصية، حقوق المستهلك، السرية التجارية)؟</li>
+                        <li><strong>تحديد الخيارات:</strong> اذكر ثلاثة خيارات على الأقل قد تتخذها (الامتثال، التصعيد الداخلي، الإبلاغ الخارجي، ...).</li>
+                        <li><strong>التقييم باستخدام النماذج:</strong>
+                            <ul style="padding-right: 20px; margin-top: 5px;">
+                                <li>قيم كل خيار باستخدام نموذج <strong>"المورد-المنتج-الهدف"</strong>.</li>
+                                <li>حلل الخيارات من منظور <strong>إطارين أخلاقيين مختلفين على الأقل</strong> (مثل مبدأ المنفعة ومبدأ الواجب).</li>
+                            </ul>
+                        </li>
+                        <li><strong>التوصية:</strong> ما القرار الذي تنصح به؟ صف خطة تنفيذ محددة (خطوات، قنوات اتصال، توقيت).</li>
+                        <li><strong>الانعكاس:</strong> ما الدرس المستفاد حول دور أخلاقيات المعلومات في نجاح واستدامة الشركات الناشئة التكنولوجية؟</li>
+                    </ol>
+                    
+                    <h4 style="margin-top: 20px;"><i class="fas fa-clipboard-check"></i> معايير التقييم:</h4>
+                    <table class="grading-table">
+                        <thead>
+                            <tr>
+                                <th>معيار التقييم</th>
+                                <th>النسبة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>تحليل دقيق وشامل لأصحاب المصلحة والقضايا</td>
+                                <td>25%</td>
+                            </tr>
+                            <tr>
+                                <td>استكشاف واسع وتقييم منطقي للخيارات</td>
+                                <td>30%</td>
+                            </tr>
+                            <tr>
+                                <td>تطبيق صحيح وفعّال للنماذج النظرية (المورد-المنتج-الهدف، الأطر الأخلاقية)</td>
+                                <td>25%</td>
+                            </tr>
+                            <tr>
+                                <td>وضوح التوصية وعمق الانعكاس الشخصي</td>
+                                <td>20%</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><strong>المجموع</strong></td>
+                                <td><strong>100%</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    
+                    <p style="margin-top: 15px;"><strong>تنسيق التسليم:</strong> تقرير مكتوب لا يتجاوز 1000 كلمة، أو عرض تقديمي (بوربوينت) لا يتجاوز 10 شرائح.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-check-circle"></i> خاتمة: نحو ممارسة أخلاقية مسؤولة</h2>
+                
+                <div class="concept-box">
+                    <p>أخلاقيات عصر المعلومات ليست مجرد قائمة من المحظورات، بل هي <strong>إطار للتفكير والمساءلة</strong> في عالم رقمي معقد. كخبير أو خبيرة تكنولوجيا معلومات، أنت لست مجرد تقني ينفذ المهام، بل أنت <strong>حارس للثقة</strong> التي يمنحها لك المجتمع والعملاء والزملاء.</p>
+                    
+                    <div class="quote">
+                        "التكنولوجيا هي أداة قوية، لكنها ليست غاية في حد ذاتها. غايتها الحقيقية هي خدمة البشرية وتعزيز رفاهيتها."
+                        <div class="quote-author">- مبدأ من مبادئ أخلاقيات الحوسبة في ACM</div>
+                    </div>
+                    
+                    <div class="key-point">
+                        <p><strong>تذكير عملي:</strong> استخدم الأدوات التي تعلمتها اليوم - العلاقات المهنية، النماذج النظرية، أطر اتخاذ القرار - عند مواجهة أي موقف غامض. تذكر أن مسؤوليتك تتجاوز الشفرة والأنظمة، لتشمل التأثير الإنساني والاجتماعي لعملك.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><i class="fas fa-university"></i> الكلية الجامعية للعلوم التطبيقية - قسم أمن المعلومات</p>
+            <p><i class="fas fa-envelope"></i> للاستفسارات: makhalil@ucas.edu.ps | <i class="fab fa-google"></i> Google Classroom: DINF1101</p>
+            <p>© 2025 محتوى الأسبوع الثاني - أخلاقيات عصر المعلومات: مفاهيم أساسية (النسخة المطوّرة)</p>
+        </div>
+    </div>
+</body>
+</html>
