@@ -375,6 +375,57 @@
             margin-bottom: 15px;
             font-size: 1.2rem;
         }
+
+        /* أزرار الانتقال إلى المحاضرات */
+        .lecture-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .lecture-btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+        }
+        
+        .lecture-btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+        }
+        
+        .lecture-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .lecture-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* تظليل الصف عند الانتقال إليه */
+        .highlight-row {
+            animation: highlight 2s ease;
+            box-shadow: inset 0 0 0 3px var(--secondary-color);
+        }
+        
+        @keyframes highlight {
+            0% { background-color: #e3f2fd; }
+            70% { background-color: #e3f2fd; }
+            100% { background-color: inherit; }
+        }
     </style>
 </head>
 <body>
@@ -501,90 +552,273 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="section">
-                <h2 class="section-title"><i class="fas fa-calendar-alt"></i> الجدول الدراسي الإلكتروني (12 أسبوع)</h2>
-                <div class="schedule-container">
-                    <table class="schedule-table">
-                        <thead>
-                            <tr>
-                                <th>الأسبوع</th>
-                                <th>الموضوع الرئيسي</th>
-                                <th>نوع النشاط</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="online-week">
-                                <td>الأول</td>
-                                <td>مقدمة عن أخلاقيات عصر المعلومات</td>
-                                <td>محاضرة افتراضية</td>
-                            </tr>
-                            <tr class="online-week">
-                                <td>الثاني</td>
-                                <td>أخلاقيات عصر المعلومات - مفاهيم أساسية</td>
-                                <td>محاضرة افتراضية</td>
-                            </tr>
-                            <tr class="online-week">
-                                <td>الثالث</td>
-                                <td>أخلاقيات مهن تكنولوجيا المعلومات والمستخدمين</td>
-                                <td>محاضرة افتراضية</td>
-                            </tr>
-                            <tr class="online-week">
-                                <td>الرابع</td>
-                                <td>أخلاقيات مهن تكنولوجيا المعلومات والمستخدمين</td>
-                                <td>محاضرة افتراضية</td>
-                            </tr>
-                            <tr class="online-week">
-                                <td>الخامس</td>
-                                <td>الكمبيوتر وجرائم الإنترنت</td>
-                                <td>محاضرة افتراضية</td>
-                            </tr>
-                            <tr class="online-week">
-                                <td>السادس</td>
-                                <td>الكمبيوتر وجرائم الإنترنت</td>
-                                <td>محاضرة افتراضية</td>
-                            </tr>
-                            <tr class="online-week">
-                                <td>السابع</td>
-                                <td>الخصوصية في العصر الرقمي</td>
-                                <td>محاضرة افتراضية</td>
-                            </tr>
-                            <tr class="exam-week">
-                                <td>الثامن</td>
-                                <td><strong>الامتحان النصفي الإلكتروني</strong></td>
-                                <td>امتحان</td>
-                            </tr>
-                            <tr class="online-week">
-                                <td>التاسع</td>
-                                <td>حرية التعبير في عصر المعلومات</td>
-                                <td>محاضرة افتراضية</td>
-                            </tr>
-                            <tr class="online-week">
-                                <td>العاشر</td>
-                                <td>الملكية الفكرية</td>
-                                <td>محاضرة افتراضية</td>
-                            </tr>
-                            <tr class="online-week">
-                                <td>الحادي عشر</td>
-                                <td>الملكية الفكرية</td>
-                                <td>محاضرة افتراضية</td>
-                            </tr>
-                            <tr class="online-week">
-                                <td>الثاني عشر</td>
-                                <td>تطوير البرمجيات</td>
-                                <td>محاضرة افتراضية</td>
-                            </tr>
-                            <tr class="exam-week">
-                                <td>الثالث عشر</td>
-                                <td><strong>الامتحان النهائي</strong></td>
-                                <td>امتحان</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
-            <div class="section">
+<div class="section">
+    <h2 class="section-title"><i class="fas fa-calendar-alt"></i> الجدول الدراسي الإلكتروني (12 أسبوع)</h2>
+    
+    <div class="schedule-container">
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th width="15%">الأسبوع</th>
+                    <th width="60%">الموضوع الرئيسي</th>
+                    <th width="25%">الإجراءات</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- المحاضرة الأولى -->
+                <tr class="lecture-row" id="lecture1">
+                    <td>
+                        <div class="week-number">1</div>
+                    </td>
+                    <td>
+                        <div class="topic-title">مقدمة عن أخلاقيات عصر المعلومات</div>
+                        <div class="topic-desc">التعريف بالمساق وأهميته في عصر المعلومات الرقمي</div>
+                        <div style="margin-top: 10px;">
+                            <span class="lecture-badge"><i class="fas fa-video"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="lecture-btn" onclick="window.location.href = 'Lecture1.html'">
+                            <i class="fas fa-play-circle"></i> الذهاب إلى المحاضرة
+                        </button>
+                    </td>
+                </tr>
+                
+                <!-- المحاضرة الثانية -->
+                <tr class="lecture-row" id="lecture2">
+                    <td>
+                        <div class="week-number">2</div>
+                    </td>
+                    <td>
+                        <div class="topic-title">أخلاقيات عصر المعلومات - مفاهيم أساسية</div>
+                        <div class="topic-desc">المبادئ الأساسية للأخلاقيات في مجال تكنولوجيا المعلومات</div>
+                        <div style="margin-top: 10px;">
+                            <span class="lecture-badge"><i class="fas fa-video"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="lecture-btn" onclick="window.location.href = 'Lecture1.html'">
+                            <i class="fas fa-play-circle"></i> الذهاب إلى المحاضرة
+                        </button>
+                    </td>
+                </tr>
+                
+                <!-- المحاضرة الثالثة -->
+                <tr class="lecture-row">
+                    <td>
+                        <div class="week-number">3</div>
+                    </td>
+                    <td>
+                        <div class="topic-title">أخلاقيات مهن تكنولوجيا المعلومات والمستخدمين</div>
+                        <div class="topic-desc">مسؤوليات المهنيين في مجال تكنولوجيا المعلومات تجاه المستخدمين</div>
+                        <div style="margin-top: 10px;">
+                            <span class="lecture-badge"><i class="fas fa-video"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="lecture-btn" disabled>
+                            <i class="fas fa-lock"></i> قريباً
+                        </button>
+                    </td>
+                </tr>
+                
+                <!-- المحاضرة الرابعة -->
+                <tr class="lecture-row">
+                    <td>
+                        <div class="week-number">4</div>
+                    </td>
+                    <td>
+                        <div class="topic-title">أخلاقيات مهن تكنولوجيا المعلومات والمستخدمين</div>
+                        <div class="topic-desc">الجزء الثاني من أخلاقيات المهن التقنية</div>
+                        <div style="margin-top: 10px;">
+                            <span class="lecture-badge"><i class="fas fa-video"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="lecture-btn" disabled>
+                            <i class="fas fa-lock"></i> قريباً
+                        </button>
+                    </td>
+                </tr>
+                
+                <!-- المحاضرة الخامسة -->
+                <tr class="lecture-row">
+                    <td>
+                        <div class="week-number">5</div>
+                    </td>
+                    <td>
+                        <div class="topic-title">الكمبيوتر وجرائم الإنترنت</div>
+                        <div class="topic-desc">أنواع جرائم الإنترنت والوقاية منها</div>
+                        <div style="margin-top: 10px;">
+                            <span class="lecture-badge"><i class="fas fa-video"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="lecture-btn" disabled>
+                            <i class="fas fa-lock"></i> قريباً
+                        </button>
+                    </td>
+                </tr>
+                
+                <!-- المحاضرة السادسة -->
+                <tr class="lecture-row">
+                    <td>
+                        <div class="week-number">6</div>
+                    </td>
+                    <td>
+                        <div class="topic-title">الكمبيوتر وجرائم الإنترنت</div>
+                        <div class="topic-desc">الجزء الثاني من جرائم الإنترنت</div>
+                        <div style="margin-top: 10px;">
+                            <span class="lecture-badge"><i class="fas fa-video"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="lecture-btn" disabled>
+                            <i class="fas fa-lock"></i> قريباً
+                        </button>
+                    </td>
+                </tr>
+                
+                <!-- المحاضرة السابعة -->
+                <tr class="lecture-row">
+                    <td>
+                        <div class="week-number">7</div>
+                    </td>
+                    <td>
+                        <div class="topic-title">الخصوصية في العصر الرقمي</div>
+                        <div class="topic-desc">حماية البيانات والخصوصية في عالم الإنترنت</div>
+                        <div style="margin-top: 10px;">
+                            <span class="lecture-badge"><i class="fas fa-video"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="lecture-btn" disabled>
+                            <i class="fas fa-lock"></i> قريباً
+                        </button>
+                    </td>
+                </tr>
+                
+                <!-- الامتحان النصفي -->
+                <tr class="exam-row">
+                    <td>
+                        <div class="week-number">8</div>
+                    </td>
+                    <td>
+                        <div class="topic-title exam-title">الامتحان النصفي الإلكتروني</div>
+                        <div class="topic-desc">امتحان يغطي الأسابيع من 1 إلى 7</div>
+                        <div style="margin-top: 10px;">
+                            <span class="exam-badge"><i class="fas fa-file-alt"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="lecture-btn" style="background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);" disabled>
+                            <i class="fas fa-clock"></i> سيتم الإعلان
+                        </button>
+                    </td>
+                </tr>
+                
+                <!-- المحاضرة التاسعة -->
+                <tr class="lecture-row">
+                    <td>
+                        <div class="week-number">9</div>
+                    </td>
+                    <td>
+                        <div class="topic-title">حرية التعبير في عصر المعلومات</div>
+                        <div class="topic-desc">حدود وضوابط حرية التعبير على الإنترنت</div>
+                        <div style="margin-top: 10px;">
+                            <span class="lecture-badge"><i class="fas fa-video"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="lecture-btn" disabled>
+                            <i class="fas fa-lock"></i> قريباً
+                        </button>
+                    </td>
+                </tr>
+                
+                <!-- المحاضرة العاشرة -->
+                <tr class="lecture-row">
+                    <td>
+                        <div class="week-number">10</div>
+                    </td>
+                    <td>
+                        <div class="topic-title">الملكية الفكرية</div>
+                        <div class="topic-desc">حقوق النشر والملكية الفكرية في العالم الرقمي</div>
+                        <div style="margin-top: 10px;">
+                            <span class="lecture-badge"><i class="fas fa-video"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="lecture-btn" disabled>
+                            <i class="fas fa-lock"></i> قريباً
+                        </button>
+                    </td>
+                </tr>
+                
+                <!-- المحاضرة الحادية عشر -->
+                <tr class="lecture-row">
+                    <td>
+                        <div class="week-number">11</div>
+                    </td>
+                    <td>
+                        <div class="topic-title">الملكية الفكرية</div>
+                        <div class="topic-desc">الجزء الثاني من الملكية الفكرية</div>
+                        <div style="margin-top: 10px;">
+                            <span class="lecture-badge"><i class="fas fa-video"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="lecture-btn" disabled>
+                            <i class="fas fa-lock"></i> قريباً
+                        </button>
+                    </td>
+                </tr>
+                
+                <!-- المحاضرة الثانية عشر -->
+                <tr class="lecture-row">
+                    <td>
+                        <div class="week-number">12</div>
+                    </td>
+                    <td>
+                        <div class="topic-title">تطوير البرمجيات</div>
+                        <div class="topic-desc">الأخلاقيات في عملية تطوير البرمجيات</div>
+                        <div style="margin-top: 10px;">
+                            <span class="lecture-badge"><i class="fas fa-video"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="lecture-btn" disabled>
+                            <i class="fas fa-lock"></i> قريباً
+                        </button>
+                    </td>
+                </tr>
+                
+                <!-- الامتحان النهائي -->
+                <tr class="exam-row">
+                    <td>
+                        <div class="week-number">13</div>
+                    </td>
+                    <td>
+                        <div class="topic-title exam-title">الامتحان النهائي</div>
+                        <div class="topic-desc">امتحان شامل لجميع مواضيع المساق</div>
+                        <div style="margin-top: 10px;">
+                            <span class="exam-badge"><i class="fas fa-graduation-cap"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="lecture-btn" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);" disabled>
+                            <i class="fas fa-clock"></i> سيتم الإعلان
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 30px; text-align: center; color: #666; font-size: 0.9rem;">
+        <p><i class="fas fa-info-circle"></i> انقر على الزر "الذهاب إلى المحاضرة" للانتقال مباشرة إلى محتوى المحاضرة</p>
+    </div>
+</div>			<div class="section">
                 <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> ملاحظات وسياسات عامة</h2>
                 <ul class="notes-list">
                     <li><i class="fas fa-check-circle"></i> <strong>التسليم الإلكتروني:</strong> جميع الواجبات والتكاليف تسلم عبر Google Classroom فقط حسب المواعيد المحددة</li>
