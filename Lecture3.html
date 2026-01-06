@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسبوع الثالث: أخلاقيات مهن تكنولوجيا المعلومات والمستخدمين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .security-phase {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-right: 5px solid;
+            transition: transform 0.3s ease;
+        }
+        
+        .security-phase:hover {
+            transform: translateY(-5px);
+        }
+        
+        .phase-number {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-left: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .security-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        .security-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .matrix-cell {
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        
+        .matrix-header {
+            background: var(--primary-color);
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        .high-risk { background: #ff6b6b; color: white; }
+        .medium-risk { background: #ffd166; color: #333; }
+        .low-risk { background: #06d6a0; color: white; }
+        
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .tool-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            border-color: var(--secondary-color);
+            transform: scale(1.03);
+        }
+        
+        .tool-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .continuity-plan {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-right: 6px solid var(--accent-color);
+        }
+        
+        .plan-step {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-right: 4px solid var(--secondary-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .step-icon {
+            background: var(--secondary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .comparison-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .comparison-column {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .comparison-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .stakeholder-list {
+            list-style: none;
+            padding-right: 0;
+        }
+        
+        .stakeholder-list li {
+            background: #f8f9fa;
+            margin-bottom: 10px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-right: 3px solid var(--secondary-color);
+        }
+        
+        .practice-exercise {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .solution-box {
+            background: #e8f5e9;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 25px;
+            border-right: 5px solid var(--success-color);
+            display: none;
+        }
+        
+        .solution-box.show {
+            display: block;
+        }
+        
+        .solution-title {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .show-solution-btn {
+            background: #fff;
+            color: #4facfe;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .show-solution-btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+        
+        .submission-requirements {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-right: 4px solid #ffc107;
+        }
+        
+        .requirements-list {
+            list-style: none;
+            padding-right: 0;
+        }
+        
+        .requirements-list li {
+            margin-bottom: 10px;
+            padding-right: 10px;
+            position: relative;
+        }
+        
+        .requirements-list li::before {
+            content: "•";
+            color: #856404;
+            font-weight: bold;
+            position: absolute;
+            right: -15px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-user-shield"></i> الأسبوع الثالث: أخلاقيات مهن تكنولوجيا المعلومات والمستخدمين</h1>
+            <h2>مساق أخلاقيات عصر المعلومات - دبلوم أمن المعلومات</h2>
+            <div class="week-badge"><i class="fas fa-calendar-week"></i> الأسبوع الثالث | المحاضرة الافتراضية</div>
+        </div>
+        
+        <div class="content">
+            <!-- أهداف التعلم -->
+            <div class="section">
+                <div class="learning-objectives">
+                    <h3><i class="fas fa-bullseye"></i> أهداف التعلم لهذا الأسبوع</h3>
+                    <ul class="objectives-list">
+                        <li>فهم المسؤوليات الأخلاقية لمهني تكنولوجيا المعلومات تجاه المستخدمين</li>
+                        <li>التعرف على مبادئ أمان المعلومات وأساليب حماية البيانات</li>
+                        <li>تحليل إجراءات الأمان الشاملة لمؤسسات تكنولوجيا المعلومات</li>
+                        <li>فهم أهمية خطط استمرارية الأعمال في الحفاظ على الخدمات</li>
+                        <li>تمييز دور التثقيف والتدريب في تعزيز الوعي الأمني</li>
+                        <li>تحليل دراسات حالة عن العلاقات المهنية بين المختصين والمستخدمين</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- مقدمة -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-user-shield"></i> مقدمة: المسؤولية الأخلاقية تجاه المستخدمين</h2>
+                
+                <div class="important-definition">
+                    <p><strong>المهنية في خدمة المستخدم:</strong> يعتبر مستخدمو التكنولوجيا الطرف الأكثر تأثراً بقرارات مهنيي تكنولوجيا المعلومات. تترتب على المهني مسؤولية أخلاقية تتمثل في حماية مصالح المستخدمين وتقديم خدمات ذات جودة عالية مع الحفاظ على خصوصيتهم وسلامتهم.</p>
+                </div>
+                
+                <div class="security-grid">
+                    <div class="security-card">
+                        <div class="security-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>الثقة والشفافية</h3>
+                        <p>يجب أن تبنى العلاقة مع المستخدم على الثقة المتبادلة والشفافية في كافة العمليات، خاصة تلك التي تتعلق بجمع ومعالجة بيانات المستخدمين الشخصية.</p>
+                    </div>
+                    
+                    <div class="security-card">
+                        <div class="security-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <h3>الموافقة المستنيرة</h3>
+                        <p>يجب الحصول على موافقة واضحة ومستنيرة من المستخدم قبل جمع أو استخدام بياناته الشخصية، مع شرح كامل لطريقة الاستخدام والأغراض.</p>
+                    </div>
+                    
+                    <div class="security-card">
+                        <div class="security-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>الحماية والمسؤولية</h3>
+                        <p>يتحمل المهني المسؤولية الكاملة عن حماية بيانات المستخدمين وأصولهم الرقمية من أي أضرار قد تنتج عن إهمال أو تقصير.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- نموذج المراحل الست للأمان -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-shield-alt"></i> نموذج المراحل الست للأمان الشامل</h2>
+                
+                <div class="definition-box">
+                    <p>يتطلب تحقيق الأمن المعلوماتي الفعال تحقيق توازن دقيق بين ثلاثة عناصر أساسية: <strong>التكنولوجيا، السياسات، المستخدمين</strong>. هذا التوازن يتحقق من خلال منهجية سداسية المراحل تغطي كافة جوانب الحماية.</p>
+                </div>
+                
+                <!-- المرحلة 1 -->
+                <div class="security-phase" style="border-right-color: #3498db;">
+                    <h3><span class="phase-number">1</span> جمع المخاطر والتهديدات</h3>
+                    <p>عملية شاملة لتحديد وحصر جميع المخاطر والتهديدات المحتملة التي قد تتعرض لها أصول المؤسسة.</p>
+                    
+                    <div class="key-point">
+                        <p><strong>أمثلة على الأصول:</strong> غرف السيرفرات، الموظفين، قواعد البيانات، أجهزة الحاسوب والشبكات، أنظمة الطاقة، الكاميرات الأمنية.</p>
+                    </div>
+                    
+                    <div class="example-box">
+                        <h4 class="example-title"><i class="fas fa-server"></i> مثال: مخاطر غرفة السيرفرات</h4>
+                        <ul style="padding-right: 20px; margin-top: 10px;">
+                            <li>اقتحام المكان من قبل أشخاص غير مصرح لهم</li>
+                            <li>حدوث حريق أو تسرب مياه</li>
+                            <li>انقطاع التيار الكهربائي لفترات طويلة</li>
+                            <li>أعطال في أنظمة التبريد والطاقة البديلة</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- المرحلة 2 -->
+                <div class="security-phase" style="border-right-color: #2ecc71;">
+                    <h3><span class="phase-number">2</span> تحليل وتقييم المخاطر</h3>
+                    <p>تقييم وتحليل المخاطر المحتملة من حيث احتمالية الحدوث، درجة التأثير، والتكلفة المالية المحتملة.</p>
+                    
+                    <div class="risk-matrix">
+                        <div class="matrix-cell matrix-header">الخطر</div>
+                        <div class="matrix-cell matrix-header">احتمالية الحدوث</div>
+                        <div class="matrix-cell matrix-header">مستوى الخطورة</div>
+                        
+                        <div class="matrix-cell">حريق في غرفة السيرفرات</div>
+                        <div class="matrix-cell">منخفضة (5%)</div>
+                        <div class="matrix-cell high-risk">عالية</div>
+                        
+                        <div class="matrix-cell">انقطاع التيار الكهربائي</div>
+                        <div class="matrix-cell">متوسطة (30%)</div>
+                        <div class="matrix-cell medium-risk">متوسطة</div>
+                        
+                        <div class="matrix-cell">تسرب مياه</div>
+                        <div class="matrix-cell">منخفضة (10%)</div>
+                        <div class="matrix-cell low-risk">منخفضة</div>
+                    </div>
+                    
+                    <div class="key-point">
+                        <p><strong>صيغة حساب مستوى الخطورة:</strong> احتمالية الحدوث × التكلفة المالية = مستوى الخطورة</p>
+                    </div>
+                </div>
+                
+                <!-- المرحلة 3 -->
+                <div class="security-phase" style="border-right-color: #e74c3c;">
+                    <h3><span class="phase-number">3</span> تحديد الإجراءات الوقائية</h3>
+                    <p>تحديد السياسات والإجراءات الوقائية والعلاجية اللازمة لحماية الأصول بناءً على تحليل المخاطر.</p>
+                    
+                    <div class="tool-grid">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <h4>سياسات كلمات المرور</h4>
+                            <p>متطلبات تعقيد، مدة الصلاحية، منع إعادة الاستخدام</p>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-user-tag"></i>
+                            </div>
+                            <h4>تحديد الصلاحيات</h4>
+                            <p>مبدأ الامتياز الأدنى، فصل المهام، مراجعة دورية</p>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h4>سياسات استخدام الشبكات</h4>
+                            <p>سياسات VPN، جدران نارية، تقسيم الشبكات</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- المرحلة 4 -->
+                <div class="security-phase" style="border-right-color: #f39c12;">
+                    <h3><span class="phase-number">4</span> تثقيف وتدريب المستخدمين</h3>
+                    <p>توعية وتدريب المستخدمين والموظفين على المخاطر الأمنية والإجراءات الواجب اتباعها.</p>
+                    
+                    <div class="comparison-container">
+                        <div class="comparison-column">
+                            <h3 class="comparison-title"><i class="fas fa-check-circle"></i> التدريب الفعّال</h3>
+                            <ul class="stakeholder-list">
+                                <li>ورشات تدريبية عملية ودورية</li>
+                                <li>محاكاة هجمات التصيد الاحتيالي</li>
+                                <li>تدريب على التعرف على البرمجيات الخبيثة</li>
+                                <li>توزيع مواد توعوية بشكل منتظم</li>
+                                <li>اختبارات تقييم المعرفة الأمنية</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="comparison-column">
+                            <h3 class="comparison-title"><i class="fas fa-times-circle"></i> التدريب غير الفعّال</h3>
+                            <ul class="stakeholder-list">
+                                <li>محاضرات نظرية طويلة ومملة</li>
+                                <li>تدريب لمرة واحدة عند التعيين فقط</li>
+                                <li>عدم تحديث المحتوى التدريبي</li>
+                                <li>غياب التطبيق العملي</li>
+                                <li>عدم قياس تأثير التدريب</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- المرحلة 5 -->
+                <div class="security-phase" style="border-right-color: #9b59b6;">
+                    <h3><span class="phase-number">5</span> المراقبة المستمرة والكشف</h3>
+                    <p>تنفيذ أنظمة المراقبة المستمرة والكشف المبكر عن التهديدات والنشاطات المشبوهة.</p>
+                    
+                    <div class="concept-box">
+                        <h3 class="concept-title"><i class="fas fa-radar"></i> أدوات المراقبة والكشف</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px;">
+                            <div style="flex: 1; min-width: 200px;">
+                                <h4><i class="fas fa-shield-virus"></i> أنظمة كشف التسلل (IDS)</h4>
+                                <p>تراقب النشاط المشبوه وتنبه المسؤولين</p>
+                            </div>
+                            <div style="flex: 1; min-width: 200px;">
+                                <h4><i class="fas fa-fire"></i> الجدران النارية</h4>
+                                <p>تتحكم في تدفق البيانات وتمنع الوصول غير المصرح</p>
+                            </div>
+                            <div style="flex: 1; min-width: 200px;">
+                                <h4><i class="fas fa-history"></i> سجلات المراجعة</h4>
+                                <p>تسجيل كافة الأحداث للتحليل اللاحق</p>
+                            </div>
+                            <div style="flex: 1; min-width: 200px;">
+                                <h4><i class="fas fa-chart-line"></i> أنظمة تحليل السلوك</h4>
+                                <p>تكشف الانحرافات عن السلوك الطبيعي</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- المرحلة 6 -->
+                <div class="security-phase" style="border-right-color: #1abc9c;">
+                    <h3><span class="phase-number">6</span> خطط استمرارية الأعمال</h3>
+                    <p>وضع خطط طوارئ واستمرارية الأعمال لضمان استئناف الخدمات بسرعة بعد أي حادث أمني.</p>
+                    
+                    <div class="continuity-plan">
+                        <h3 style="text-align: center; color: var(--accent-color); margin-bottom: 25px;">
+                            <i class="fas fa-project-diagram"></i> مكونات خطة استمرارية الأعمال
+                        </h3>
+                        
+                        <div class="plan-step">
+                            <div class="step-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h4>فريق الطوارئ</h4>
+                                <p>تحديد الأشخاص المسؤولين عن تنفيذ خطة الطوارئ واتخاذ القرارات أثناء الأزمة</p>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-step">
+                            <div class="step-icon">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                            <div>
+                                <h4>سياسات الإعلام</h4>
+                                <p>تحديد من يجب إعلامه بالحادث ومن لا يجب إعلامه، ووضع نماذج للبيانات الصحفية</p>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-step">
+                            <div class="step-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div>
+                                <h4>التوثيق الدقيق</h4>
+                                <p>توثيق جميع تفاصيل الحادث الأمني للتحقيقات القانونية والتعلم من الأخطاء</p>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-step">
+                            <div class="step-icon">
+                                <i class="fas fa-ban"></i>
+                            </div>
+                            <div>
+                                <h4>احتواء الخطر</h4>
+                                <p>إجراءات سريعة لعزل الأنظمة المصابة وقف انتشار الهجوم</p>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-step">
+                            <div class="step-icon">
+                                <i class="fas fa-redo"></i>
+                            </div>
+                            <div>
+                                <h4>استعادة الخدمات</h4>
+                                <p>خطوات استعادة الخدمات الأساسية باستخدام النسخ الاحتياطية</p>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-step">
+                            <div class="step-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div>
+                                <h4>المراجعة والتطوير</h4>
+                                <p>مراجعة شاملة للحادث وتحديث الخطة بناءً على الدروس المستفادة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- دراسات حالة -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> دراسات حالة: التوازن بين الأمن والخدمة</h2>
+                
+                <div class="case-study-box">
+                    <h3 class="case-title"><i class="fas fa-hospital"></i> الحالة الأولى: نظام صحي إلكتروني</h3>
+                    <p><strong>السيناريو:</strong> تطوير نظام إلكتروني لإدارة سجلات المرضى في مستشفى كبير. يواجه المطورون معضلة بين:</p>
+                    
+                    <div class="comparison-container">
+                        <div class="comparison-column">
+                            <h3 class="comparison-title"><i class="fas fa-shield-alt"></i> الأمن الشديد</h3>
+                            <ul class="stakeholder-list">
+                                <li>إجراءات تسجيل دخول معقدة</li>
+                                <li>تشفير مكثف للبيانات</li>
+                                <li>قيود صارمة على الوصول</li>
+                                <li>مراجعة دقيقة لكافة العمليات</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="comparison-column">
+                            <h3 class="comparison-title"><i class="fas fa-bolt"></i> سهولة الاستخدام</h3>
+                            <ul class="stakeholder-list">
+                                <li>واجهة بسيطة وسريعة</li>
+                                <li>وصول فوري في حالات الطوارئ</li>
+                                <li>حد أدنى من الخطوات</li>
+                                <li>تدريب سريع للمستخدمين</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="case-questions">
+                        <h4><i class="fas fa-question-circle"></i> أسئلة للنقاش:</h4>
+                        <ol style="padding-right: 20px;">
+                            <li>كيف يمكن تحقيق التوازن بين أمن البيانات وسرعة الوصول في الحالات الطبية الطارئة؟</li>
+                            <li>ما هي المسؤولية الأخلاقية للمطور تجاه حياة المرضى إذا تعذر الوصول إلى معلوماتهم بسبب إجراءات أمنية معقدة؟</li>
+                            <li>كيف يمكن تصميم نظام يوفر مستويات مختلفة من الوصول حسب دور المستخدم؟</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="solution-box">
+                        <h4 class="solution-title"><i class="fas fa-lightbulb"></i> حلول مقترحة:</h4>
+                        <p>نظام متعدد المستويات: وصول فوري بمستوى محدود في الطوارئ مع تسجيل كامل للنشاطات، مصادقة متعددة العوامل للوصول الكامل، تدريب مكثف للطواقم مع توفير دعم فوري عند الحاجة.</p>
+                    </div>
+                </div>
+                
+                <div class="case-study-box" style="margin-top: 30px;">
+                    <h3 class="case-title"><i class="fas fa-university"></i> الحالة الثانية: بنك رقمي جديد</h3>
+                    <p><strong>السيناريو:</strong> بنك يطلق خدمة مصرفية رقمية جديدة. يريد جذب العملاء الشباب بواجهة سهلة وسريعة، لكنه يخضع لتنظيمات صارمة تتطلب إجراءات أمنية قوية قد تعقد تجربة المستخدم.</p>
+                    
+                    <div class="concept-box">
+                        <h3 class="concept-title"><i class="fas fa-balance-scale"></i> المعضلة الأخلاقية</h3>
+                        <div style="display: flex; gap: 20px; margin-top: 15px; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 300px;">
+                                <h4><i class="fas fa-users"></i> خيار التجربة المبسطة</h4>
+                                <p>تطبيق إجراءات أمنية مبسطة لتشجيع الاعتماد على الخدمة، مع زيادة طفيفة في المخاطر الأمنية. يناسب المستخدمين الشباب ولكن قد لا يفي بالمتطلبات التنظيمية.</p>
+                            </div>
+                            <div style="flex: 1; min-width: 300px;">
+                                <h4><i class="fas fa-shield-alt"></i> خيار الأمن الصارم</h4>
+                                <p>تطبيق إجراءات أمنية صارمة تفي بكافة المتطلبات التنظيمية، ولكنها قد تثبط بعض المستخدمين (خاصة كبار السن). يحمي المؤسسة قانونياً ولكن قد يقلل من انتشار الخدمة.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="solution-box">
+                        <h4 class="solution-title"><i class="fas fa-lightbulb"></i> نهج الأمن المتكيف:</h4>
+                        <p>تطبيق <strong>"الأمن المتكيف"</strong>: إجراءات بسيطة للمعاملات الصغيرة، إجراءات أقوى للمعاملات الكبيرة. خيارات متعددة للمصادقة تتيح للمستخدم اختيار ما يناسبه. تثقيف مستمر للعملاء حول أفضل الممارسات الأمنية مع توفير دعم فني مخصص للمستخدمين غير التقنيين.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- التحديات الأخلاقية -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> التحديات الأخلاقية في أمن المعلومات</h2>
+                
+                <div class="security-grid">
+                    <div class="security-card">
+                        <div class="security-icon">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <h3>المراقبة vs الخصوصية</h3>
+                        <p>كيف نراقب الأنظمة لحمايتها دون انتهاك خصوصية الموظفين؟ التوازن بين الحاجة الأمنية وحقوق الخصوصية.</p>
+                    </div>
+                    
+                    <div class="security-card">
+                        <div class="security-icon">
+                            <i class="fas fa-lock-open"></i>
+                        </div>
+                        <h3>الأمان vs سهولة الاستخدام</h3>
+                        <p>كلما زادت تعقيدات الأمان، قلت سهولة الاستخدام. كيف نجد نقطة التوازن المثلى؟</p>
+                    </div>
+                    
+                    <div class="security-card">
+                        <div class="security-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>الشفافية vs الأمن</h3>
+                        <p>إلى أي مدى يجب الإفصاح عن إجراءات الأمان؟ الإفصاح الكامل قد يعطي معلومات للمهاجمين.</p>
+                    </div>
+                </div>
+                
+                <div class="key-point">
+                    <p><strong>مبدأ التناسب:</strong> يجب أن تكون إجراءات الأمان متناسبة مع قيمة وحساسية البيانات المحمية. لا يجوز تطبيق نفس مستوى الحماية على جميع البيانات.</p>
+                </div>
+            </div>
+            
+            <!-- تدريب عملي مختصر -->
+            <div class="practice-exercise">
+                <h2 class="assignment-title"><i class="fas fa-dumbbell"></i> تدريب عملي مختصر: تحليل مخاطر مكتب صغير</h2>
+                
+                <div style="background: rgba(255,255,255,0.9); padding: 25px; border-radius: 12px; color: #333;">
+                    <h3><i class="fas fa-file-alt"></i> السيناريو: مكتب محاماة رقمي صغير</h3>
+                    
+                    <p><strong>الوصف:</strong> مكتب محاماة صغير يتكون من 5 موظفين. يستخدمون:</p>
+                    <ul style="padding-right: 20px; margin: 15px 0;">
+                        <li>3 أجهزة كمبيوتر محمولة</li>
+                        <li>1 خادم صغير لتخزين ملفات العملاء</li>
+                        <li>اتصال إنترنت واحد</li>
+                        <li>طابعة شبكية واحدة</li>
+                        <li>نسخة واحدة من برنامج مكافحة الفيروسات</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 20px; color: #4facfe;"><i class="fas fa-question-circle"></i> المطلوب:</h4>
+                    <ol style="padding-right: 20px; margin-top: 10px;">
+                        <li>حدد <strong>3 أصول رئيسية</strong> للمكتب مع شرح أهميتها</li>
+                        <li>اذكر <strong>4 مخاطر محتملة</strong> لهذه الأصول</li>
+                        <li>اقترح <strong>إجراءين وقائيين</strong> بسيطين لكل خطر</li>
+                        <li>ما هي <strong>أولوية الحماية</strong> بين هذه الأصول ولماذا؟</li>
+                    </ol>
+                    
+                    <button class="show-solution-btn" onclick="toggleSolution()">
+                        <i class="fas fa-eye"></i> عرض الحل النموذجي
+                    </button>
+                    
+                    <div id="solution" class="solution-box">
+                        <h4 class="solution-title"><i class="fas fa-check-circle"></i> الحل النموذجي</h4>
+                        
+                        <h5>1. الأصول الرئيسية:</h5>
+                        <ul style="padding-right: 20px; margin: 10px 0;">
+                            <li><strong>خادم ملفات العملاء:</strong> يحتوي على معلومات سرية وحساسة للعملاء</li>
+                            <li><strong>أجهزة الكمبيوتر المحمولة:</strong> تحتوي على برامج وبيانات عمل، وتستخدم للوصول إلى الخادم</li>
+                            <li><strong>اتصال الإنترنت:</strong> ضروري للبحث القانوني والتواصل مع العملاء</li>
+                        </ul>
+                        
+                        <h5>2. المخاطر المحتملة:</h5>
+                        <ul style="padding-right: 20px; margin: 10px 0;">
+                            <li>اختراق الخادم وسرقة بيانات العملاء</li>
+                            <li>فقدان أو سرقة الأجهزة المحمولة</li>
+                            <li>هجوم فيروسي عبر الإنترنت</li>
+                            <li>انقطاع التيار الكهربائي وفقدان البيانات</li>
+                        </ul>
+                        
+                        <h5>3. الإجراءات الوقائية:</h5>
+                        <ul style="padding-right: 20px; margin: 10px 0;">
+                            <li><strong>للخادم:</strong> تشفير البيانات + نسخ احتياطي يومي</li>
+                            <li><strong>للأجهزة:</strong> كلمات مرور قوية + برامج تعقب</li>
+                            <li><strong>للإنترنت:</strong> جدار ناري + تحديث برامج الحماية</li>
+                            <li><strong>للطاقة:</strong> UPS + خطط عمل يدوي</li>
+                        </ul>
+                        
+                        <h5>4. أولوية الحماية:</h5>
+                        <p><strong>الخادم يأتي أولاً</strong> لأنه يحتوي على بيانات العملاء السرية التي قد تؤدي خسارتها إلى خسارة السمعة والمقاضاة القانونية.</p>
+                        
+                        <div class="key-point" style="margin-top: 15px;">
+                            <p><strong>ملاحظة:</strong> هذا حل نموذجي، وقد تختلف الإجابات باختلاف تحليل الطالب مع الحفاظ على المنطق السليم.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- الواجب العملي -->
+            <div class="assignment-box">
+                <h2 class="assignment-title"><i class="fas fa-tasks"></i> الواجب العملي: بناء خطة أمنية شاملة</h2>
+                
+                <div style="background: rgba(255,255,255,0.9); padding: 25px; border-radius: 12px; color: #333;">
+                    <h3><i class="fas fa-file-alt"></i> المهمة: تطوير سياسة أمنية لمؤسسة ناشئة</h3>
+                    
+                    <p><strong>السيناريو:</strong> أنت مسؤول أمن معلومات في شركة ناشئة متخصصة في تطوير تطبيقات التعليم الإلكتروني. الشركة لديها 25 موظفاً وتعتمد كلياً على الخدمات السحابية.</p>
+                    
+                    <div class="concept-box">
+                        <h3 class="concept-title"><i class="fas fa-database"></i> أصول الشركة الرئيسية</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px;">
+                            <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; flex: 1; min-width: 200px;">
+                                <h4><i class="fas fa-users"></i> البيانات الحساسة</h4>
+                                <p>معلومات 50,000 طالب (أسماء، أعمار، درجات)</p>
+                            </div>
+                            <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; flex: 1; min-width: 200px;">
+                                <h4><i class="fas fa-laptop-code"></i> المنصة التعليمية</h4>
+                                <p>تخدم 100,000 مستخدم شهرياً</p>
+                            </div>
+                            <div style="background: #fff3e0; padding: 15px; border-radius: 8px; flex: 1; min-width: 200px;">
+                                <h4><i class="fas fa-home"></i> البنية التحتية</h4>
+                                <p>مكتب صغير، خادم احتياطي محلي، شبكة لاسلكية</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 20px;">المدير التنفيذي يطلب منك تطوير <strong>سياسة أمنية شاملة</strong> تحمي الشركة مع الحفاظ على كفاءة العمل ورضا المستخدمين.</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.9); padding: 25px; border-radius: 12px; color: #333; margin-top: 20px;">
+                    <div class="submission-requirements">
+                        <h4><i class="fas fa-clipboard-list"></i> شروط وإرشادات تسليم الواجب:</h4>
+                        <ul class="requirements-list">
+                            <li><strong>آلية التسليم:</strong> مستند Google أو ملف Word</li>
+                            <li><strong>الحد الأدنى للطول:</strong> لا يقل عن 4 صفحات (بحجم خط 12، تباعد 1.5)</li>
+                            <li><strong>التنسيق:</strong> ترقيم الصفحات، عناوين رئيسية وفرعية، قائمة محتويات</li>
+                            <li><strong>الموعد النهائي:</strong> محدد عبر Google Classroom (سيتم الإعلان)</li>
+                            <li><strong>التأخير:</strong> خصم 10% لكل يوم تأخير بعد الموعد النهائي</li>
+                        </ul>
+                    </div>
+                    
+                    <h4><i class="fas fa-list-ol"></i> محتويات السياسة المطلوبة (بالتفصيل):</h4>
+                    
+                    <div class="plan-step" style="background: #f8f9fa; margin: 15px 0;">
+                        <div class="step-icon" style="background: #3498db;">
+                            <span>1</span>
+                        </div>
+                        <div>
+                            <h4>جمع المخاطر (25 نقطة)</h4>
+                            <p><strong>المطلوب:</strong> قائمة مفصلة بـ <strong>8 أصول على الأقل</strong> مع ذكر <strong>3 مخاطر محتملة لكل منها</strong>.</p>
+                            <p><strong>مثال:</strong> خادم البيانات - المخاطر: اختراق، عطل كهربائي، حريق.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-step" style="background: #f8f9fa; margin: 15px 0;">
+                        <div class="step-icon" style="background: #2ecc71;">
+                            <span>2</span>
+                        </div>
+                        <div>
+                            <h4>تحليل المخاطر (20 نقطة)</h4>
+                            <p><strong>المطلوب:</strong> تحليل <strong>5 مخاطر رئيسية</strong> باستخدام منهجية كمّية (الاحتمالية × التكلفة).</p>
+                            <p><strong>مثال:</strong> اختراق البيانات - الاحتمالية: 40%، التكلفة: 100,000$، مستوى الخطورة: 40,000$.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-step" style="background: #f8f9fa; margin: 15px 0;">
+                        <div class="step-icon" style="background: #e74c3c;">
+                            <span>3</span>
+                        </div>
+                        <div>
+                            <h4>الإجراءات الوقائية (25 نقطة)</h4>
+                            <p><strong>المطلوب:</strong> سياسات واضحة لـ <strong>4 مجالات على الأقل</strong>:</p>
+                            <ul style="padding-right: 20px; margin-top: 5px;">
+                                <li>كلمات المرور (متطلبات، مدة صلاحية)</li>
+                                <li>الوصول إلى البيانات (صلاحيات، تسجيلات الدخول)</li>
+                                <li>استخدام الأجهزة الشخصية (BYOD)</li>
+                                <li>النسخ الاحتياطي (التكرار، المدة)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-step" style="background: #f8f9fa; margin: 15px 0;">
+                        <div class="step-icon" style="background: #f39c12;">
+                            <span>4</span>
+                        </div>
+                        <div>
+                            <h4>خطة تدريب (15 نقطة)</h4>
+                            <p><strong>المطلوب:</strong> برنامج توعية للموظفين يشمل <strong>3 موضوعات أساسية</strong> مع تحديد:</p>
+                            <ul style="padding-right: 20px; margin-top: 5px;">
+                                <li>التردد (شهري/ربع سنوي/سنوي)</li>
+                                <li>طرق التقديم (ورش/فيديو/اختبارات)</li>
+                                <li>آلية قياس الأثر (استبيانات/اختبارات)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-step" style="background: #f8f9fa; margin: 15px 0;">
+                        <div class="step-icon" style="background: #9b59b6;">
+                            <span>5</span>
+                        </div>
+                        <div>
+                            <h4>نظام مراقبة (15 نقطة)</h4>
+                            <p><strong>المطلوب:</strong> اقتراح <strong>3 أدوات مراقبة</strong> مع شرح:</p>
+                            <ul style="padding-right: 20px; margin-top: 5px;">
+                                <li>وظيفة كل أداة</li>
+                                <li>تكلفة التطبيق (تقريبية)</li>
+                                <li>آلية الكشف عن الحوادث والاستجابة</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-step" style="background: #f8f9fa; margin: 15px 0;">
+                        <div class="step-icon" style="background: #1abc9c;">
+                            <span>6</span>
+                        </div>
+                        <div>
+                            <h4>خطة استمرارية (10 نقطة)</h4>
+                            <p><strong>المطلوب:</strong> إجراءات الطوارئ لـ <strong>سيناريوهين مختلفين</strong>:</p>
+                            <ul style="padding-right: 20px; margin-top: 5px;">
+                                <li>اختراق بيانات العملاء</li>
+                                <li>انقطاع الخدمة السحابية لمدة 24 ساعة</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 25px;">
+                        <h4><i class="fas fa-clipboard-check"></i> معايير التقييم:</h4>
+                        <table class="grading-table">
+                            <thead>
+                                <tr>
+                                    <th>معيار التقييم</th>
+                                    <th>النسبة</th>
+                                    <th>التفاصيل</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>شمولية ودقة تحليل المخاطر</td>
+                                    <td>25%</td>
+                                    <td>تغطية 8 أصول + 3 مخاطر لكل منها</td>
+                                </tr>
+                                <tr>
+                                    <td>واقعية الإجراءات المقترحة</td>
+                                    <td>30%</td>
+                                    <td>4 مجالات سياسات + قابليتها للتطبيق</td>
+                                </tr>
+                                <tr>
+                                    <td>التوازن بين الأمن والكفاءة</td>
+                                    <td>25%</td>
+                                    <td>حلول عملية لا تعيق العمل</td>
+                                </tr>
+                                <tr>
+                                    <td>وضوح التقديم واحترافيته</td>
+                                    <td>20%</td>
+                                    <td>4 صفحات على الأقل، تنسيق واضح</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td><strong>المجموع</strong></td>
+                                    <td><strong>100%</strong></td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    
+                    <div class="key-point" style="margin-top: 20px;">
+                        <p><strong>ملاحظة هامة:</strong> الموعد النهائي لرفع الواجب محدد عبر Google Classroom. يرجى متابعة الإعلانات على المنصة. يمكن استخدام قوالب جاهزة ولكن يجب تخصيصها للسيناريو المحدد.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- خاتمة -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-check-circle"></i> خاتمة: نحو ممارسة أمنية أخلاقية</h2>
+                
+                <div class="concept-box">
+                    <p>أخلاقيات مهن تكنولوجيا المعلومات تجاه المستخدمين لا تتوقف عند حدود القانون واللوائح، بل تمتد إلى <strong>الرعاية والمسؤولية</strong> تجاه من نخدمهم. الحماية الأمنية الفعالة هي تلك التي تحمي <strong>بدون أن تعيق</strong>، وتحمي <strong>بدون أن تتجسس</strong>، وتحمي <strong>بدون أن تنسى الإنسان</strong> في قلب المعادلة التكنولوجية.</p>
+                    
+                    <div class="quote">
+                        "أفضل نظام أمني ليس ذلك الذي يمنع جميع الهجمات، بل ذلك الذي يحمي القيم الإنسانية بينما يدفع ثمن الحماية المعقول."
+                        <div class="quote-author">- مبدأ في أخلاقيات أمن المعلومات</div>
+                    </div>
+                    
+                    <div class="key-point">
+                        <p><strong>تذكير عملي:</strong> استخدم المراحل الست للأمان كإطار منهجي، ولكن تذكر دائمًا أن الهدف النهائي هو خدمة المستخدم وحماية مصالحه. الأمن وسيلة وليس غاية في حد ذاته.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><i class="fas fa-university"></i> الكلية الجامعية للعلوم التطبيقية - قسم أمن المعلومات</p>
+            <p><i class="fas fa-envelope"></i> للاستفسارات: makhalil@ucas.edu.ps | <i class="fab fa-google"></i> Google Classroom: DINF1101</p>
+            <p>© 2026 سايبر خليل - جميع الحقوق محفوظة.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            const solutionBox = document.getElementById('solution');
+            solutionBox.classList.toggle('show');
+            
+            const button = document.querySelector('.show-solution-btn');
+            if (solutionBox.classList.contains('show')) {
+                button.innerHTML = '<i class="fas fa-eye-slash"></i> إخفاء الحل النموذجي';
+            } else {
+                button.innerHTML = '<i class="fas fa-eye"></i> عرض الحل النموذجي';
+            }
+        }
+    </script>
+</body>
+</html>
