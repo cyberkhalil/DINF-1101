@@ -33,7 +33,7 @@ body {
     line-height: 1.8;
     background-color: #f5f7fa;
     color: #333;
-    padding: 10px;
+    padding: 5px;
     min-height: 100vh;
     overflow-x: hidden;
     width: 100%;
@@ -48,7 +48,7 @@ body {
     width: 100%;
     margin: 0 auto;
     background: white;
-    border-radius: 12px;
+    border-radius: 8px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     overflow-x: hidden;
@@ -60,7 +60,7 @@ body {
 .header {
     background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
     color: white;
-    padding: 25px 15px;
+    padding: 20px 10px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -133,15 +133,15 @@ body {
    CONTENT STYLES - MOBILE
    ======================================== */
 .content {
-    padding: 15px 12px;
+    padding: 10px 8px;
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
 }
 
 .section {
-    margin-bottom: 20px;
-    padding: 18px 12px;
+    margin-bottom: 15px;
+    padding: 15px 10px;
     background: #f8fafc;
     border-radius: 12px;
     border-right: 4px solid var(--secondary-color);
@@ -226,7 +226,7 @@ body {
    ======================================== */
 .concept-box {
     background: white;
-    padding: 15px 12px;
+    padding: 12px 10px;
     border-radius: 10px;
     margin: 12px 0;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
@@ -262,7 +262,7 @@ body {
    ======================================== */
 .definition-box {
     background: #fff3e0;
-    padding: 12px;
+    padding: 10px;
     border-radius: 8px;
     margin: 10px 0;
     border-right: 3px solid #ff9800;
@@ -316,7 +316,7 @@ body {
    ======================================== */
 .example-box {
     background: #fff8e1;
-    padding: 12px;
+    padding: 10px;
     border-radius: 8px;
     margin: 12px 0;
     border-right: 3px solid var(--warning-color);
@@ -392,7 +392,7 @@ body {
    ======================================== */
 .case-study-box {
     background: #e8f5e9;
-    padding: 15px 12px;
+    padding: 12px 10px;
     border-radius: 10px;
     margin: 15px 0;
     border-right: 4px solid var(--success-color);
@@ -595,8 +595,7 @@ body {
    ======================================== */
 .assessment-item {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center; /* محاذاة أفقية */
     flex-wrap: wrap;
     gap: 8px;
 }
@@ -614,6 +613,8 @@ body {
 .percentage {
     background: var(--secondary-color);
     color: white;
+	    text-align: left;
+    margin-right: auto;
     padding: 5px 10px;
     border-radius: 50px;
     font-weight: bold;
@@ -767,7 +768,7 @@ body {
 .assignment-box {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 18px 12px;
+    padding: 15px 10px;
     border-radius: 12px;
     margin: 18px 0;
     width: 100%;
@@ -1270,20 +1271,71 @@ body {
    TABLET BREAKPOINT (min-width: 481px)
    ======================================== */
 @media (min-width: 481px) {
-    .header h1 {
-        font-size: 1.6rem;
+    html {
+        font-size: 17px;
     }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .header h2 {
+        font-size: 1.05rem;
+    }
+
+    .content {
+        padding: 12px 8px;
+    }
+
+    .section {
+        padding: 20px 15px;
+    }
+
+    .section-title {
+        font-size: 1.35rem;
+    }
+
+    .concept-box p, .concept-box li {
+        font-size: 0.95rem;
+    }
+
+    .definition-box, .important-definition {
+        font-size: 0.95rem;
+    }
+
+    .example-box {
+        font-size: 0.95rem;
+    }
+
+    .objectives-list li {
+        font-size: 0.95rem;
+    }
+
+    .expert-types {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .platforms {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lecture-btn {
+        width: auto;
+        min-width: 160px;
+        flex: 1;
+    }
+}
 
     .header h2 {
         font-size: 0.95rem;
     }
 
     .content {
-        padding: 20px 15px;
+        padding: 10px 8px;
     }
 
     .section {
-        padding: 20px 15px;
+        padding: 15px 10px;
     }
 
     .section-title {
@@ -1309,6 +1361,10 @@ body {
    TABLET LANDSCAPE / SMALL LAPTOP (min-width: 769px)
    ======================================== */
 @media (min-width: 769px) {
+    html {
+        font-size: 18px;
+    }
+
     body {
         padding: 15px;
     }
@@ -1322,11 +1378,11 @@ body {
     }
 
     .header h1 {
-        font-size: 1.9rem;
+        font-size: 2.1rem;
     }
 
     .header h2 {
-        font-size: 1.05rem;
+        font-size: 1.15rem;
     }
 
     .content {
@@ -1339,7 +1395,39 @@ body {
     }
 
     .section-title {
-        font-size: 1.4rem;
+        font-size: 1.55rem;
+    }
+
+    .concept-box p, .concept-box li {
+        font-size: 1rem;
+    }
+
+    .concept-title {
+        font-size: 1.15rem;
+    }
+
+    .definition-box, .important-definition {
+        font-size: 1rem;
+    }
+
+    .example-box {
+        font-size: 1rem;
+    }
+
+    .key-point {
+        font-size: 0.95rem;
+    }
+
+    .objectives-list li {
+        font-size: 1rem;
+    }
+
+    .step-box p {
+        font-size: 0.95rem;
+    }
+
+    .quote {
+        font-size: 1.05rem;
     }
 
     .expert-types {
@@ -1411,69 +1499,268 @@ body {
    DESKTOP (min-width: 1025px)
    ======================================== */
 @media (min-width: 1025px) {
+    html {
+        font-size: 20px;
+    }
+
     body {
         padding: 20px;
     }
 
     .header {
-        padding: 35px 25px;
+        padding: 40px 30px;
     }
 
     .header h1 {
-        font-size: 2.2rem;
+        font-size: 2.6rem;
     }
 
     .header h2 {
-        font-size: 1.15rem;
+        font-size: 1.25rem;
+    }
+
+    .week-badge {
+        font-size: 1rem;
+    }
+
+    .badge {
+        font-size: 0.95rem;
     }
 
     .content {
-        padding: 35px;
+        padding: 40px;
     }
 
     .section {
-        padding: 30px;
-        margin-bottom: 30px;
+        padding: 35px;
+        margin-bottom: 35px;
     }
 
     .section-title {
+        font-size: 1.8rem;
+    }
+
+    .concept-box {
+        padding: 25px;
+    }
+
+    .concept-box p, .concept-box li {
+        font-size: 1.1rem;
+        line-height: 1.9;
+    }
+
+    .concept-title {
+        font-size: 1.35rem;
+    }
+
+    .definition-box, .important-definition {
+        font-size: 1.1rem;
+        padding: 20px;
+    }
+
+    .example-box {
+        font-size: 1.05rem;
+        padding: 20px;
+    }
+
+    .example-title {
+        font-size: 1.15rem;
+    }
+
+    .key-point {
+        font-size: 1.05rem;
+        padding: 18px;
+    }
+
+    .objectives-list li {
+        font-size: 1.1rem;
+        padding-right: 30px;
+    }
+
+    .learning-objectives {
+        padding: 25px;
+    }
+
+    .learning-objectives h3 {
+        font-size: 1.25rem;
+    }
+
+    .step-box {
+        padding: 20px;
+    }
+
+    .step-box h4 {
+        font-size: 1.15rem;
+    }
+
+    .step-box p {
+        font-size: 1.05rem;
+    }
+
+    .quote {
+        font-size: 1.2rem;
+        padding: 25px;
+    }
+
+    .quote-author {
+        font-size: 1rem;
+    }
+
+    .assignment-box {
+        padding: 35px;
+    }
+
+    .assignment-title {
         font-size: 1.5rem;
+    }
+
+    .case-study-box {
+        padding: 25px;
+    }
+
+    .case-title {
+        font-size: 1.25rem;
+    }
+
+    .solution-box {
+        padding: 25px;
+    }
+
+    .solution-title {
+        font-size: 1.25rem;
+    }
+
+    .comparison-table {
+        font-size: 1rem;
+    }
+
+    .comparison-table th, .comparison-table td {
+        padding: 15px;
+    }
+
+    .schedule-table {
+        font-size: 1rem;
+    }
+
+    .schedule-table th, .schedule-table td {
+        padding: 18px;
+    }
+
+    .grading-table {
+        font-size: 1rem;
     }
 
     .model-container {
         flex-wrap: nowrap;
     }
 
+    .model-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .model-card p {
+        font-size: 1.05rem;
+    }
+
     .relationship-grid {
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    .relationship-title {
+        font-size: 1.15rem;
+    }
+
+    .relationship-card p {
+        font-size: 1.05rem;
     }
 
     .challenge-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .challenge-title {
+        font-size: 1.15rem;
+    }
+
     .leadership-examples {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .leadership-card h4 {
+        font-size: 1.15rem;
+    }
+
+    .leadership-card p {
+        font-size: 1.05rem;
     }
 
     .ethical-frameworks {
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .framework-card h4 {
+        font-size: 1.15rem;
+    }
+
+    .framework-card p {
+        font-size: 1.05rem;
+    }
+
     .platforms {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .platform h3 {
+        font-size: 1.15rem;
+    }
+
+    .platform p {
+        font-size: 1.05rem;
     }
 
     .info-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .info-card h3 {
+        font-size: 1.15rem;
+    }
+
+    .info-card p {
+        font-size: 1.05rem;
+    }
+
     .assessment-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .assessment-item h3 {
+        font-size: 1rem;
+    }
+
+    .assessment-item p {
+        font-size: 0.75rem;
+    }
+
+    .percentage {
+        font-size: 1.1rem;
+        padding: 8px 15px;
+    }
+
     .learning-outcomes {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .outcome-card h4 {
+        font-size: 1.15rem;
+    }
+
+    .outcome-card p {
+        font-size: 1.05rem;
+    }
+
+    .footer p {
+        font-size: 1rem;
     }
 }
 
@@ -1481,9 +1768,33 @@ body {
    LARGE DESKTOP (min-width: 1200px)
    ======================================== */
 @media (min-width: 1200px) {
+    html {
+        font-size: 22px;
+    }
+
     .container {
         border-radius: 20px;
         box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .header h1 {
+        font-size: 2.8rem;
+    }
+
+    .header h2 {
+        font-size: 1.35rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .concept-box p, .concept-box li {
+        font-size: 1.15rem;
+    }
+
+    .definition-box, .important-definition {
+        font-size: 1.15rem;
     }
 
     .assessment-grid {
