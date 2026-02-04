@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسبوع الرابع: الخصوصية وأمن المعلومات الشخصية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .privacy-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .data-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .data-type-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        .data-type-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .gdpr-principles {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+        
+        .principle-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-right: 4px solid #fff;
+        }
+        
+        .principle-number {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .threat-card {
+            background: #fff3e0;
+            border-right: 5px solid #ff9800;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+        }
+        
+        .threat-title {
+            color: #e65100;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .protection-tip {
+            background: #e8f5e9;
+            border-right: 4px solid #4caf50;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+        
+        .dark-web-pricing {
+            background: #263238;
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            border-bottom: 1px solid #455a64;
+        }
+        
+        .price-tag {
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-user-shield"></i> الأسبوع الرابع: الخصوصية وأمن المعلومات الشخصية</h1>
+            <h2>مساق أخلاقيات عصر المعلومات - دبلوم أمن المعلومات</h2>
+            <div class="week-badge"><i class="fas fa-calendar-week"></i> الأسبوع الرابع | المحاضرة الافتراضية</div>
+        </div>
+        
+        <div class="content">
+            <!-- أهداف التعلم -->
+            <div class="section">
+                <div class="learning-objectives">
+                    <h3><i class="fas fa-bullseye"></i> أهداف التعلم لهذا الأسبوع</h3>
+                    <ul class="objectives-list">
+                        <li>التعرف على حق الخصوصية بشكل عام وفي تكنولوجيا المعلومات بشكل خاص</li>
+                        <li>معرفة البيانات التي يجب حمايتها بقوانين حماية الخصوصية</li>
+                        <li>التعرف على القوانين الدولية والمبادرات من أجل حماية الخصوصية في الأعمال الإلكترونية</li>
+                        <li>التعرف على أهم المشاكل التي يمكن أن تؤدي إلى انتهاك الخصوصية في عالم تكنولوجيا المعلومات</li>
+                        <li>التعرف على الأدوات والطرق المستخدمة في حماية الخصوصية</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- مقدمة -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-lock"></i> مقدمة: أهمية الخصوصية في العصر الرقمي</h2>
+                
+                <div class="important-definition">
+                    <p><strong>حق الخصوصية:</strong> هو الحق في أن تترك وحدك، وهو مزيج من خصوصية الاتصالات (القدرة على التواصل مع الآخرين دون مراقبة) وخصوصية البيانات (القدرة على تقييد الوصول والتحكم في البيانات الشخصية من قبل الأفراد والمؤسسات الأخرى).</p>
+                </div>
+
+                <div class="concept-box">
+                    <h3 class="concept-title"><i class="fas fa-database"></i> عملية جمع المعلومات وأهميتها</h3>
+                    <p>تقوم الشركات والمؤسسات والحكومات بجمع المعلومات التي تمارسها في عملياتها الضرورية. وتعتبر حاجة أساسية حتى تعمل هذه المجموعات وفق معايير ومقاييس صحيحة. فهي تقوم بعملية جمع المعلومات المتعلقة بالأشخاص والمستخدمين وسلوكياتهم وممارساتهم وتحليلها.</p>
+                    
+                    <div class="key-point">
+                        <p><strong>أهمية جمع البيانات:</strong></p>
+                        <ul style="padding-right: 20px; margin-top: 10px;">
+                            <li>اتخاذ قرارات مستقبلية أفضل</li>
+                            <li>تقديم خدمة تسويق أفضل للعملاء والمستخدمين</li>
+                            <li>زيادة تفاعل الشركة مع عملائها (من الصعب تخيل وجود مؤسسة لديها علاقات جيدة مع عملائها دون أن يكون لديها بيانات عنهم)</li>
+                            <li>من وجهة نظر مالية: التعرف على عادات المستهلكين الشرائية ووضعهم ضمن فئات استهلاكية محددة</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="definition-box">
+                    <p><strong>ما الذي يقلق المستخدمين؟</strong></p>
+                    <p>يعترض كثير من المستخدمين على سياسة جمع المعلومات التي تقوم بها الشركات والحكومات حيث يعتبرون هذه العملية انتهاكاً لخصوصيتهم وانتهاكاً لأمن معلوماتهم الشخصية. وهذا بدوره يعيق على المستخدمين عملية الاستفادة من الإنترنت بشكل كامل وفعّال، ويؤثر على نمو التجارة الإلكترونية.</p>
+                </div>
+            </div>
+
+            <!-- أنواع البيانات -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-fingerprint"></i> أنواع البيانات الشخصية المحمية</h2>
+                
+                <p>تشمل الخصوصية عدة أنواع من المعلومات التي يجب حمايتها بقوانين وأنظمة الحماية الشخصية:</p>
+                
+                <div class="data-types-grid">
+                    <div class="data-type-card">
+                        <h4><i class="fas fa-id-card"></i> البيانات الشخصية الأساسية</h4>
+                        <p>مثل: الاسم، العنوان، تاريخ الميلاد، الجنس، الطول، الوزن، رقم الضمان الاجتماعي، رقم جواز السفر، رخصة القيادة.</p>
+                    </div>
+                    
+                    <div class="data-type-card">
+                        <h4><i class="fas fa-heartbeat"></i> البيانات الصحية</h4>
+                        <p>البيانات المتعلقة بالسجلات الصحية للأفراد، الحالة المرضية، التاريخ الصحي، والعلاجات الطبية.</p>
+                    </div>
+                    
+                    <div class="data-type-card">
+                        <h4><i class="fas fa-map-marker-alt"></i> البيانات بالتصرفات</h4>
+                        <p>معلومات عن: حركات الأفراد، أماكن تواجدهم، الأماكن التي يرتادونها، مناطق السير والطرق المواصلات التي يستخدمونها.</p>
+                    </div>
+                    
+                    <div class="data-type-card">
+                        <h4><i class="fas fa-phone"></i> البيانات بالاتصالات</h4>
+                        <p>بيانات التواصل مع الآخرين مثل: بيانات الاتصال ومتابعة والتنصت على المكالمات، المراسلة عبر الإنترنت.</p>
+                    </div>
+                    
+                    <div class="data-type-card">
+                        <h4><i class="fas fa-money-bill-wave"></i> البيانات المالية</h4>
+                        <p>البيانات المتعلقة بالسجلات المالية للأفراد، الحسابات البنكية، المعاملات المالية، وبطاقات الائتمان.</p>
+                    </div>
+                    
+                    <div class="data-type-card">
+                        <h4><i class="fas fa-shopping-cart"></i> البيانات السلوكية</h4>
+                        <p>عادات الشراء، التصفح على الإنترنت، الاهتمامات والتفضيلات الشخصية.</p>
+                    </div>
+                </div>
+
+                <div class="key-point">
+                    <p><strong>ملاحظة قانونية:</strong> في كل مجال من المجالات السابقة توجد قوانين تنظم كيفية جمع هذه البيانات وحمايتها، وتختلف من دولة لأخرى حسب الثقافة والتشريعات المحلية.</p>
+                </div>
+            </div>
+
+            <!-- مبادئ الاتحاد الأوروبي -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-globe-europe"></i> توجيهات الاتحاد الأوروبي لحماية البيانات (GDPR)</h2>
+                
+                <div class="definition-box">
+                    <p>توجيهات الاتحاد الأوروبي لحماية البيانات: يتطلب توجيه حماية البيانات في الاتحاد الأوروبي من أي شركة تمارس نشاطاً تجارياً داخل حدود 15 دولة أوروبية غربية تنفيذ مجموعة من توجيهات الخصوصية بشأن الاستخدام العادل والمناسب للمعلومات. ويشمل ذلك توفير:</p>
+                    <ul style="padding-right: 20px; margin-top: 10px;">
+                        <li>الإشعار - أخبر جميع العملاء بما تم فعله بمعلوماتهم</li>
+                        <li>الاختيار - احصل على موافقة الأفراد قبل استخدام معلوماتهم لأغراض تسويقية</li>
+                        <li>الدخول - فصح للأفراد عن صحة بياناتهم الشخصية</li>
+                        <li>الأمان - حماية معلومات العميل من الوصول غير المصرح به</li>
+                    </ul>
+                </div>
+
+                <div class="gdpr-principles">
+                    <h3 style="text-align: center; margin-bottom: 25px;"><i class="fas fa-balance-scale"></i> المبادئ التوجيهية لعملية جمع البيانات</h3>
+                    
+                    <div class="principle-item">
+                        <span class="principle-number">1</span>
+                        <strong>الشفافية:</strong> التعرف إلى طريقة جمع هذه البيانات، يجب الحصول على جميع هذه البيانات بشكل قانوني وعادل بموافقة الشخص المعني وعلمه.
+                    </div>
+                    
+                    <div class="principle-item">
+                        <span class="principle-number">2</span>
+                        <strong>جودة البيانات:</strong> يجب أن تكون البيانات الشخصية دقيقة وكاملة وحديثة وذات صلة بالغرض الذي تستخدم من أجله.
+                    </div>
+                    
+                    <div class="principle-item">
+                        <span class="principle-number">3</span>
+                        <strong>الغرض من جمع البيانات:</strong> يجب أن يتم تحديد الهدف من عملية جمع البيانات وعدم تغييره.
+                    </div>
+                    
+                    <div class="principle-item">
+                        <span class="principle-number">4</span>
+                        <strong>الضمانات الأمنية:</strong> يجب حماية البيانات الشخصية من الوصول والتعديل أو الكشف غير المصرح به.
+                    </div>
+                    
+                    <div class="principle-item">
+                        <span class="principle-number">5</span>
+                        <strong>المشاركة الفردية:</strong> يجب أن يتمتع الأشخاص بالحق في مراجعة بياناتهم والطعن في صحتها وتغيير البيانات غير الصحيحة.
+                    </div>
+                    
+                    <div class="principle-item">
+                        <span class="principle-number">6</span>
+                        <strong>توفير سياسة لهذه البيانات:</strong> يجب أن تكون سياسات البيانات موجودة، ويجب تحديد مراقب للبيانات.
+                    </div>
+                    
+                    <div class="principle-item">
+                        <span class="principle-number">7</span>
+                        <strong>وضع حدود على البيانات:</strong> لا ينبغي استخدام البيانات الشخصية بما يتجاوز الغرض المحدد دون موافقة الشخص أو بموجب سلطة القانون.
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4 class="example-title"><i class="fas fa-gavel"></i> قوانون مراقبة الجرائم والشواغع الآمنة</h4>
+                    <p>مثال: قانون مراقبة الجرائم والشواغع الآمنة، المعروف باسم قانون التنصت على المكالمات الهاتفية. يسمح لمسؤولي إنفاذ القانون في الولايات والمسؤولين الفيدراليين باستخدام التنصت ولكن فقط في ظل قيود صارمة. بموجب هذا القانون، يجب الحصول على مذكرة من القاضي لإجراء التنصت. إلا إذا "كان هناك سبب محتمل للاعتقاد بأن فرداً ما يرتكب جريمة معينة أو على وشك ارتكابها، وأن إجراءات التحقيق العادية تمت تجربتها وفشلت أو يبدو أنها غير مرجحة للنجاح بشكل معقول".</p>
+                </div>
+            </div>
+
+            <!-- القضايا المتعلقة بالخصوصية -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> أهم القضايا المتعلقة بخصوصية البيانات</h2>
+                
+                <!-- سرقة الهوية -->
+                <div class="threat-card">
+                    <h3 class="threat-title"><i class="fas fa-user-secret"></i> 1. سرقة الهوية (Identity Theft)</h3>
+                    <p>تحدث سرقة الهوية عندما يقوم شخص ما بسرقة أجزاء أساسية من المعلومات الشخصية لانتحال شخصية شخص ما. قد تتضمن هذه المعلومات: الاسم، العنوان، تاريخ الميلاد، رقم الضمان الاجتماعي، ورقم رخصة القيادة.</p>
+                    
+                    <div class="protection-tip">
+                        <strong><i class="fas fa-shield-alt"></i> كيف يحصل لصوص الهوية على بياناتك؟</strong>
+                        <ul style="padding-right: 20px; margin-top: 10px;">
+                            <li>اختراق قواعد بيانات شركات ومؤسسات تحتوي على آلاف أو ملايين السجلات الشخصية</li>
+                            <li>سرقة أجهزة الكمبيوتر المحمولة (مثل حادثة سرقة جهاز VA الذي احتوى على 26.5 مليون سجل)</li>
+                            <li>استخدام التصيد الاحتيالي لإغراء المستخدمين بالتخلي عن البيانات الشخصية</li>
+                            <li>تثبيت برامج تجسس قادرة على التقاط ضربات المفاتيح للضحايا</li>
+                        </ul>
+                    </div>
+
+                    <div class="dark-web-pricing">
+                        <h4 style="color: #fff; margin-bottom: 20px;"><i class="fas fa-tags"></i> قيمة البيانات في الأسواق المظلمة (Dark Web)</h4>
+                        <div class="price-item">
+                            <span>تفاصيل بطاقة الائتمان</span>
+                            <span class="price-tag">$6-20</span>
+                        </div>
+                        <div class="price-item">
+                            <span>صورة رخصة القيادة</span>
+                            <span class="price-tag">$5-25</span>
+                        </div>
+                        <div class="price-item">
+                            <span>صورة جواز السفر</span>
+                            <span class="price-tag">$6-15</span>
+                        </div>
+                        <div class="price-item">
+                            <span>خدمات الاشتراك</span>
+                            <span class="price-tag">$0.5-8</span>
+                        </div>
+                        <div class="price-item">
+                            <span>الهوية (الاسم الكامل، رقم الضمان الاجتماعي، التاريخ، البريد، الهاتف)</span>
+                            <span class="price-tag">$0.5-10</span>
+                        </div>
+                        <div class="price-item">
+                            <span>الصورة الشخصية مع الوثائق (جواز، رخصة)</span>
+                            <span class="price-tag">$40-60</span>
+                        </div>
+                        <div class="price-item">
+                            <span>حساب PayPal</span>
+                            <span class="price-tag">$50-500</span>
+                        </div>
+                    </div>
+
+                    <div class="protection-tip">
+                        <strong><i class="fas fa-user-shield"></i> توصيات لحماية نفسك من خطر سرقة الهوية:</strong>
+                        <ul style="padding-right: 20px; margin-top: 10px;">
+                            <li>مطالبة تجار التجزئة بطلب بطاقة هوية تحمل صورة عند قبول بطاقتك الائتمانية</li>
+                            <li>احذر من "ركوب الآخرين على الكتف" (Shoulder Surfing): تأكد من عدم قدرة أي شخص على النظر من فوق كتفك عند إدخال المعلومات الشخصية</li>
+                            <li>قلل البيانات الشخصية المعروضة على الشيكات: لا تقم بتضمين رقم الضمان الاجتماعي أو رقم رخصة القيادة</li>
+                            <li>قلل الوقت الذي يكون فيه رسائل تحتوي بياناتك في صندوق البريد</li>
+                            <li>استخدم كلمات مرور وأرقام PIN يصعب تخمينها (مزيج من الأحرف الكبيرة والصغيرة مع حرف خاص)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- التصيد الاحتيالي -->
+                <div class="threat-card">
+                    <h3 class="threat-title"><i class="fas fa-fish"></i> 2. التصيد الاحتيالي (Phishing)</h3>
+                    <p>التصيد: هو محاولة لسرقة بيانات الهوية الشخصية عن طريق خداع المستخدمين لإدخال معلومات على موقع ويب مزيف. تصلنا يومياً كثير من رسائل البريد الإلكتروني والتي تحتوي على مواقع ويب مزيفة صممت من أجل خداع المستخدمين لكتابة وإفشاء بياناتهم الشخصية.</p>
+                    
+                    <div class="example-box" style="background: #ffebee; border-color: #f44336;">
+                        <h4 style="color: #c62828;"><i class="fas fa-exclamation-circle"></i> مثال على موقع تصيد مزيف:</h4>
+                        <p>مواقع مزيفة تشبه صفحة تسجيل دخول Instagram أو Facebook، تطلب منك إدخال بياناتك ثم تقوم بسرقتها.</p>
+                    </div>
+                </div>
+
+                <!-- Keyloggers -->
+                <div class="threat-card">
+                    <h3 class="threat-title"><i class="fas fa-keyboard"></i> 3. برامج التجسس (Keyloggers)</h3>
+                    <p>هي برامج تعمل على تسجيل ضغطات المفاتيح التي يتم تنزيلها على أجهزة الكمبيوتر الخاصة بالمستخدمين دون علم المستخدم أو موافقته، وتعمل على جمع البيانات المهمة التي يستخدمها هؤلاء المستخدمين في التعامل مع الإنترنت.</p>
+                    
+                    <div class="key-point">
+                        <p><strong>ما الذي يجمعه البرنامج؟</strong> اسم المستخدم، كلمة المرور، أرقام بطاقات الائتمان، بيانات الحساسة التي يشاركها المستخدمين في تصفحهم الإنترنت.</p>
+                    </div>
+                </div>
+
+                <!-- أرشفة العمليات -->
+                <div class="threat-card">
+                    <h3 class="threat-title"><i class="fas fa-cookie-bite"></i> 4. أرشفة عمليات وتحركات المستخدمين (Cookies & Tracking)</h3>
+                    
+                    <div class="concept-box">
+                        <h4 class="concept-title">شراء البيانات</h4>
+                        <p>هناك سوق سوداء لبيع البيانات الشخصية، يمكن فيه شراء أرقام بطاقات الائتمان بكميات كبيرة مقابل أقل من 40 دولاراً لكل منها، بينما يمكن الحصول على اسم تسجيل الدخول ورقم التعريف الشخصي الضروري للوصول إلى حساب مصرفي مقابل 10.36 دولاراً فقط.</p>
+                    </div>
+
+                    <p>تقوم شركات التسويق بتجميع المعلومات التي تجمعها عن المستهلكين لبناء قواعد بيانات تحتوي على كمية هائلة من بيانات المستهلك. يستخدمون البيانات المعنونة (Metadata) لاستهداف وجذب العملاء بشكل أكثر فعالية لرسائلهم.</p>
+
+                    <div class="protection-tip">
+                        <strong><i class="fas fa-shield-alt"></i> حماية الخصوصية من عمليات الأرشفة:</strong>
+                        <ul style="padding-right: 20px; margin-top: 10px;">
+                            <li>ضبط إعدادات المتصفح لتحد ومنع من تخزين بيانات Cookies على الأجهزة</li>
+                            <li>حذف ملفات Cookies بطريقة يدوية من خلال حذف هذه الملفات من الجهاز بشكل دوري</li>
+                            <li>تنزيل برامج تساعد على التحكم في الوصول إلى ملفات Cookies بحيث تستطيع فقط الشركات التي قامت بإنشائها من الوصول إليها وتغييرها</li>
+                            <li>استخدام برامج تصفح مجهولة (Private Browsing) تقبل ملفات تعريف الارتباط</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 15px; text-align: center;">
+                        <img src="https://kimi-web-img.moonshot.cn/img/i.imgur.com/e2f42f8b5c2a8e3b79a9c8d7f6e5a4b3c2d1e0f.png" alt="Cookie Settings" style="max-width: 100%; border-radius: 8px;" onerror="this.style.display='none'">
+                        <p style="margin-top: 10px; color: #666; font-size: 0.9rem;"><i class="fab fa-chrome"></i> إعدادات الخصوصية في Google Chrome</p>
+                    </div>
+                </div>
+
+                <!-- مراقبة مكان العمل -->
+                <div class="threat-card">
+                    <h3 class="threat-title"><i class="fas fa-user-tie"></i> 5. مراقبة مكان العمل</h3>
+                    <p>يسعى كثير من أصحاب العمل إلى مراقبة الموظفين والعمال أثناء القيام بمواجباتهم، ونستخدم مجموعة من التقنيات التي تخزن معلومات عن تحركات الموظفين أثناء العمل.</p>
+                    
+                    <div class="key-point">
+                        <p><strong>المخاطر:</strong> يمكن أن يؤدي تخزين هذه البيانات إلى وصول أشخاص غير مخولين إليها واستخدامها بطريقة تسيء للموظفين.</p>
+                        <p><strong>الحماية القانونية:</strong> يوجد لدى موظفي وعمال القطاعات العامة عادة حقوق مكفولة بالقانون تساعد على حماية خصوصيتهم.</p>
+                        <p><strong>التطور التقني:</strong> تحاول بعض المنظمات غير الحكومية في الدول المتقدمة من سن قوانين تطبق أيضاً على القطاعات الخاصة من أجل حماية خصوصية الموظفين داخل أماكن العمل.</p>
+                    </div>
+                </div>
+
+                <!-- أدوات المراقبة التكنولوجية -->
+                <div class="threat-card">
+                    <h3 class="threat-title"><i class="fas fa-video"></i> 6. أدوات المراقبة التكنولوجية المتقدمة</h3>
+                    <p>وفرت لنا التكنولوجيا العديد من الأنظمة المتقدمة التي تساهم في عملية جمع البيانات والمراقبة المباشرة والدقيقة للأفراد، مثل:</p>
+                    <ul style="padding-right: 20px; margin-top: 10px;">
+                        <li>برامج التعرف على الوجه</li>
+                        <li>شرائح GPS</li>
+                        <li>كاميرات المراقبة الذكية</li>
+                    </ul>
+                    
+                    <div class="key-point">
+                        <p>يمكن لهذه التطورات أيضاً أن تقلل من خصوصية الأفراد وتعقد مسألة مقدار المعلومات التي يجب التقاطها حول حياة الأشخاص الخاصة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- دراسة حالة -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> دراسة حالة: تسريب بيانات العملاء</h2>
+                
+                <div class="case-study-box">
+                    <h3 class="case-title"><i class="fas fa-store"></i> السيناريو: اختراق قاعدة بيانات شركة تجزئة كبرى</h3>
+                    
+                    <p><strong>الواقعة:</strong> تم اختراق قاعدة بيانات شركة تجزئة كبرى وسرقة بيانات 40 مليون عميل تشمل أرقام بطاقات الائتمان، أسماء، عناوين، ورموز أمنية.</p>
+                    
+                    <p><strong>التحدي:</strong> نسمع يومياً عن تسريب آلاف البيانات التي تتبع لشركات كبرى يستخدمها ملايين الناس، وكثيراً ما نقرأ عن عمليات لبيع قواعد بيانات تتضمن أسماء مستخدمين وكلمات مرور خاصة بهم.</p>
+
+                    <div class="case-questions">
+                        <h4><i class="fas fa-question-circle"></i> أسئلة للنقاش:</h4>
+                        <ol style="padding-right: 20px;">
+                            <li>ما هي المسؤولية الأخلاقية للشركة في حماية بيانات العملاء؟</li>
+                            <li>هل يجب على الشركات إبلاغ العملاء فوراً عند حدوث اختراق؟ ما هي المعايير الأخلاقية والقانونية في ذلك؟</li>
+                            <li>كيف يمكن للمستخدمين حماية أنفسهم عند التعامل مع الشركات التي ت تخزن بياناتهم؟</li>
+                            <li>ما هي العواقب الأخلاقية والمالية لتسريب البيانات على الشركة والعملاء؟</li>
+                        </ol>
+                    </div>
+
+                    <div class="solution-box">
+                        <h4 class="solution-title"><i class="fas fa-lightbulb"></i> تحليل الحالة</h4>
+                        
+                        <p><strong>المسؤولية الأخلاقية:</strong> تضمن الشركة أن المعلومات محمية بعناية ويمكن الوصول إليها فقط من قبل الأشخاص المحتاجين فإليها. وأن المستهلكين يمكنهم مراجعة بياناتهم الخاصة وإجراء التصحيحات.</p>
+                        
+                        <p><strong>الإبلاغ عن الاختراق:</strong> تمس قوانين حكومية تشترط أن يتم الكشف في أسرع وقت ممكن عن عملية اختراق لقواعد البيانات ودون أي تأخير غير معقول. يجب إبلاغ الضحايا الذين تم تسريب بياناتهم الشخصية أثناء الاختراق حتى يتمكنوا من اتخاذ تدابير وقائية.</p>
+                        
+                        <p><strong>حماية المستخدم:</strong> استخدام كلمات مرور قوية، تفعيل المصادقة الثنائية، مراقبة الحسابات البنكية باستمرار، وعدم تخزين معلومات بطاقات الائتمان على المواقع غير الموثوقة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الواجب العملي -->
+            <div class="assignment-box">
+                <h2 class="assignment-title"><i class="fas fa-tasks"></i> الواجب العملي: سياسة خصوصية لمؤسسة افتراضية</h2>
+                
+                <div style="background: rgba(255,255,255,0.9); padding: 25px; border-radius: 12px; color: #333;">
+                    <h3><i class="fas fa-file-alt"></i> السيناريو: تطوير سياسة خصوصية شاملة</h3>
+                    
+                    <p><strong>أنت مسؤول أمن معلومات في شركة ناشئة متخصصة في التجارة الإلكترونية.</strong> الشركة تجمع بيانات العملاء (أسماء، عناوين، أرقام بطاقات ائتمان، سجل المشتريات، وتفضيلات التصفح). شركة أمنية كبرى اكتشفت ثغرة في نظامكم قد تسمح بتسريب هذه البيانات.</p>
+                    
+                    <p>الإدارة تطلب منك وضع <strong>سياسة خصوصية وإجراءات أمنية</strong> تحمي بيانات العملاء وتتوافق مع معايير حماية البيانات العالمية.</p>
+
+                    <h4 style="margin-top: 20px; color: #764ba2;"><i class="fas fa-list-ol"></i> المطلوب:</h4>
+                    <ol style="padding-right: 20px; margin-top: 10px;">
+                        <li><strong>سياسة الجمع (20%):</strong> حدد أنواع البيانات التي تجمعها الشركة ومبررات جمع كل نوع.</li>
+                        <li><strong>مبادئ الحماية (30%):</strong> اذكر 5 مبادئ أساسية لحماية هذه البيانات (التشفير، التحكم في الوصول، النسخ الاحتياطي، إلخ).</li>
+                        <li><strong>حقوق العملاء (20%):</strong> ما هي الحقوق التي يجب أن تمنحها للعملاء فيما يتعلق ببياناتهم؟ (الحق في الاطلاع، التصحيح، الحذف)</li>
+                        <li><strong>خطة الطوارئ (20%):</strong> اكتب خطة لإدارة حوادث تسريب البيانات تشمل: الكشف، الإبلاغ، والحماية.</li>
+                        <li><strong>التزامات المؤسسة (10%):</strong> ما هي الالتزامات الأخلاقية والقانونية للشركة تجاه العملاء؟</li>
+                    </ol>
+
+                    <div style="margin-top: 20px; background: #fff3e0; padding: 15px; border-radius: 8px;">
+                        <h4 style="color: #e65100;"><i class="fas fa-info-circle"></i> معلومات التسليم:</h4>
+                        <ul style="padding-right: 20px;">
+                            <li>التنسيق: مستند Word أو عرض تقديمي PowerPoint</li>
+                            <li>الحد الأدنى: 3 صفحات للمستند أو 10 شرائح للعرض</li>
+                            <li>يجب تضمين مراجع قانونية وتقنية</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- خاتمة -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-check-circle"></i> خاتمة: نحو ثقافة خصوصية واعية</h2>
+                
+                <div class="concept-box">
+                    <p>لا يقتدي دورنا كمتخصصين في أمن المعلومات على حماية الأنظمة فحسب، بل يمتد إلى <strong>حماية حقوق الأفراد في الخصوصية</strong>. يجب أن نكون حرساً على البيانات التي نعتمدها، وأن نخلق توازناً بين الاستفادة من التكنولوجيا والحفاظ على الكرامة الإنسانية.</p>
+                    
+                    <div class="quote">
+                        "الخصوصية ليست شيئاً يمكن التضحية به في سبيل الأمن، بل هي أحد أركان الحرية الشخصية التي يجب حمايتها بأحدث الوسائل التكنولوجية."
+                        <div class="quote-author">- مبدأ في أخلاقيات المعلومات</div>
+                    </div>
+                    
+                    <div class="key-point">
+                        <p><strong>تذكير عملي:</strong> استخدم أدوات الحماية المتاحة (VPN، مديري كلمات المرور، المصادقة الثنائية)، وكن حذراً في مشاركة بياناتك الشخصية، وطالب دائماً بشفافية من المؤسسات التي تتعامل مع بياناتك.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><i class="fas fa-university"></i> الكلية الجامعية للعلوم التطبيقية - قسم أمن المعلومات</p>
+            <p><i class="fas fa-envelope"></i> للاستفسارات: makhalil@ucas.edu.ps | <i class="fab fa-google"></i> Google Classroom: DINF1101</p>
+            <p>© 2026 سايبر خليل - جميع الحقوق محفوظة.</p>
+        </div>
+    </div>
+</body>
+</html>
