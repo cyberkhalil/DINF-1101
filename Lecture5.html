@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسبوع الخامس: مواقع التواصل – الإدمان، البيانات، واستراتيجيات المواجهة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* تنسيقات إضافية متطورة */
+        :root {
+            --danger: #c62828;
+            --warning: #ff9800;
+            --info: #0288d1;
+            --success-dark: #2e7d32;
+            --dark-bg: #0b1a2f;
+            --card-bg: #10233b;
+        }
+        .data-lab {
+            background: var(--dark-bg);
+            color: #e0e0e0;
+            padding: 30px 25px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid #2a3f5e;
+        }
+        .data-lab h3 {
+            color: #ffb74d;
+            border-bottom: 2px solid #ffb74d;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 1.7rem;
+        }
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin: 20px 0;
+        }
+        .model-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px;
+            border-right: 5px solid #ffb74d;
+            transition: transform 0.2s;
+        }
+        .model-card:hover {
+            transform: translateY(-5px);
+            background: #1a2f4a;
+        }
+        .model-card h4 {
+            color: #ffb74d;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.3rem;
+        }
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #2a4a6a;
+            font-size: 1.1rem;
+        }
+        .data-row:last-child {
+            border-bottom: none;
+        }
+        .data-label {
+            color: #b0d0ff;
+        }
+        .data-value {
+            font-weight: 700;
+            color: #ffb74d;
+            background: rgba(255,180,70,0.1);
+            padding: 2px 12px;
+            border-radius: 40px;
+        }
+        .fear-target {
+            background: #330f0f;
+            border-right-color: #ff5555;
+        }
+        .insight-box {
+            background: #1e3a5f;
+            padding: 20px;
+            border-radius: 14px;
+            margin: 25px 0;
+            border-right: 5px solid #4fc3ff;
+            color: #f0f0f0;
+        }
+        .stat-badge {
+            background: #263f5c;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            color: white;
+        }
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #ffb74d;
+            line-height: 1;
+        }
+        .two-column {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+        .two-column > div {
+            flex: 1 1 300px;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+        }
+        .arabic-term {
+            font-weight: 600;
+        }
+        .btn-special {
+            background: var(--accent-color);
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-special:hover {
+            background: #d32f2f;
+            transform: scale(1.02);
+        }
+        .reflection-questions {
+            background: #edf7fc;
+            padding: 25px;
+            border-radius: 25px;
+            margin-top: 30px;
+        }
+
+        /* أقسام جديدة */
+        .strategy-section {
+            background: linear-gradient(145deg, #f1f8e9, #ffffff);
+            border-right: 8px solid #2e7d32;
+            padding: 30px;
+            border-radius: 28px;
+            margin: 40px 0;
+        }
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        .strategy-card {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(46,125,50,0.1);
+            border-bottom: 5px solid #2e7d32;
+        }
+        .strategy-card h4 {
+            color: #1b5e20;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        .hacker-pov {
+            background: #1e1e2f;
+            color: #e0e0e0;
+            padding: 30px;
+            border-radius: 32px;
+            margin: 40px 0;
+            border: 2px solid #b71c1c;
+        }
+        .hacker-pov h3 {
+            color: #ff8a80;
+            font-size: 2rem;
+        }
+        .threat-card {
+            background: #2a2a40;
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            border-right: 6px solid #f44336;
+        }
+        .tip-list {
+            list-style: none;
+            padding-right: 0;
+        }
+        .tip-list li {
+            margin-bottom: 15px;
+            padding-right: 35px;
+            position: relative;
+        }
+        .tip-list li:before {
+            content: "🛡️";
+            position: absolute;
+            right: 0;
+            font-size: 1.3rem;
+        }
+        .accent-text {
+            color: #ffb74d;
+            font-weight: 700;
+        }
+        .small-stat {
+            font-size: 2rem;
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-robot"></i> الأسبوع الخامس: مواقع التواصل – الإدمان، البيانات، واستراتيجيات المواجهة</h1>
+            <h2>مساق أخلاقيات عصر المعلومات - دبلوم أمن المعلومات</h2>
+            <div class="week-badge"><i class="fas fa-calendar-week"></i> الأسبوع الخامس | محاضرة أكاديمية متعمقة</div>
+        </div>
+        
+        <div class="content">
+            <!-- أهداف التعلم المحسّنة -->
+            <div class="section">
+                <div class="learning-objectives">
+                    <h3><i class="fas fa-bullseye"></i> أهداف التعلم – ماذا سنكشف اليوم؟</h3>
+                    <ul class="objectives-list">
+                        <li>🔍 تفكيك نموذج العمل الخفي لمواقع التواصل: لماذا أنت المنتج الحقيقي؟</li>
+                        <li>🧠 قراءة متعمقة في بيانات المستخدمين (النفسية والديموغرافية) وكيف تُستخدم لبناء "نماذج تنبؤية" تطابق عقلك.</li>
+                        <li>🎯 استعراض الأساليب القسرية الناعمة: الإشعارات، الدوبامين، التمرير اللانهائي، والخوارزميات التنبؤية.</li>
+                        <li>📉 تحليل الآثار المجتمعية: الاستقطاب، الانتحال العاطفي، فقدان الهوية، وانهيار الصحة النفسية.</li>
+                        <li>🛠️ بناء استراتيجيات عملية للتحرر الرقمي واستعادة الإرادة.</li>
+                        <li>⚠️ فهم كيف يستغل المخترقون بياناتك المسربة (نظرة القراصنة) وكيف تحمي نفسك.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 1. تعريف وأهمية -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-comment-dots"></i> تعريف وأهمية (في سطور)</h2>
+                <div class="important-definition">
+                    <p><strong>مواقع التواصل الاجتماعي</strong> – تطبيقات تتيح تبادل الأفكار والآراء والمحتوى، أحدثت ثورة في التواصل وخلقت فرصاً مهنية. لكن تحت السطح، تعمل كـ <span style="color:#c62828; font-weight:bold;">"آلات تنبؤ وإدمان"</span>.</p>
+                </div>
+            </div>
+
+            <!-- 2. أسئلة وقفة مع نفسك -->
+            <div class="section reflection-questions">
+                <h2 class="section-title"><i class="fas fa-hourglass-half"></i> وقفة صادقة: ماذا لو رفعت رأسك من الهاتف؟</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 15px;">
+                    <div><i class="fas fa-sun"></i> أول شيء في الصباح؟</div>
+                    <div><i class="fas fa-moon"></i> آخر شيء قبل النوم؟</div>
+                    <div><i class="fas fa-utensils"></i> أثناء الأكل؟</div>
+                    <div><i class="fas fa-users"></i> مع العائلة؟</div>
+                    <div><i class="fas fa-globe"></i> تشعر بالوحدة رغم كل هذه "التواصل"؟</div>
+                </div>
+                <p style="margin-top:20px; font-size:1.2em;">🤔 هذه الأسئلة تختبر <strong>درجة السيطرة التي منحتها للتطبيقات على وعيك</strong>.</p>
+            </div>
+
+            <!-- 3. مختبر البيانات -->
+            <div class="data-lab">
+                <h3><i class="fas fa-chart-line"></i> مختبر البيانات: ماذا تعرف عنك المنصات حقاً؟</h3>
+                <p style="margin-bottom: 25px;">بيانات حقيقية تُجمع عن كل مستخدم – بدقة تصل إلى 95%. هذه الأرقام مستمدة من وثائق داخلية وشهادات خبراء.</p>
+
+                <div class="model-grid">
+                    <!-- الحالة النفسية -->
+                    <div class="model-card">
+                        <h4><i class="fas fa-heartbeat"></i> حالتك النفسية الآن</h4>
+                        <div class="data-row"><span class="data-label">😔 وحيد (LONELY)</span> <span class="data-value">62.3%</span></div>
+                        <div class="data-row"><span class="data-label">😬 متوتر (NERVOUS)</span> <span class="data-value">80.8%</span></div>
+                        <div class="data-row"><span class="data-label">😐 يشعر بالملل (BORED)</span> <span class="data-value">15.1%</span></div>
+                        <div class="data-row"><span class="data-label">🎯 مركز (FOCUSED)</span> <span class="data-value">60.7%</span></div>
+                        <div class="data-row"><span class="data-label">🤩 متحمس (EXCITED)</span> <span class="data-value">44.3%</span></div>
+                        <div class="data-row"><span class="data-label">😴 متعب (TIRED)</span> <span class="data-value">19.1%</span></div>
+                        <div class="data-row"><span class="data-label">🍔 جائع (HUNGRY)</span> <span class="data-value">50.2%</span></div>
+                    </div>
+                    <!-- السمات الديموغرافية -->
+                    <div class="model-card">
+                        <h4><i class="fas fa-id-card"></i> ملفك الديموغرافي</h4>
+                        <div class="data-row"><span class="data-label">ذكر (CIS-GENDERED MALE)</span> <span class="data-value">95.1%</span></div>
+                        <div class="data-row"><span class="data-label">مغاير (HETEROSEXUAL)</span> <span class="data-value">87.7%</span></div>
+                        <div class="data-row"><span class="data-label">أعزب ويبحث (SINGLE, SEEKING)</span> <span class="data-value">92.5%</span></div>
+                        <div class="data-row"><span class="data-label">أقصر من المتوسط (SHORTER)</span> <span class="data-value">69.1%</span></div>
+                        <div class="data-row"><span class="data-label">ثراء (AFFLUENT)</span> <span class="data-value">78.1%</span></div>
+                        <div class="data-row"><span class="data-label">رياضي (ATHLETIC)</span> <span class="data-value">75.0%</span></div>
+                    </div>
+                    <!-- المخاوف والأهداف -->
+                    <div class="model-card fear-target">
+                        <h4><i class="fas fa-shield-virus"></i> مخاوفك + أهدافك</h4>
+                        <div class="data-row"><span class="data-label">الخوف من العزلة الاجتماعية</span> <span class="data-value">60.4%</span></div>
+                        <div class="data-row"><span class="data-label">الخوف من الرفض</span> <span class="data-value">51.7%</span></div>
+                        <div class="data-row"><span class="data-label">الخوف من الثعابين</span> <span class="data-value">71.9%</span></div>
+                        <div class="data-row"><span class="data-label">الخوف من التحدث أمام الجمهور</span> <span class="data-value">61.2%</span></div>
+                        <div class="data-row"><span class="data-label">هدف: النجاح الأكاديمي</span> <span class="data-value">80.1%</span></div>
+                        <div class="data-row"><span class="data-label">هدف: علاقة عاطفية</span> <span class="data-value">88.3%</span></div>
+                        <div class="data-row"><span class="data-label">هدف: اللياقة البدنية</span> <span class="data-value">56.7%</span></div>
+                    </div>
+                </div>
+
+                <div class="insight-box">
+                    <p><i class="fas fa-microchip" style="margin-left:10px;"></i> <strong>كيف يحصلون على هذه الدقة؟</strong> كل إعجاب، كل ثانية تقف فيها عند صورة معينة، كل تأجيل للنوم – تغذي خوارزميات الذكاء الاصطناعي. نموذج ASPEN-5 يدمج آلاف المتغيرات ليتنبأ بحالتك المزاجية قبل أن تشعر بها. هذه هي السلعة التي تُباع للمعلنين: <span style="color:#ffb74d;">اليقين بعواطفك</span>.</p>
+                </div>
+            </div>
+
+            <!-- 4. لماذا يجمعونها؟ -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-project-diagram"></i> من يملك أفضل نموذج – يفوز</h2>
+                <div class="key-point" style="background: #0b2a3b; color:white;">
+                    <p>كل هذه البيانات تُستخدم لبناء <strong>نسخة رقمية طبق الأصل منك</strong> (Digital Twin). يتم محاكاة قراراتك المستقبلية: ماذا ستشتري، لمن ستصوت، متى ستصاب بالاكتئاب. المنصة التي تتنبأ بدقة 90% تتفوق على التي تتنبأ بدقة 70%. إنها <span style="color:#ffb74d;">سباق تسلح عاطفي</span>.</p>
+                </div>
+            </div>
+
+            <!-- 5. الأساليب النفسية -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-mask"></i> 15 أسلوباً خفياً يبقي عينيك على الشاشة</h2>
+                <div class="psychology-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px,1fr));">
+                    <div class="psychology-card"><i class="fas fa-bell"></i> <strong>الإشعارات التفاعلية</strong> "سارة علقت على صورتك" – استغلال الفضول.</div>
+                    <div class="psychology-card"><i class="fas fa-check-double"></i> <strong>علامات القراءة</strong> "شوهد" – تخلق ضغطاً اجتماعياً.</div>
+                    <div class="psychology-card"><i class="fas fa-scroll"></i> <strong>السكرول اللانهائي</strong> – لا توجد نقطة توقف طبيعية.</div>
+                    <div class="psychology-card"><i class="fas fa-video"></i> <strong>التشغيل التلقائي</strong> – الفيديو التالي يبدأ قبل أن تقرر.</div>
+                    <div class="psychology-card"><i class="fas fa-heart"></i> <strong>الإعجابات التفاعلية</strong> – جرعات دوبامين متقطعة.</div>
+                    <div class="psychology-card"><i class="fas fa-comment-dots"></i> <strong>مؤشر الكتابة</strong> "الطرف الآخر يكتب..." يبقيك منتظراً.</div>
+                    <div class="psychology-card"><i class="fas fa-search"></i> <strong>إكمال تلقائي مخصص</strong> حسب موقعك واهتماماتك.</div>
+                    <div class="psychology-card"><i class="fas fa-ad"></i> <strong>إعلانات تطابق حديثك الخاص</strong> (هل تسمعنا؟).</div>
+                    <div class="psychology-card"><i class="fas fa-smile"></i> <strong>اقتراح رموز تعبيرية</strong> – اختصار لمشاعرك.</div>
+                </div>
+                <div class="quote">
+                    <p>"نحن نستغل ثغرات في علم النفس البشري. نعطيك جرعة دوبامين صغيرة كل بضع دقائق لتبقى مدمناً." – مهندس سابق في فيسبوك</p>
+                </div>
+            </div>
+
+            <!-- 6. الآثار المدمرة -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-skull-crosswind"></i> ثمن "المجانية": انهيار الصحة النفسية</h2>
+                <div class="two-column">
+                    <div class="stat-badge">
+                        <div class="stat-number">+47%</div>
+                        <p>زيادة الاكتئاب بين المراهقين (2010-2020) بالتزامن مع انتشار الهواتف الذكية.</p>
+                    </div>
+                    <div class="stat-badge">
+                        <div class="stat-number">1/5</div>
+                        <p>واحد من كل خمسة شباب يفكر في الانتحار بسبب التنمر الإلكتروني أو المقارنات الاجتماعية.</p>
+                    </div>
+                </div>
+                <ul class="harm-list" style="list-style: none; padding-right:0;">
+                    <li><i class="fas fa-times-circle" style="color:#c62828;"></i> <strong>أخبار زائفة</strong> – تنتشر أسرع 6 مرات من الحقيقة.</li>
+                    <li><i class="fas fa-times-circle" style="color:#c62828;"></i> <strong>فقدان الهوية</strong> – تنشر ما يرضي الجمهور لا ما تؤمن به.</li>
+                    <li><i class="fas fa-times-circle" style="color:#c62828;"></i> <strong>الاستقطاب</strong> – خوارزميات تعرض فقط ما يزيد غضبك.</li>
+                    <li><i class="fas fa-times-circle" style="color:#c62828;"></i> <strong>الانتحال العاطفي</strong> – لم تعد تعرف مشاعرك الحقيقية.</li>
+                </ul>
+            </div>
+
+            <!-- ===== القسم الأكاديمي الجديد: استراتيجيات المواجهة ===== -->
+            <div class="strategy-section">
+                <h2 style="font-size: 2rem; color: #1b5e20; margin-bottom: 10px;"><i class="fas fa-tools"></i> استراتيجيات المواجهة: كيف تستعيد سيطرتك؟</h2>
+                <p style="font-size: 1.1rem;">نصائح عملية مدعومة بأبحاث في علم النفس والتقنية لتقليل الإدمان وحماية بياناتك.</p>
+                
+                <div class="strategy-grid">
+                    <div class="strategy-card">
+                        <h4><i class="fas fa-clock"></i> 1. تحديد الوقت الرقمي</h4>
+                        <p>استخدم مؤقتات التطبيقات (Digital Wellbeing) لتحديد 30 دقيقة يومياً لكل منصة. الدراسات تشير إلى أن الحد الواعي يقلل من إفراز الدوبامين الشرطي.</p>
+                    </div>
+                    <div class="strategy-card">
+                        <h4><i class="fas fa-bell-slash"></i> 2. إلغاء الإشعارات تماماً</h4>
+                        <p>الإشعارات هي المحفز الأساسي للدخول القسري. ألغِ جميع الإشعارات باستثناء الضرورية (المكالمات). هذا يقلل التشتت بنسبة تصل إلى 60%.</p>
+                    </div>
+                    <div class="strategy-card">
+                        <h4><i class="fas fa-palette"></i> 3. جعل الهاتف "أبيض وأسود"</h4>
+                        <p>تحويل الألوان إلى تدرج رمادي يقلل من جاذبية الشاشة، مما يخفض الوقت المستغرق تلقائياً (حسب تجارب Google).</p>
+                    </div>
+                    <div class="strategy-card">
+                        <h4><i class="fas fa-calendar-week"></i> 4. يوم رقمي أسبوعي</h4>
+                        <p>خصص يوم عطلة أسبوعي (مثل الجمعة) بدون أي تطبيق تواصل اجتماعي. استخدمه للقاءات وجهًا لوجه أو القراءة.</p>
+                    </div>
+                    <div class="strategy-card">
+                        <h4><i class="fas fa-user-lock"></i> 5. إعدادات خصوصية صارمة</h4>
+                        <p>راجع إعدادات الخصوصية مرة كل شهر. عطل التتبع والإعلانات المخصصة، واستخدم VPN ولا تشارك موقعك الحقيقي.</p>
+                    </div>
+                    <div class="strategy-card">
+                        <h4><i class="fas fa-database"></i> 6. تصدير بياناتك وحذفها</h4>
+                        <p>معظم المنصات تتيح لك تصدير بياناتك (Download your data). اطلبها، وانظر ماذا يعرفون عنك، ثم فكر في حذف المحتوى القديم أو إلغاء الحساب.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== قسم المخترقين ونظرة القراصنة ===== -->
+            <div class="hacker-pov">
+                <h3><i class="fas fa-skull"></i> نظرة المخترق: بياناتك هي منجم الذهب الجديد</h3>
+                <p style="font-size: 1.2rem;">من منظور القراصنة (Black Hat)، المعلومات الشخصية الدقيقة الموضحة أعلاه تُباع في الأسواق السوداء وتُستخدم في هجمات مخصصة.</p>
+                
+                <div class="threat-card">
+                    <h4 style="color: #ff8a80;"><i class="fas fa-fish"></i> هجمات التصيد الاحتيالي الفائقة (Spear Phishing)</h4>
+                    <p>باستخدام بياناتك (خوفك من العزلة، هدفك الأكاديمي، مكانك)، يرسل لك المخترق رسالة تبدو شخصية جداً: "مرحباً، أنا من إدارة المنح الدراسية، لقد رصدنا حاجتك لمنحة..." احتمالية نجاح هذا الهجوم تتجاوز 90% إذا كان مخصصاً.</p>
+                </div>
+
+                <div class="threat-card">
+                    <h4 style="color: #ff8a80;"><i class="fas fa-id-card"></i> انتحال الشخصية (Identity Theft)</h4>
+                    <p>بامتلاكهم اسمك الكامل، تاريخ الميلاد، الاهتمامات، مكان العمل، يمكنهم فتح حسابات بنكية أو اقتراض أموال باسمك. في عام 2023، بلغ متوسط الخسارة الفردية بسبب سرقة الهوية <strong>$4,500</strong>.</p>
+                </div>
+
+                <div class="threat-card">
+                    <h4 style="color: #ff8a80;"><i class="fas fa-heart-broken"></i> الابتزاز العاطفي والجنسي</h4>
+                    <p>المخترقون يبحثون عن صور خاصة أو محادثات حميمة. ولكن حتى دونها، يمكنهم باستخدام بيانات "خوفك من الرفض" أو "خوفك من العزلة" ابتزازك عاطفياً عبر التهديد بنشر معلوماتك الشخصية (التي سرقوها) لأصدقائك وعائلتك. 40% من حالات الابتزاز الإلكتروني تبدأ ببيانات مسربة من وسائل التواصل.</p>
+                </div>
+
+                <div class="threat-card">
+                    <h4 style="color: #ff8a80;"><i class="fas fa-network-wired"></i> اختراق كلمات المرور عبر الأسئلة الأمنية</h4>
+                    <p>أسئلة مثل "ما اسم حيوانك الأليف؟" أو "ما اسم مدرستك الثانوية؟" يمكن الإجابة عليها بسهولة من خلال صورك ومنشوراتك على وسائل التواصل. 70% من الناس يستخدمون إجابات حقيقية يسهل العثور عليها.</p>
+                </div>
+
+                <div class="insight-box" style="background: #311b1b; border-right-color: #f44336;">
+                    <p><i class="fas fa-exclamation-triangle" style="color:#ffb74d;"></i> <strong>نصيحة أمنية من خبراء الأمن السيبراني:</strong></p>
+                    <ul class="tip-list" style="color: #ddd;">
+                        <li>لا تنشر أبداً تاريخ ميلادك الكامل أو مكان ميلادك أو اسم حيوانك الأليف.</li>
+                        <li>استخدم <strong>المصادقة الثنائية (2FA)</strong> في جميع حساباتك.</li>
+                        <li>احذر من الروابط المختصرة حتى لو جاءت من أصدقاء (قد يكون حسابهم مخترقاً).</li>
+                        <li>راجع إعدادات الخصوصية بشكل دوري، وافصل التطبيقات المتصلة بحسابك (apps connected).</li>
+                        <li>استخدم كلمات مرور مختلفة لكل منصة، وخزنها في مدير كلمات مرور موثوق.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 7. دراسة حالة -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-chalkboard-teacher"></i> معمل التفكير: صمم بديلاً أخلاقياً</h2>
+                <div class="case-study-box">
+                    <p><strong>التحدي:</strong> Platform "Ethica" – منصة تواصل تريد كسر نموذج الإدمان. تقوم على الاشتراك الشهري (لا إعلانات) وتحترم وقتك.</p>
+                    <div class="case-questions">
+                        <ol style="padding-right:20px;">
+                            <li>كيف تصمم خوارزمية الفيديو بحيث لا تسبب السكرول اللانهائي؟</li>
+                            <li>ما نوع الإشعارات المسموحة؟ (مرة واحدة يومياً؟)</li>
+                            <li>هل تسمح بإخفاء عدد الإعجابات؟ لماذا؟</li>
+                            <li>كيف تحقق أرباحاً دون بيع بيانات المستخدمين؟</li>
+                        </ol>
+                    </div>
+                </div>
+                <button class="btn-special" onclick="alert('فكرة رائعة! يمكن تطبيق حد زمني يومي وإشعارات مجمعة.')"><i class="fas fa-lightbulb"></i> اقتراح سريع</button>
+            </div>
+
+            <!-- 8. الواجب العملي -->
+            <div class="assignment-box">
+                <h2 class="assignment-title"><i class="fas fa-feather"></i> الواجب التطبيقي: "تحدي الـ 48 ساعة بدون تغذية خوارزمية"</h2>
+                <div style="padding:25px; border-radius:18px;">
+                    <h3>📵 اخرج من المصفوفة يومين كاملين</h3>
+                    <p><strong>المهمة:</strong> ابتعد عن فيسبوك، إنستغرام، تيك توك، تويتر لمدة 48 ساعة. سجل في مذكرة:</p>
+                    <ul>
+                        <li>كم مرة حاولت فتح التطبيق لا إرادياً؟</li>
+                        <li>ما المشاعر التي ظهرت (قلق، فراغ، راحة)؟</li>
+                        <li>ماذا فعلت بالوقت الإضافي؟</li>
+                    </ul>
+                    <p><strong>الجزء التحليلي:</strong> اكتب تقريراً من 3 صفحات يربط تجربتك بـ:</p>
+                    <ol>
+                        <li>ثلاث آليات من القسم النفسي (مع ذكرها بالعربية والإنجليزية).</li>
+                        <li>بياناتك الشخصية المتوقعة (ماذا تعتقد أن المنصات تعرف عنك؟ قارن مع الجداول أعلاه).</li>
+                        <li>خطتك الشخصية للاستخدام الواعي (حدود زمنية، أيام بدون إنترنت، إلخ).</li>
+                        <li>كيف ستطبق النصائح الأمنية المذكورة في قسم المخترقين.</li>
+                    </ol>
+                    <p style="padding:12px; border-radius:12px;"><i class="fas fa-award"></i> سيتم منح درجات إضافية لمن يوثق التجربة بفيديو قصير (اختياري).</p>
+                </div>
+            </div>
+
+            <!-- خاتمة -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-crown"></i> الخلاصة: أنت لست منتجاً، أنت إنسان</h2>
+                <div class="concept-box" style="background: #f0f8ff;">
+                    <p>كل بكسل على شاشتك صمم لخطف انتباهك. لكنك الآن تعرف الخدعة. <strong>الوعي هو الترياق</strong>. استخدم هذه المعرفة لاستعادة تحكمك، وشاركها مع من تحب قبل فوات الأوان.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><i class="fas fa-university"></i> الكلية الجامعية للعلوم التطبيقية – قسم أمن المعلومات</p>
+            <p><i class="fas fa-envelope"></i> makhalil@ucas.edu.ps | <i class="fab fa-google"></i> Classroom: DINF1101</p>
+            <p>© 2025 – محاضرة أكاديمية شاملة: تحليل البيانات، استراتيجيات المواجهة، ونظرة المخترقين.</p>
+        </div>
+    </div>
+</body>
+</html>
