@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الامتحان النهائي – أخلاقيات عصر المعلومات | دبلوم أمن المعلومات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'Tajawal', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e9f0fa 100%);
+            color: #1e2a3e;
+            line-height: 1.7;
+            direction: rtl;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 40px 35px;
+        }
+        .exam-header {
+            background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 35px;
+            border-radius: 24px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .exam-header h1 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+        .exam-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .main-card {
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        .card-header {
+            background: #2a5298;
+            color: white;
+            padding: 18px 28px;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+        .card-body {
+            padding: 28px 32px;
+        }
+        .question-text {
+            background: #f8fafc;
+            border-right: 6px solid #2a5298;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            border-radius: 16px;
+            font-size: 1.05rem;
+            font-weight: 500;
+            line-height: 1.7;
+            color: #0f172a;
+        }
+        .answer-area {
+            margin-top: 15px;
+        }
+        .answer-area label {
+            font-weight: 600;
+            color: #1e3c72;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 16px;
+            border: 2px solid #cbd5e1;
+            border-radius: 16px;
+            font-family: inherit;
+            font-size: 1rem;
+            line-height: 1.6;
+            resize: vertical;
+            background: #fefefe;
+            transition: 0.2s;
+            direction: rtl;
+        }
+        textarea:focus {
+            border-color: #2a5298;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(42,82,152,0.2);
+        }
+        .timer-bar {
+            background: #fef9e3;
+            border: 2px solid #f59e0b;
+            border-radius: 60px;
+            padding: 12px 28px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-weight: bold;
+        }
+        .timer {
+            font-size: 1.8rem;
+            font-family: 'Courier New', monospace;
+            background: #1e293b;
+            color: #fbbf24;
+            padding: 6px 20px;
+            border-radius: 50px;
+            letter-spacing: 3px;
+        }
+        .btn {
+            border: none;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .btn-primary {
+            background: #2a5298;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #1e3c72;
+            transform: translateY(-2px);
+        }
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+        .btn-success:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+        .student-info-card {
+            background: #f1f5f9;
+            border: 2px solid #2a5298;
+            border-radius: 24px;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .info-item {
+            flex: 1;
+            min-width: 240px;
+        }
+        .info-item label {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+            color: #1e3c72;
+        }
+        .info-item input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #cbd5e1;
+            border-radius: 16px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .info-item input:focus {
+            border-color: #2a5298;
+            outline: none;
+        }
+        .info-message {
+            background: #e2e8f0;
+            padding: 50px;
+            text-align: center;
+            border-radius: 28px;
+            font-size: 1.3rem;
+            margin: 30px 0;
+            color: #334155;
+        }
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            border-top: 1px solid #cbd5e1;
+            color: #475569;
+        }
+
+        @media print {
+			/* إخفاء العناصر غير الضرورية */
+			.btn, .timer-bar, .student-info-card input, .no-print, .info-message {
+				display: none !important;
+			}
+			
+			textarea {
+				display: none !important;
+			}
+
+			/* إظهار حاوية الامتحان والسماح لها بالتمدد */
+			#examContainer {
+				display: block !important;
+				height: auto !important;
+				overflow: visible !important;
+			}
+
+			/* أهم تعديل: السماح للإجابة بالتمدد واحتواء كل النص */
+			.print-answer {
+				display: block !important;
+				background: #f9f9f9 !important;
+				border: 1px solid #ccc !important;
+				padding: 15px;
+				margin-top: 10px;
+				white-space: pre-wrap; /* للحفاظ على المسافات والأسطر */
+				word-wrap: break-word; /* لكسر الكلمات الطويلة */
+				height: auto !important; /* تمدد تلقائي */
+				min-height: 50px;
+				overflow: visible !important;
+				page-break-inside: auto; /* السماح للنص بالانقسام بين صفحتين إذا كان طويلاً */
+			}
+
+			/* منع قص الكروت الخاصة بالأسئلة */
+			.main-card {
+				display: block !important;
+				height: auto !important;
+				page-break-inside: avoid; /* يحاول إبقاء السؤال وإجابته في نفس الصفحة */
+				margin-bottom: 20px;
+				border: 1px solid #eee !important;
+			}
+			.print-student-data {
+				display: block !important;
+				visibility: visible !important;
+				font-size: 14pt;
+				font-weight: bold;
+				color: #000 !important;
+				margin-top: 5px;
+			}
+
+			/* إخفاء مربعات الإدخال الأصلية */
+			.student-info-card input {
+				display: none !important;
+			}
+			
+			/* ضمان ظهور الحاوية الأب */
+			.student-info-card {
+				display: flex !important;
+				border: 1px solid #000 !important;
+				padding: 15px !important;
+			}
+		}
+
+        /* عناصر الطباعة مخفية افتراضياً */
+        .print-student-data, .print-answer {
+            display: none;
+        }
+
+        .disabled-input {
+            background-color: #f1f5f9;
+            color: #64748b;
+            cursor: not-allowed;
+        }
+        textarea:disabled {
+            background-color: #f8fafc;
+            border-color: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="exam-header">
+        <h1><i class="fas fa-user-shield"></i> الامتحان النهائي – أخلاقيات عصر المعلومات</h1>
+        <p>DINF-1101 | الكلية الجامعية للعلوم التطبيقية | الفصل الدراسي الأول 2026</p>
+        <p>دبلوم أمن المعلومات | الإجابة عن 12 سؤالاً مقالياً | الزمن: ساعة و10 دقائق (70 دقيقة)</p>
+    </div>
+
+    <div class="student-info-card">
+        <div class="info-item">
+            <label><i class="fas fa-user"></i> الاسم الكامل:</label>
+            <input type="text" id="studentName" placeholder="أدخل اسمك الثلاثي">
+            <div class="print-student-data" id="printName"></div>
+        </div>
+        <div class="info-item">
+            <label><i class="fas fa-id-card"></i> الرقم الجامعي:</label>
+            <input type="text" id="studentId" placeholder="أدخل الرقم الجامعي" inputmode="numeric">
+            <div class="print-student-data" id="printId"></div>
+        </div>
+    </div>
+
+    <div class="timer-bar no-print">
+        <div><i class="fas fa-hourglass-half"></i> الوقت المتبقي:</div>
+        <div class="timer" id="timerDisplay">01:10:00</div>
+        <button id="startExamBtn" class="btn btn-success"><i class="fas fa-play"></i> بدء الاختبار</button>
+        <button id="printPdfBtn" class="btn btn-primary" disabled><i class="fas fa-print"></i> تحميل الحل كـ PDF</button>
+    </div>
+
+    <div id="examContainer" class="info-message">
+        <i class="fas fa-lock"></i> الرجاء إدخال الاسم والرقم الجامعي ثم الضغط على "بدء الاختبار" لعرض الأسئلة.
+    </div>
+
+    <footer>
+        <p>دبلوم أمن المعلومات | الكلية الجامعية للعلوم التطبيقية | الامتحان النهائي – أخلاقيات عصر المعلومات</p>
+        <p>© 2026 - جميع الحقوق محفوظة. يمنع النسخ أو اللصق أثناء الاختبار.</p>
+    </footer>
+</div>
+
+<script>
+    // منع النسخ واللصق
+    document.addEventListener('copy', (e) => e.preventDefault());
+    document.addEventListener('cut', (e) => e.preventDefault());
+    document.addEventListener('paste', (e) => e.preventDefault());
+    document.addEventListener('contextmenu', (e) => e.preventDefault());
+    document.ondragstart = (e) => e.preventDefault();
+
+    // بيانات الأسئلة (12 سؤالاً مقالياً)
+    const questions = [
+        { id: 1, text: "عرف 'أخلاقيات عصر المعلومات' ووضح الفرق الجوهري بين 'الأخلاق' (Morals) و 'الآداب' (Etiquette) بناءً على ما ورد في المحاضرة الأولى، مع ذكر مثال تطبيقي لكل منهما في مجال تكنولوجيا المعلومات." },
+        { id: 2, text: "اذكر أنواع البيانات الشخصية المحمية بموجب قوانين الخصوصية، مع إعطاء مثالين على الأقل لكل نوع، ثم اشرح لماذا تعتبر البيانات الصحية من أكثر الأنواع حساسية." },
+        { id: 3, text: "ما هي متطلبات الخبرة في تكنولوجيا المعلومات؟ اشرح باختصار الفرق بين المعرفة المتخصصة والخبرة العملية، مع ذكر ثلاثة أمثلة لمهن تكنولوجيا المعلومات التي تحتاج إلى كليهما." },
+        { id: 4, text: "عرف كلاً من: سرقة الهوية (Identity Theft) والتصيد الاحتيالي (Phishing)، واذكر وسيلة واحدة يستخدمها المخترقون لتنفيذ كل منهما، ثم قدم نصيحة عملية للحماية من كل خطر." },
+        { id: 5, text: "اشرح نموذج 'المراحل الست للأمان الشامل' الذي يُستخدم في المؤسسات، موضحاً دور المرحلة الثالثة (تحديد الإجراءات الوقائية) والمرحلة الرابعة (تثقيف وتدريب المستخدمين) مع إعطاء مثال واقعي لكل مرحلة." },
+        { id: 6, text: "ناقش مخاطر 'إدمان وسائل التواصل الاجتماعي' من الناحية النفسية والسلوكية، موضحاً مصطلح 'فومو' (FOMO) وتأثيره على المستخدم، وكيف يمكن لخبير أمن المعلومات المساعدة في التوعية بهذه المخاطر." },
+        { id: 7, text: "وضح المبادئ الأساسية للائحة العامة لحماية البيانات (GDPR) للاتحاد الأوروبي، وكيف تساهم هذه المبادئ في تعزيز سيادة المستخدم على بياناته الشخصية؟ اذكر أربعة مبادئ على الأقل مع شرح موجز لكل منها." },
+        { id: 8, text: "قارن بين 'الفجوة الرقمية' (Digital Divide) و'التخمة المعلوماتية' (Information Overload) من حيث المفهوم والأسباب والآثار الأخلاقية على المجتمع، ثم اقترح دوراً لخبير تكنولوجيا المعلومات في التخفيف من كل منهما." },
+        { id: 9, text: "ما هي العلاقات المهنية الأساسية التي يديرها خبير تكنولوجيا المعلومات؟ اختر ثلاث علاقات واذكر أبرز التحديات الأخلاقية التي قد تواجهه في كل منها، مع اقتراح حلول عملية مستندة إلى مدونات السلوك المهني مثل ACM." },
+        { id: 10, text: "سيناريو أخلاقي: إذا كنت تعمل كمهندس أمن معلومات في شركة واكتشفت ثغرة أمنية حرجة في نظام قديم لا ترغب الإدارة في تحديثه بسبب التكاليف، وضح الخطوات المنهجية الخمس التي يجب اتباعها لاتخاذ قرار أخلاقي سليم وفقاً لاستراتيجية اتخاذ القرارات الأخلاقية، مع تطبيقها على هذا السيناريو." },
+        { id: 11, text: "'المعلومات كهدف للتأثير النفسي': اشرح كيف تستخدم منصات التواصل الاجتماعي البيانات الشخصية (مثل الحالة النفسية، المخاوف، الأهداف) لبناء 'نماذج تنبؤية'، ثم حلل الآثار الأخلاقية لهذه الممارسة على حرية المستخدم وخصوصيته، مع ذكر أمثلة من واقع الاستخدام." },
+        { id: 12, text: "قارن بين مفهومي 'الأمن' و'الخصوصية'؛ هل يمكن تحقيق أمن معلومات مطلق دون انتهاك خصوصية الأفراد؟ استشهد بمبدأ التوازن بين المصالح التجارية والحماية الأمنية، مستعيناً بأمثلة من دراسات الحالة (مثل النظام الصحي الإلكتروني أو البنك الرقمي) التي نوقشت في المحاضرات." }
+    ];
+
+    let examStarted = false;
+    let timerInterval = null;
+    let endTime = null;
+
+    const startBtn = document.getElementById('startExamBtn');
+    const printBtn = document.getElementById('printPdfBtn');
+    const examContainer = document.getElementById('examContainer');
+    const timerDisplay = document.getElementById('timerDisplay');
+    const studentNameInput = document.getElementById('studentName');
+    const studentIdInput = document.getElementById('studentId');
+    const printNameSpan = document.getElementById('printName');
+    const printIdSpan = document.getElementById('printId');
+
+    // تحديث بيانات الطباعة للطالب
+    function updatePrintStudentData() {
+        printNameSpan.innerText = studentNameInput.value;
+        printIdSpan.innerText = studentIdInput.value;
+    }
+    studentNameInput.addEventListener('input', updatePrintStudentData);
+    studentIdInput.addEventListener('input', updatePrintStudentData);
+
+    function buildQuestionsUI() {
+        examContainer.innerHTML = '';
+        questions.forEach((q) => {
+            const card = document.createElement('div');
+            card.className = 'main-card';
+            card.setAttribute('data-qid', q.id);
+
+            const header = document.createElement('div');
+            header.className = 'card-header';
+            header.innerHTML = `<h2>السؤال ${q.id} (من 12)</h2>`;
+            card.appendChild(header);
+
+            const body = document.createElement('div');
+            body.className = 'card-body';
+
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question-text';
+            questionDiv.innerHTML = `<p><strong>${q.text}</strong></p>`;
+            body.appendChild(questionDiv);
+
+            const answerDiv = document.createElement('div');
+            answerDiv.className = 'answer-area';
+            answerDiv.innerHTML = `<label><i class="fas fa-pen"></i> إجابتك:</label>`;
+            
+            const textarea = document.createElement('textarea');
+            textarea.id = `answer_${q.id}`;
+            textarea.placeholder = "اكتب إجابتك هنا بتفصيل كافٍ... (مساحة كافية للإجابة الطويلة)";
+            textarea.rows = 6;
+            textarea.style.minHeight = "150px";
+            textarea.disabled = true;
+            answerDiv.appendChild(textarea);
+            
+            // عنصر طباعة الإجابة
+            const printAnswerDiv = document.createElement('div');
+            printAnswerDiv.className = 'print-answer';
+            printAnswerDiv.id = `print_answer_${q.id}`;
+            printAnswerDiv.innerText = '';
+            answerDiv.appendChild(printAnswerDiv);
+            
+            // تحديث عنصر الطباعة عند كتابة الإجابة
+            textarea.addEventListener('input', function() {
+                printAnswerDiv.innerText = this.value;
+                saveAnswers();
+            });
+            
+            body.appendChild(answerDiv);
+            card.appendChild(body);
+            examContainer.appendChild(card);
+        });
+
+        const bottomBtnDiv = document.createElement('div');
+        bottomBtnDiv.className = 'button-group no-print';
+        const bottomPrint = document.createElement('button');
+        bottomPrint.className = 'btn btn-primary';
+        bottomPrint.id = 'bottomPrintBtn';
+        bottomPrint.innerHTML = '<i class="fas fa-print"></i> تحميل الحل كـ PDF';
+        bottomPrint.disabled = true;
+        bottomPrint.addEventListener('click', () => { if (examStarted) window.print(); else alert("لا يمكن الطباعة قبل بدء الاختبار."); });
+        bottomBtnDiv.appendChild(bottomPrint);
+        examContainer.appendChild(bottomBtnDiv);
+        window.bottomPrint = bottomPrint;
+    }
+
+    function enableAnswers(enable) {
+        const textareas = document.querySelectorAll('#examContainer textarea');
+        textareas.forEach(ta => {
+            if (enable) {
+                ta.disabled = false;
+                ta.classList.remove('disabled-input');
+            } else {
+                ta.disabled = true;
+                ta.classList.add('disabled-input');
+            }
+        });
+    }
+
+    function updateTimerDisplay() {
+        if (!endTime) return;
+        const remaining = Math.max(0, endTime - Date.now());
+        const hours = Math.floor(remaining / 3600000);
+        const minutes = Math.floor((remaining % 3600000) / 60000);
+        const seconds = Math.floor((remaining % 60000) / 1000);
+        timerDisplay.innerText = `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+        if (remaining <= 0) {
+            clearInterval(timerInterval);
+            enableAnswers(false);
+            startBtn.disabled = true;
+            printBtn.disabled = false;
+            if(window.bottomPrint) window.bottomPrint.disabled = false;
+            alert("انتهى الوقت المحدد! تم تعطيل حقول الإجابة. يمكنك طباعة إجاباتك.");
+        }
+    }
+
+    function startTimer() {
+        const duration = 4200 * 1000; // 70 دقيقة
+        endTime = Date.now() + duration;
+        updateTimerDisplay();
+        if (timerInterval) clearInterval(timerInterval);
+        timerInterval = setInterval(updateTimerDisplay, 1000);
+    }
+
+    function startExam() {
+        const studentName = studentNameInput.value.trim();
+        const studentId = studentIdInput.value.trim();
+        if (studentName === "" || studentId === "") {
+            alert("يرجى إدخال الاسم الكامل والرقم الجامعي قبل بدء الاختبار.");
+            return;
+        }
+        if (examStarted) return;
+
+        if (examContainer.innerHTML.includes("الرجاء إدخال الاسم")) {
+            buildQuestionsUI();
+        }
+
+        studentNameInput.disabled = true;
+        studentIdInput.disabled = true;
+        updatePrintStudentData();
+
+        enableAnswers(true);
+        startTimer();
+        examStarted = true;
+        startBtn.disabled = true;
+        printBtn.disabled = false;
+        if(window.bottomPrint) window.bottomPrint.disabled = false;
+
+        localStorage.setItem('ethicsExamStarted', 'true');
+        localStorage.setItem('ethicsStartTime', Date.now());
+        localStorage.setItem('ethicsStudentName', studentName);
+        localStorage.setItem('ethicsStudentId', studentId);
+    }
+
+    function restoreExamState() {
+        const started = localStorage.getItem('ethicsExamStarted');
+        if (started === 'true') {
+            const startTime = parseInt(localStorage.getItem('ethicsStartTime'), 10);
+            const elapsed = Date.now() - startTime;
+            const duration = 4200 * 1000;
+            if (elapsed < duration) {
+                const savedName = localStorage.getItem('ethicsStudentName') || '';
+                const savedId = localStorage.getItem('ethicsStudentId') || '';
+                studentNameInput.value = savedName;
+                studentIdInput.value = savedId;
+                studentNameInput.disabled = true;
+                studentIdInput.disabled = true;
+                updatePrintStudentData();
+
+                buildQuestionsUI();
+                enableAnswers(true);
+                endTime = startTime + duration;
+                updateTimerDisplay();
+                if (timerInterval) clearInterval(timerInterval);
+                timerInterval = setInterval(updateTimerDisplay, 1000);
+                examStarted = true;
+                startBtn.disabled = true;
+                printBtn.disabled = false;
+                if(window.bottomPrint) window.bottomPrint.disabled = false;
+
+                for (let i = 1; i <= 12; i++) {
+                    const savedAnswer = localStorage.getItem(`answer_${i}`);
+                    if (savedAnswer !== null) {
+                        const ta = document.getElementById(`answer_${i}`);
+                        if (ta) {
+                            ta.value = savedAnswer;
+                            const printSpan = document.getElementById(`print_answer_${i}`);
+                            if (printSpan) printSpan.innerText = savedAnswer;
+                        }
+                    }
+                }
+            } else {
+                localStorage.removeItem('ethicsExamStarted');
+                localStorage.removeItem('ethicsStartTime');
+                examContainer.innerHTML = '<div class="info-message"><i class="fas fa-hourglass-end"></i> انتهت مدة الاختبار سابقاً. لا يمكنك البدء مجدداً.</div>';
+                startBtn.disabled = true;
+            }
+        } else {
+            examContainer.innerHTML = '<div class="info-message"><i class="fas fa-lock"></i> الرجاء إدخال الاسم والرقم الجامعي ثم الضغط على "بدء الاختبار" لعرض الأسئلة.</div>';
+        }
+    }
+
+    function saveAnswers() {
+        if (!examStarted) return;
+        for (let i = 1; i <= 12; i++) {
+            const ta = document.getElementById(`answer_${i}`);
+            if (ta) {
+                localStorage.setItem(`answer_${i}`, ta.value);
+            }
+        }
+    }
+
+    function attachAnswerSaving() {
+        document.addEventListener('input', function(e) {
+            if (e.target && e.target.tagName === 'TEXTAREA' && e.target.id.startsWith('answer_')) {
+                saveAnswers();
+            }
+        });
+    }
+
+    window.onload = () => {
+        restoreExamState();
+        attachAnswerSaving();
+        startBtn.addEventListener('click', startExam);
+        printBtn.addEventListener('click', () => {
+            if (examStarted) window.print();
+            else alert("لا يمكن الطباعة قبل بدء الاختبار.");
+        });
+    };
+</script>
+</body>
+</html>
