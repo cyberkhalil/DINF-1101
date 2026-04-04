@@ -281,6 +281,14 @@
             background-color: #f8fafc;
             border-color: #e2e8f0;
         }
+        .expired-msg {
+            color: #b91c1c;
+            font-weight: bold;
+            background: #fff0f0;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -455,6 +463,15 @@
             startBtn.disabled = true;
             printBtn.disabled = false;
             if(window.bottomPrint) window.bottomPrint.disabled = false;
+            examStarted = false; // منع أي حفظ إضافي
+            // إضافة رسالة انتهاء الوقت في شريط المؤقت إذا لم تكن موجودة
+            const timerBar = document.querySelector('.timer-bar');
+            if (timerBar && !timerBar.querySelector('.expired-msg')) {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = 'expired-msg';
+                msgDiv.innerHTML = '<i class="fas fa-hourglass-end"></i> انتهى الوقت! يمكنك مراجعة إجاباتك وطباعتها فقط.';
+                timerBar.appendChild(msgDiv);
+            }
             alert("انتهى الوقت المحدد! تم تعطيل حقول الإجابة. يمكنك طباعة إجاباتك.");
         }
     }
@@ -504,6 +521,7 @@
             const elapsed = Date.now() - startTime;
             const duration = 4200 * 1000;
             if (elapsed < duration) {
+                // الاختبار لا يزال قائماً
                 const savedName = localStorage.getItem('ethicsStudentName') || '';
                 const savedId = localStorage.getItem('ethicsStudentId') || '';
                 studentNameInput.value = savedName;
@@ -535,10 +553,43 @@
                     }
                 }
             } else {
-                localStorage.removeItem('ethicsExamStarted');
-                localStorage.removeItem('ethicsStartTime');
-                examContainer.innerHTML = '<div class="info-message"><i class="fas fa-hourglass-end"></i> انتهت مدة الاختبار سابقاً. لا يمكنك البدء مجدداً.</div>';
+                // الاختبار انتهى سابقاً: نعرض الأسئلة والإجابات المحفوظة مع تعطيل التعديل
+                if (examContainer.innerHTML.includes("الرجاء إدخال الاسم") || examContainer.innerHTML === '' || examContainer.children.length === 0) {
+                    buildQuestionsUI();
+                }
+                // تعبئة الإجابات المحفوظة من localStorage
+                for (let i = 1; i <= 12; i++) {
+                    const savedAnswer = localStorage.getItem(`answer_${i}`);
+                    if (savedAnswer !== null) {
+                        const ta = document.getElementById(`answer_${i}`);
+                        if (ta) {
+                            ta.value = savedAnswer;
+                            const printSpan = document.getElementById(`print_answer_${i}`);
+                            if (printSpan) printSpan.innerText = savedAnswer;
+                        }
+                    }
+                }
+                // تعطيل جميع حقول الإجابة
+                enableAnswers(false);
+                // تعطيل زر البدء
                 startBtn.disabled = true;
+                // تمكين أزرار الطباعة
+                printBtn.disabled = false;
+                if(window.bottomPrint) window.bottomPrint.disabled = false;
+                // تعطيل مدخلات الطالب
+                studentNameInput.disabled = true;
+                studentIdInput.disabled = true;
+                // عرض الوقت 00:00:00
+                timerDisplay.innerText = "00:00:00";
+                // إضافة رسالة انتهاء الوقت في شريط المؤقت
+                const timerBar = document.querySelector('.timer-bar');
+                if (timerBar && !timerBar.querySelector('.expired-msg')) {
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = 'expired-msg';
+                    msgDiv.innerHTML = '<i class="fas fa-hourglass-end"></i> انتهت مدة الاختبار سابقاً. يمكنك الاطلاع على إجاباتك وطباعتها فقط (لا يمكن التعديل).';
+                    timerBar.appendChild(msgDiv);
+                }
+                examStarted = false; // منع أي محاولة تعديل أو حفظ
             }
         } else {
             examContainer.innerHTML = '<div class="info-message"><i class="fas fa-lock"></i> الرجاء إدخال الاسم والرقم الجامعي ثم الضغط على "بدء الاختبار" لعرض الأسئلة.</div>';
@@ -568,7 +619,7 @@
         attachAnswerSaving();
         startBtn.addEventListener('click', startExam);
         printBtn.addEventListener('click', () => {
-            if (examStarted) window.print();
+            if (examStarted || localStorage.getItem('ethicsExamStarted') === 'true') window.print();
             else alert("لا يمكن الطباعة قبل بدء الاختبار.");
         });
     };
