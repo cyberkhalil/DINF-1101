@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>الامتحان النهائي – أخلاقيات عصر المعلومات | دبلوم أمن المعلومات</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', 'Tajawal', 'Roboto', sans-serif;
             background: linear-gradient(135deg, #f0f7ff 0%, #e9f0fa 100%);
@@ -14,7 +20,13 @@
             line-height: 1.7;
             direction: rtl;
         }
-        .container { max-width: 1300px; margin: 0 auto; padding: 40px 35px; }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 40px 35px;
+        }
+
         .exam-header {
             background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
             color: white;
@@ -22,21 +34,45 @@
             border-radius: 24px;
             margin-bottom: 30px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
-        .exam-header h1 { font-size: 2rem; margin-bottom: 12px; }
-        .exam-header p { font-size: 1.1rem; opacity: 0.9; }
+
+        .exam-header h1 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .exam-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
         .main-card {
             background: white;
             border-radius: 20px;
             margin-bottom: 30px;
-            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
             overflow: hidden;
             border: 1px solid #e2e8f0;
         }
-        .card-header { background: #2a5298; color: white; padding: 18px 28px; font-size: 1.25rem; font-weight: 700; }
-        .card-header h2 { margin: 0; font-size: 1.4rem; }
-        .card-body { padding: 28px 32px; }
+
+        .card-header {
+            background: #2a5298;
+            color: white;
+            padding: 18px 28px;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        .card-body {
+            padding: 28px 32px;
+        }
+
         .question-text {
             background: #f8fafc;
             border-right: 6px solid #2a5298;
@@ -48,8 +84,19 @@
             line-height: 1.7;
             color: #0f172a;
         }
-        .answer-area { margin-top: 15px; }
-        .answer-area label { font-weight: 600; color: #1e3c72; display: block; margin-bottom: 10px; font-size: 1rem; }
+
+        .answer-area {
+            margin-top: 15px;
+        }
+
+        .answer-area label {
+            font-weight: 600;
+            color: #1e3c72;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
         textarea {
             width: 100%;
             min-height: 150px;
@@ -64,7 +111,13 @@
             transition: 0.2s;
             direction: rtl;
         }
-        textarea:focus { border-color: #2a5298; outline: none; box-shadow: 0 0 0 3px rgba(42,82,152,0.2); }
+
+        textarea:focus {
+            border-color: #2a5298;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(42, 82, 152, 0.2);
+        }
+
         .timer-bar {
             background: #fef9e3;
             border: 2px solid #f59e0b;
@@ -78,6 +131,7 @@
             gap: 15px;
             font-weight: bold;
         }
+
         .timer {
             font-size: 1.8rem;
             font-family: 'Courier New', monospace;
@@ -87,6 +141,7 @@
             border-radius: 50px;
             letter-spacing: 3px;
         }
+
         .btn {
             border: none;
             padding: 10px 28px;
@@ -96,10 +151,27 @@
             transition: 0.2s;
             font-size: 1rem;
         }
-        .btn-primary { background: #2a5298; color: white; }
-        .btn-primary:hover { background: #1e3c72; transform: translateY(-2px); }
-        .btn-success { background: #10b981; color: white; }
-        .btn-success:hover { background: #059669; transform: translateY(-2px); }
+
+        .btn-primary {
+            background: #2a5298;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1e3c72;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
         .student-info-card {
             background: #f1f5f9;
             border: 2px solid #2a5298;
@@ -110,8 +182,19 @@
             gap: 30px;
             flex-wrap: wrap;
         }
-        .info-item { flex: 1; min-width: 240px; }
-        .info-item label { font-weight: 700; display: block; margin-bottom: 10px; color: #1e3c72; }
+
+        .info-item {
+            flex: 1;
+            min-width: 240px;
+        }
+
+        .info-item label {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+            color: #1e3c72;
+        }
+
         .info-item input {
             width: 100%;
             padding: 12px 15px;
@@ -120,7 +203,12 @@
             font-size: 1rem;
             font-family: inherit;
         }
-        .info-item input:focus { border-color: #2a5298; outline: none; }
+
+        .info-item input:focus {
+            border-color: #2a5298;
+            outline: none;
+        }
+
         .info-message {
             background: #e2e8f0;
             padding: 50px;
@@ -130,8 +218,23 @@
             margin: 30px 0;
             color: #334155;
         }
-        .button-group { display: flex; gap: 20px; justify-content: center; margin-top: 35px; flex-wrap: wrap; }
-        footer { text-align: center; margin-top: 50px; padding: 25px; border-top: 1px solid #cbd5e1; color: #475569; }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            border-top: 1px solid #cbd5e1;
+            color: #475569;
+        }
+
         .paste-warning {
             position: fixed;
             bottom: 30px;
@@ -141,20 +244,50 @@
             padding: 12px 24px;
             border-radius: 50px;
             font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             z-index: 9999;
             animation: fadeOut 3s forwards;
             direction: rtl;
         }
+
         @keyframes fadeOut {
-            0% { opacity: 1; transform: translateY(0); }
-            70% { opacity: 1; }
-            100% { opacity: 0; visibility: hidden; transform: translateY(20px); }
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            70% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(20px);
+            }
         }
+
         @media print {
-            .btn, .timer-bar, .student-info-card input, .no-print, .info-message, .paste-warning { display: none !important; }
-            textarea { display: none !important; }
-            #examContainer { display: block !important; height: auto !important; overflow: visible !important; }
+
+            .btn,
+            .timer-bar,
+            .student-info-card input,
+            .no-print,
+            .info-message,
+            .paste-warning {
+                display: none !important;
+            }
+
+            textarea {
+                display: none !important;
+            }
+
+            #examContainer {
+                display: block !important;
+                height: auto !important;
+                overflow: visible !important;
+            }
+
             .print-answer {
                 display: block !important;
                 background: #f9f9f9 !important;
@@ -168,359 +301,517 @@
                 overflow: visible !important;
                 page-break-inside: auto;
             }
-            .main-card { display: block !important; height: auto !important; page-break-inside: avoid; margin-bottom: 20px; border: 1px solid #eee !important; }
-            .print-student-data { display: block !important; visibility: visible !important; font-size: 14pt; font-weight: bold; color: #000 !important; margin-top: 5px; }
-            .student-info-card input { display: none !important; }
-            .student-info-card { display: flex !important; border: 1px solid #000 !important; padding: 15px !important; }
+
+            .main-card {
+                display: block !important;
+                height: auto !important;
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+                border: 1px solid #eee !important;
+            }
+
+            .print-student-data {
+                display: block !important;
+                visibility: visible !important;
+                font-size: 14pt;
+                font-weight: bold;
+                color: #000 !important;
+                margin-top: 5px;
+            }
+
+            .student-info-card input {
+                display: none !important;
+            }
+
+            .student-info-card {
+                display: flex !important;
+                border: 1px solid #000 !important;
+                padding: 15px !important;
+            }
         }
-        .print-student-data, .print-answer { display: none; }
-        .disabled-input { background-color: #f1f5f9; color: #64748b; cursor: not-allowed; }
-        textarea:disabled { background-color: #f8fafc; border-color: #e2e8f0; }
-        .expired-msg { color: #b91c1c; font-weight: bold; background: #fff0f0; padding: 8px 16px; border-radius: 40px; font-size: 0.9rem; }
+
+        .print-student-data,
+        .print-answer {
+            display: none;
+        }
+
+        .disabled-input {
+            background-color: #f1f5f9;
+            color: #64748b;
+            cursor: not-allowed;
+        }
+
+        textarea:disabled {
+            background-color: #f8fafc;
+            border-color: #e2e8f0;
+        }
+
+        .expired-msg {
+            color: #b91c1c;
+            font-weight: bold;
+            background: #fff0f0;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
+
 <body>
-<div class="container">
-    <div class="exam-header">
-        <h1><i class="fas fa-user-shield"></i> الامتحان النهائي – أخلاقيات عصر المعلومات</h1>
-        <p>DINF-1101 | الكلية الجامعية للعلوم التطبيقية | الفصل الدراسي الأول 2026</p>
-        <p>دبلوم أمن المعلومات | الإجابة عن 12 سؤالاً مقالياً | الزمن: ساعة و10 دقائق (70 دقيقة)</p>
-    </div>
-
-    <div class="student-info-card">
-        <div class="info-item">
-            <label><i class="fas fa-user"></i> الاسم الكامل:</label>
-            <input type="text" id="studentName" placeholder="أدخل اسمك الثلاثي">
-            <div class="print-student-data" id="printName"></div>
+    <div class="container">
+        <div class="exam-header">
+            <h1><i class="fas fa-user-shield"></i> الامتحان النهائي – أخلاقيات عصر المعلومات</h1>
+            <p>DINF-1101 | الكلية الجامعية للعلوم التطبيقية | الفصل الدراسي الأول 2026</p>
+            <p>دبلوم أمن المعلومات | الإجابة عن 12 سؤالاً مقالياً | الزمن: ساعة و10 دقائق (70 دقيقة)</p>
         </div>
-        <div class="info-item">
-            <label><i class="fas fa-id-card"></i> الرقم الجامعي:</label>
-            <input type="text" id="studentId" placeholder="أدخل الرقم الجامعي" inputmode="numeric">
-            <div class="print-student-data" id="printId"></div>
+
+        <div class="student-info-card">
+            <div class="info-item">
+                <label><i class="fas fa-user"></i> الاسم الكامل:</label>
+                <input type="text" id="studentName" placeholder="أدخل اسمك الثلاثي">
+                <div class="print-student-data" id="printName"></div>
+            </div>
+            <div class="info-item">
+                <label><i class="fas fa-id-card"></i> الرقم الجامعي:</label>
+                <input type="text" id="studentId" placeholder="أدخل الرقم الجامعي" inputmode="numeric">
+                <div class="print-student-data" id="printId"></div>
+            </div>
         </div>
+
+        <div class="timer-bar no-print">
+            <div><i class="fas fa-hourglass-half"></i> الوقت المتبقي:</div>
+            <div class="timer" id="timerDisplay">01:10:00</div>
+            <button id="startExamBtn" class="btn btn-success"><i class="fas fa-play"></i> بدء الاختبار</button>
+            <button id="printPdfBtn" class="btn btn-primary" disabled><i class="fas fa-print"></i> تحميل الحل كـ
+                PDF</button>
+        </div>
+
+        <div id="examContainer" class="info-message">
+            <i class="fas fa-lock"></i> الرجاء إدخال الاسم والرقم الجامعي ثم الضغط على "بدء الاختبار" لعرض الأسئلة.
+        </div>
+
+        <footer>
+            <p>دبلوم أمن المعلومات | الكلية الجامعية للعلوم التطبيقية | الامتحان النهائي – أخلاقيات عصر المعلومات</p>
+            <p>© 2026 - جميع الحقوق محفوظة. يمنع النسخ أو اللصق أثناء الاختبار.</p>
+        </footer>
     </div>
 
-    <div class="timer-bar no-print">
-        <div><i class="fas fa-hourglass-half"></i> الوقت المتبقي:</div>
-        <div class="timer" id="timerDisplay">01:10:00</div>
-        <button id="startExamBtn" class="btn btn-success"><i class="fas fa-play"></i> بدء الاختبار</button>
-        <button id="printPdfBtn" class="btn btn-primary" disabled><i class="fas fa-print"></i> تحميل الحل كـ PDF</button>
-    </div>
+    <script>
+        // ------------------- منع أحداث الحافظة والقوائم ------------------
+        document.addEventListener('copy', (e) => e.preventDefault());
+        document.addEventListener('cut', (e) => e.preventDefault());
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
+        document.addEventListener('dragstart', (e) => e.preventDefault());
+        document.addEventListener('drop', (e) => e.preventDefault());
+        document.addEventListener('dragover', (e) => e.preventDefault());
+        document.addEventListener("paste", (e) => e.preventDefault());
+        document.querySelectorAll("input, textarea").forEach(el => {
+            el.addEventListener("paste", function (e) {
+                e.preventDefault();
+                return false;
+            });
+        });
 
-    <div id="examContainer" class="info-message">
-        <i class="fas fa-lock"></i> الرجاء إدخال الاسم والرقم الجامعي ثم الضغط على "بدء الاختبار" لعرض الأسئلة.
-    </div>
-
-    <footer>
-        <p>دبلوم أمن المعلومات | الكلية الجامعية للعلوم التطبيقية | الامتحان النهائي – أخلاقيات عصر المعلومات</p>
-        <p>© 2026 - جميع الحقوق محفوظة. يمنع النسخ أو اللصق أثناء الاختبار.</p>
-    </footer>
-</div>
-
-<script>
-    // ------------------- منع أحداث الحافظة والقوائم ------------------
-    document.addEventListener('copy', (e) => e.preventDefault());
-    document.addEventListener('cut', (e) => e.preventDefault());
-    document.addEventListener('contextmenu', (e) => e.preventDefault());
-    document.addEventListener('dragstart', (e) => e.preventDefault());
-    document.addEventListener('drop', (e) => e.preventDefault());
-    document.addEventListener('dragover', (e) => e.preventDefault());
-    
-    // ------------------- بيانات الأسئلة ------------------
-    const questions = [
-        { id: 1, text: "عرف 'أخلاقيات عصر المعلومات' ووضح الفرق الجوهري بين 'الأخلاق' (Morals) و 'الآداب' (Etiquette) بناءً على ما ورد في المحاضرة الأولى، مع ذكر مثال تطبيقي لكل منهما في مجال تكنولوجيا المعلومات." },
-        { id: 2, text: "اذكر أنواع البيانات الشخصية المحمية بموجب قوانين الخصوصية، مع إعطاء مثالين على الأقل لكل نوع، ثم اشرح لماذا تعتبر البيانات الصحية من أكثر الأنواع حساسية." },
-        { id: 3, text: "ما هي متطلبات الخبرة في تكنولوجيا المعلومات؟ اشرح باختصار الفرق بين المعرفة المتخصصة والخبرة العملية، مع ذكر ثلاثة أمثلة لمهن تكنولوجيا المعلومات التي تحتاج إلى كليهما." },
-        { id: 4, text: "عرف كلاً من: سرقة الهوية (Identity Theft) والتصيد الاحتيالي (Phishing)، واذكر وسيلة واحدة يستخدمها المخترقون لتنفيذ كل منهما، ثم قدم نصيحة عملية للحماية من كل خطر." },
-        { id: 5, text: "اشرح نموذج 'المراحل الست للأمان الشامل' الذي يُستخدم في المؤسسات، موضحاً دور المرحلة الثالثة (تحديد الإجراءات الوقائية) والمرحلة الرابعة (تثقيف وتدريب المستخدمين) مع إعطاء مثال واقعي لكل مرحلة." },
-        { id: 6, text: "ناقش مخاطر 'إدمان وسائل التواصل الاجتماعي' من الناحية النفسية والسلوكية، موضحاً مصطلح 'فومو' (FOMO) وتأثيره على المستخدم، وكيف يمكن لخبير أمن المعلومات المساعدة في التوعية بهذه المخاطر." },
-        { id: 7, text: "وضح المبادئ الأساسية للائحة العامة لحماية البيانات (GDPR) للاتحاد الأوروبي، وكيف تساهم هذه المبادئ في تعزيز سيادة المستخدم على بياناته الشخصية؟ اذكر أربعة مبادئ على الأقل مع شرح موجز لكل منها." },
-        { id: 8, text: "قارن بين 'الفجوة الرقمية' (Digital Divide) و'التخمة المعلوماتية' (Information Overload) من حيث المفهوم والأسباب والآثار الأخلاقية على المجتمع، ثم اقترح دوراً لخبير تكنولوجيا المعلومات في التخفيف من كل منهما." },
-        { id: 9, text: "ما هي العلاقات المهنية الأساسية التي يديرها خبير تكنولوجيا المعلومات؟ اختر ثلاث علاقات واذكر أبرز التحديات الأخلاقية التي قد تواجهه في كل منها، مع اقتراح حلول عملية مستندة إلى مدونات السلوك المهني مثل ACM." },
-        { id: 10, text: "سيناريو أخلاقي: إذا كنت تعمل كمهندس أمن معلومات في شركة واكتشفت ثغرة أمنية حرجة في نظام قديم لا ترغب الإدارة في تحديثه بسبب التكاليف، وضح الخطوات المنهجية الخمس التي يجب اتباعها لاتخاذ قرار أخلاقي سليم وفقاً لاستراتيجية اتخاذ القرارات الأخلاقية، مع تطبيقها على هذا السيناريو." },
-        { id: 11, text: "'المعلومات كهدف للتأثير النفسي': اشرح كيف تستخدم منصات التواصل الاجتماعي البيانات الشخصية (مثل الحالة النفسية، المخاوف، الأهداف) لبناء 'نماذج تنبؤية'، ثم حلل الآثار الأخلاقية لهذه الممارسة على حرية المستخدم وخصوصيته، مع ذكر أمثلة من واقع الاستخدام." },
-        { id: 12, text: "قارن بين مفهومي 'الأمن' و'الخصوصية'؛ هل يمكن تحقيق أمن معلومات مطلق دون انتهاك خصوصية الأفراد؟ استشهد بمبدأ التوازن بين المصالح التجارية والحماية الأمنية، مستعيناً بأمثلة من دراسات الحالة (مثل النظام الصحي الإلكتروني أو البنك الرقمي) التي نوقشت في المحاضرات." }
-    ];
-
-    let examStarted = false;
-    let timerInterval = null;
-    let endTime = null;
-    let pollingInterval = null; // للمراقبة المستمرة ضد اللصق
-
-    const startBtn = document.getElementById('startExamBtn');
-    const printBtn = document.getElementById('printPdfBtn');
-    const examContainer = document.getElementById('examContainer');
-    const timerDisplay = document.getElementById('timerDisplay');
-    const studentNameInput = document.getElementById('studentName');
-    const studentIdInput = document.getElementById('studentId');
-    const printNameSpan = document.getElementById('printName');
-    const printIdSpan = document.getElementById('printId');
-
-    // خريطة لتخزين آخر قيمة معروفة لكل حقل (للمراقبة الدورية)
-    const lastValues = new Map();
-
-    function showPasteWarning() {
-        alert("⚠️ ممنوع استخدام اللصق في الاختبار! تم مسح الإجابة. يرجى كتابة الإجابة يدوياً.");
-        const warningDiv = document.createElement('div');
-        warningDiv.className = 'paste-warning';
-        warningDiv.innerHTML = '<i class="fas fa-ban"></i> ممنوع اللصق! تم مسح الحقل.';
-        document.body.appendChild(warningDiv);
-        setTimeout(() => { if(warningDiv && warningDiv.remove) warningDiv.remove(); }, 3000);
-    }
-
-    // دالة مسح حقل معين وتحديث التخزين
-    function clearField(textarea, qId) {
-        if (!textarea) return;
-        textarea.value = '';
-        const printSpan = document.getElementById(`print_answer_${qId}`);
-        if (printSpan) printSpan.innerText = '';
-        if (examStarted) {
-            localStorage.setItem(`answer_${qId}`, '');
-        }
-        lastValues.set(textarea, '');
-    }
-
-    // المراقبة الدورية: كل 100ms نتحقق من أي تغيير مفاجئ في الطول
-    function startPastePolling() {
-        if (pollingInterval) clearInterval(pollingInterval);
-        pollingInterval = setInterval(() => {
-            if (!examStarted) return;
-            const textareas = document.querySelectorAll('#examContainer textarea:not([disabled])');
-            for (let ta of textareas) {
-                const currentVal = ta.value;
-                const previousVal = lastValues.get(ta) || '';
-                const currentLen = currentVal.length;
-                const previousLen = previousVal.length;
-                // إذا زاد الطول بأكثر من 5 أحرف دفعة واحدة => لصق
-                if (currentLen - previousLen > 5 && currentLen > previousLen) {
-                    const match = ta.id.match(/answer_(\d+)/);
-                    if (match) {
-                        const qId = match[1];
-                        clearField(ta, qId);
-                        showPasteWarning();
-                    }
+        document.querySelectorAll("input, textarea").forEach(el => {
+            el.addEventListener("input", function () {
+                // إذا النص تغيّر بشكل سريع (علامة لصق)
+                if (this.value.length - this._lastLength > 1) {
+                    this.value = this.value.slice(0, this._lastLength);
                 }
-                // تحديث القيمة المخزنة
-                lastValues.set(ta, currentVal);
-            }
-        }, 100);
-    }
+                this._lastLength = this.value.length;
+            });
 
-    function stopPastePolling() {
-        if (pollingInterval) {
-            clearInterval(pollingInterval);
-            pollingInterval = null;
+            el.addEventListener("focus", function () {
+                this._lastLength = this.value.length;
+            });
+        });
+        // ------------------- بيانات الأسئلة ------------------
+
+        const questions = [
+            { id: 1, text: "بناءً على المحاضرة الأولى، وضح العلاقة التكاملية بين 'الأخلاق'، 'الآداب'، و'القانون'. كيف يمكن لعمل معين أن يكون 'قانونياً' ولكنه 'غير أخلاقي' في سياق أمن المعلومات؟ اذكر مثالاً توضيحياً." },
+            { id: 2, text: "بناءً على المحاضرة الثانية، يحتاج خبير تكنولوجيا المعلومات إلى مزيج من 'المعرفة المتخصصة' و'المعرفة المتخصصة'. اشرح الفرق بينهما باختصار، واذكر مثالاً واحداً لمهنة في مجال تكنولوجيا المعلومات تتطلب توفر هذين الشرطين معاً." },
+            { id: 3, text: "تحدثت المحاضرة الثانية عن 'العلاقات المهنية'. اختر ثلاث علاقات (مثلاً: مع صاحب العمل، مع العميل، مع المجتمع) واذكر تحدياً أخلاقياً واحداً يواجه الخبير في كل منها، وكيف تعالجه مدونات السلوك مثل ACM؟" },
+            { id: 4, text: "ما هي العناصر الثلاثة الأساسية التي يجب تحقيق توازن بينها لتحقيق الأمن المعلوماتي؟" },
+            { id: 5, text: "ناقش مفهوم 'الموافقة المستنيرة'، ولماذا تعتبر مهمة عند جمع بيانات المستخدمين؟ " },
+            { id: 6, text: " اذكر ثلاثة أنواع من البيانات الشخصية التي يجب حمايتها وفق قوانين حماية الخصوصية. " },
+            { id: 7, text: " ما هو التصيد الاحتيالي (Phishing)، وكيف يتم استخدامه لسرقة البيانات الشخصية؟ " },
+            { id: 8, text: "اشرح لماذا يعترض بعض المستخدمين على عملية جمع البيانات، وما تأثير ذلك على استخدام الإنترنت والتجارة الإلكترونية؟" },
+            { id: 9, text: " اذكر طريقتين يستخدمهما مجرمو الإنترنت للحصول على البيانات الشخصية، مع شرح بسيط لكل طريقة. " },
+            { id: 10, text: "في مثال غرفة السيرفرات، تم ذكر عدة مخاطر. اذكر خطرين على الأقل من هذه المخاطر كما وردت في الشرح." },
+            { id: 11, text: " اشرح كيف تستخدم مواقع التواصل الاجتماعي بيانات المستخدمين لبناء نماذج تنبؤية، وما الهدف من ذلك؟" },
+            { id: 12, text: "اذكر طريقتين من استراتيجيات المواجهة التي تساعد على تقليل إدمان مواقع التواصل، مع توضيح كيف تساعد كل طريقة. " }
+        ];
+
+        // ثابت عام
+        const EXAM_ID = "ethics_exam_2026";
+        const STATUS_KEY = `${EXAM_ID}_status`;
+
+        let examStarted = false;
+        let timerInterval = null;
+        let endTime = null;
+        let pollingInterval = null; // للمراقبة المستمرة ضد اللصق
+
+        const startBtn = document.getElementById('startExamBtn');
+        const printBtn = document.getElementById('printPdfBtn');
+        const examContainer = document.getElementById('examContainer');
+        const timerDisplay = document.getElementById('timerDisplay');
+        const studentNameInput = document.getElementById('studentName');
+        const studentIdInput = document.getElementById('studentId');
+        const printNameSpan = document.getElementById('printName');
+        const printIdSpan = document.getElementById('printId');
+
+        // خريطة لتخزين آخر قيمة معروفة لكل حقل (للمراقبة الدورية)
+        const lastValues = new Map();
+
+        function showPasteWarning() {
+            alert("⚠️ ممنوع استخدام اللصق في الاختبار! تم مسح الإجابة. يرجى كتابة الإجابة يدوياً.");
+            const warningDiv = document.createElement('div');
+            warningDiv.className = 'paste-warning';
+            warningDiv.innerHTML = '<i class="fas fa-ban"></i> ممنوع اللصق! تم مسح الحقل.';
+            document.body.appendChild(warningDiv);
+            setTimeout(() => { if (warningDiv && warningDiv.remove) warningDiv.remove(); }, 3000);
         }
-    }
 
-    // بناء واجهة الأسئلة
-    function buildQuestionsUI() {
-        examContainer.innerHTML = '';
-        questions.forEach((q) => {
-            const card = document.createElement('div');
-            card.className = 'main-card';
-            card.setAttribute('data-qid', q.id);
-            const header = document.createElement('div');
-            header.className = 'card-header';
-            header.innerHTML = `<h2>السؤال ${q.id} (من 12)</h2>`;
-            card.appendChild(header);
-            const body = document.createElement('div');
-            body.className = 'card-body';
-            const questionDiv = document.createElement('div');
-            questionDiv.className = 'question-text';
-            questionDiv.innerHTML = `<p><strong>${q.text}</strong></p>`;
-            body.appendChild(questionDiv);
-            const answerDiv = document.createElement('div');
-            answerDiv.className = 'answer-area';
-            answerDiv.innerHTML = `<label><i class="fas fa-pen"></i> إجابتك:</label>`;
-            const textarea = document.createElement('textarea');
-            textarea.id = `answer_${q.id}`;
-            textarea.placeholder = "اكتب إجابتك هنا بتفصيل كافٍ... (مساحة كافية للإجابة الطويلة)";
-            textarea.rows = 6;
-            textarea.style.minHeight = "150px";
-            textarea.disabled = true;
-            answerDiv.appendChild(textarea);
-            const printAnswerDiv = document.createElement('div');
-            printAnswerDiv.className = 'print-answer';
-            printAnswerDiv.id = `print_answer_${q.id}`;
-            printAnswerDiv.innerText = '';
-            answerDiv.appendChild(printAnswerDiv);
-            body.appendChild(answerDiv);
-            card.appendChild(body);
-            examContainer.appendChild(card);
-            // تسجيل القيمة الأولية للمراقبة
+        // دالة مسح حقل معين وتحديث التخزين
+        function clearField(textarea, qId) {
+            if (!textarea) return;
+            textarea.value = '';
+            const printSpan = document.getElementById(`print_answer_${qId}`);
+            if (printSpan) printSpan.innerText = '';
+            if (examStarted) {
+                localStorage.setItem(`answer_${qId}`, '');
+            }
             lastValues.set(textarea, '');
-            // منع أحداث paste و input (طبقة إضافية)
-            textarea.addEventListener('paste', (e) => { e.preventDefault(); clearField(textarea, q.id); showPasteWarning(); });
-            textarea.addEventListener('beforeinput', (e) => {
-                if (e.inputType === 'insertFromPaste' || e.inputType === 'insertFromDrop') {
-                    e.preventDefault();
-                    clearField(textarea, q.id);
-                    showPasteWarning();
-                }
-            });
-            textarea.addEventListener('drop', (e) => { e.preventDefault(); clearField(textarea, q.id); showPasteWarning(); });
-            // ربط حدث input عادي للحفظ
-            textarea.addEventListener('input', () => {
-                if (examStarted) {
-                    localStorage.setItem(`answer_${q.id}`, textarea.value);
-                    const printSpan = document.getElementById(`print_answer_${q.id}`);
-                    if (printSpan) printSpan.innerText = textarea.value;
-                    lastValues.set(textarea, textarea.value);
-                }
-            });
-        });
-        const bottomBtnDiv = document.createElement('div');
-        bottomBtnDiv.className = 'button-group no-print';
-        const bottomPrint = document.createElement('button');
-        bottomPrint.className = 'btn btn-primary';
-        bottomPrint.id = 'bottomPrintBtn';
-        bottomPrint.innerHTML = '<i class="fas fa-print"></i> تحميل الحل كـ PDF';
-        bottomPrint.disabled = true;
-        bottomPrint.addEventListener('click', () => { if (examStarted) window.print(); else alert("لا يمكن الطباعة قبل بدء الاختبار."); });
-        bottomBtnDiv.appendChild(bottomPrint);
-        examContainer.appendChild(bottomBtnDiv);
-        window.bottomPrint = bottomPrint;
-    }
-
-    function enableAnswers(enable) {
-        const textareas = document.querySelectorAll('#examContainer textarea');
-        textareas.forEach(ta => {
-            if (enable) {
-                ta.disabled = false;
-                ta.classList.remove('disabled-input');
-                lastValues.set(ta, ta.value);
-            } else {
-                ta.disabled = true;
-                ta.classList.add('disabled-input');
-            }
-        });
-        if (enable) {
-            startPastePolling();
-        } else {
-            stopPastePolling();
         }
-    }
 
-    function updateTimerDisplay() {
-        if (!endTime) return;
-        const remaining = Math.max(0, endTime - Date.now());
-        const hours = Math.floor(remaining / 3600000);
-        const minutes = Math.floor((remaining % 3600000) / 60000);
-        const seconds = Math.floor((remaining % 60000) / 1000);
-        timerDisplay.innerText = `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
-        if (remaining <= 0) {
-            clearInterval(timerInterval);
-            enableAnswers(false);
-            startBtn.disabled = true;
-            printBtn.disabled = false;
-            if(window.bottomPrint) window.bottomPrint.disabled = false;
-            examStarted = false;
-            const timerBar = document.querySelector('.timer-bar');
-            if (timerBar && !timerBar.querySelector('.expired-msg')) {
-                const msgDiv = document.createElement('div');
-                msgDiv.className = 'expired-msg';
-                msgDiv.innerHTML = '<i class="fas fa-hourglass-end"></i> انتهى الوقت! يمكنك مراجعة إجاباتك وطباعتها فقط.';
-                timerBar.appendChild(msgDiv);
-            }
-            alert("انتهى الوقت المحدد! تم تعطيل حقول الإجابة. يمكنك طباعة إجاباتك.");
-        }
-    }
-
-    function startTimer() {
-        const duration = 4200 * 1000; // 70 دقيقة
-        endTime = Date.now() + duration;
-        updateTimerDisplay();
-        if (timerInterval) clearInterval(timerInterval);
-        timerInterval = setInterval(updateTimerDisplay, 1000);
-    }
-
-    function startExam() {
-        const studentName = studentNameInput.value.trim();
-        const studentId = studentIdInput.value.trim();
-        if (studentName === "" || studentId === "") {
-            alert("يرجى إدخال الاسم الكامل والرقم الجامعي قبل بدء الاختبار.");
-            return;
-        }
-        if (examStarted) return;
-        if (examContainer.innerHTML.includes("الرجاء إدخال الاسم")) {
-            buildQuestionsUI();
-        }
-        studentNameInput.disabled = true;
-        studentIdInput.disabled = true;
-        updatePrintStudentData();
-        enableAnswers(true);
-        startTimer();
-        examStarted = true;
-        startBtn.disabled = true;
-        printBtn.disabled = false;
-        if(window.bottomPrint) window.bottomPrint.disabled = false;
-        localStorage.setItem('ethicsExamStarted', 'true');
-        localStorage.setItem('ethicsStartTime', Date.now());
-        localStorage.setItem('ethicsStudentName', studentName);
-        localStorage.setItem('ethicsStudentId', studentId);
-        // استعادة الإجابات المحفوظة
-        for (let i = 1; i <= 12; i++) {
-            const saved = localStorage.getItem(`answer_${i}`);
-            if (saved !== null) {
-                const ta = document.getElementById(`answer_${i}`);
-                if (ta && ta.value !== saved) {
-                    ta.value = saved;
-                    const printSpan = document.getElementById(`print_answer_${i}`);
-                    if (printSpan) printSpan.innerText = saved;
-                    lastValues.set(ta, saved);
-                }
-            }
-        }
-    }
-
-    function updatePrintStudentData() {
-        printNameSpan.innerText = studentNameInput.value;
-        printIdSpan.innerText = studentIdInput.value;
-    }
-    studentNameInput.addEventListener('input', updatePrintStudentData);
-    studentIdInput.addEventListener('input', updatePrintStudentData);
-
-    function restoreExamState() {
-        const started = localStorage.getItem('ethicsExamStarted');
-        if (started === 'true') {
-            const startTime = parseInt(localStorage.getItem('ethicsStartTime'), 10);
-            const elapsed = Date.now() - startTime;
-            const duration = 4200 * 1000;
-            if (elapsed < duration) {
-                const savedName = localStorage.getItem('ethicsStudentName') || '';
-                const savedId = localStorage.getItem('ethicsStudentId') || '';
-                studentNameInput.value = savedName;
-                studentIdInput.value = savedId;
-                studentNameInput.disabled = true;
-                studentIdInput.disabled = true;
-                updatePrintStudentData();
-                buildQuestionsUI();
-                enableAnswers(true);
-                endTime = startTime + duration;
-                updateTimerDisplay();
-                if (timerInterval) clearInterval(timerInterval);
-                timerInterval = setInterval(updateTimerDisplay, 1000);
-                examStarted = true;
-                startBtn.disabled = true;
-                printBtn.disabled = false;
-                if(window.bottomPrint) window.bottomPrint.disabled = false;
-                for (let i = 1; i <= 12; i++) {
-                    const savedAnswer = localStorage.getItem(`answer_${i}`);
-                    if (savedAnswer !== null) {
-                        const ta = document.getElementById(`answer_${i}`);
-                        if (ta) {
-                            ta.value = savedAnswer;
-                            const printSpan = document.getElementById(`print_answer_${i}`);
-                            if (printSpan) printSpan.innerText = savedAnswer;
-                            lastValues.set(ta, savedAnswer);
+        // المراقبة الدورية: كل 100ms نتحقق من أي تغيير مفاجئ في الطول
+        function startPastePolling() {
+            if (pollingInterval) clearInterval(pollingInterval);
+            pollingInterval = setInterval(() => {
+                if (!examStarted) return;
+                const textareas = document.querySelectorAll('#examContainer textarea:not([disabled])');
+                for (let ta of textareas) {
+                    const currentVal = ta.value;
+                    const previousVal = lastValues.get(ta) || '';
+                    const currentLen = currentVal.length;
+                    const previousLen = previousVal.length;
+                    // إذا زاد الطول بأكثر من 5 أحرف دفعة واحدة => لصق
+                    if (currentLen - previousLen > 5 && currentLen > previousLen) {
+                        const match = ta.id.match(/answer_(\d+)/);
+                        if (match) {
+                            const qId = match[1];
+                            clearField(ta, qId);
+                            showPasteWarning();
                         }
                     }
+                    // تحديث القيمة المخزنة
+                    lastValues.set(ta, currentVal);
                 }
+            }, 100);
+        }
+
+        function stopPastePolling() {
+            if (pollingInterval) {
+                clearInterval(pollingInterval);
+                pollingInterval = null;
+            }
+        }
+
+        // بناء واجهة الأسئلة
+        function buildQuestionsUI() {
+            examContainer.innerHTML = '';
+            questions.forEach((q) => {
+                const card = document.createElement('div');
+                card.className = 'main-card';
+                card.setAttribute('data-qid', q.id);
+                const header = document.createElement('div');
+                header.className = 'card-header';
+                header.innerHTML = `<h2>السؤال ${q.id} (من 12)</h2>`;
+                card.appendChild(header);
+                const body = document.createElement('div');
+                body.className = 'card-body';
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question-text';
+                questionDiv.innerHTML = `<p><strong>${q.text}</strong></p>`;
+                body.appendChild(questionDiv);
+                const answerDiv = document.createElement('div');
+                answerDiv.className = 'answer-area';
+                answerDiv.innerHTML = `<label><i class="fas fa-pen"></i> إجابتك:</label>`;
+                const textarea = document.createElement('textarea');
+                textarea.id = `answer_${q.id}`;
+                textarea.placeholder = "اكتب إجابتك هنا بتفصيل كافٍ... (مساحة كافية للإجابة الطويلة)";
+                textarea.rows = 6;
+                textarea.style.minHeight = "150px";
+                textarea.disabled = true;
+                answerDiv.appendChild(textarea);
+                const printAnswerDiv = document.createElement('div');
+                printAnswerDiv.className = 'print-answer';
+                printAnswerDiv.id = `print_answer_${q.id}`;
+                printAnswerDiv.innerText = '';
+                answerDiv.appendChild(printAnswerDiv);
+                body.appendChild(answerDiv);
+                card.appendChild(body);
+                examContainer.appendChild(card);
+                // تسجيل القيمة الأولية للمراقبة
+                lastValues.set(textarea, '');
+                // منع أحداث paste و input (طبقة إضافية)
+                textarea.addEventListener('paste', (e) => { e.preventDefault(); clearField(textarea, q.id); showPasteWarning(); });
+                textarea.addEventListener('beforeinput', (e) => {
+                    if (e.inputType === 'insertFromPaste' || e.inputType === 'insertFromDrop') {
+                        e.preventDefault();
+                        clearField(textarea, q.id);
+                        showPasteWarning();
+                    }
+                });
+                textarea.addEventListener('drop', (e) => { e.preventDefault(); clearField(textarea, q.id); showPasteWarning(); });
+                // ربط حدث input عادي للحفظ
+                textarea.addEventListener('input', () => {
+                    // if (examStarted) {
+                    //     localStorage.setItem(`answer_${q.id}`, textarea.value);
+                    //     const printSpan = document.getElementById(`print_answer_${q.id}`);
+                    //     if (printSpan) printSpan.innerText = textarea.value;
+                    //     lastValues.set(textarea, textarea.value);
+                    // }
+
+                    const value = textarea.value;
+
+                    const printSpan = document.getElementById(`print_answer_${q.id}`);
+                    if (printSpan) printSpan.innerText = value;
+
+                    lastValues.set(textarea, value);
+
+                    clearTimeout(saveTimeout);
+                    saveTimeout = setTimeout(() => {
+                        if (examStarted) {
+                            localStorage.setItem(`answer_${q.id}`, value);
+                        }
+                    }, 300);
+                });
+            });
+            const bottomBtnDiv = document.createElement('div');
+            bottomBtnDiv.className = 'button-group no-print';
+            const bottomPrint = document.createElement('button');
+            bottomPrint.className = 'btn btn-primary';
+            bottomPrint.id = 'bottomPrintBtn';
+            bottomPrint.innerHTML = '<i class="fas fa-print"></i> تحميل الحل كـ PDF';
+            bottomPrint.disabled = true;
+            bottomPrint.addEventListener('click', () => { if (examStarted) window.print(); else alert("لا يمكن الطباعة قبل بدء الاختبار."); });
+            bottomBtnDiv.appendChild(bottomPrint);
+            examContainer.appendChild(bottomBtnDiv);
+            window.bottomPrint = bottomPrint;
+        }
+
+        let autoSaveInterval = null;
+
+        function startAutoSave() {
+            if (autoSaveInterval) return; // يمنع التكرار
+
+            autoSaveInterval = setInterval(() => {
+                if (!examStarted) return;
+
+                const textareas = document.querySelectorAll('#examContainer textarea');
+
+                textareas.forEach(ta => {
+                    const id = ta.id.split('_')[1];
+                    localStorage.setItem(`answer_${id}`, ta.value);
+                });
+
+            }, 5000);
+        }
+
+        function stopAutoSave() {
+            if (autoSaveInterval) {
+                clearInterval(autoSaveInterval);
+                autoSaveInterval = null;
+            }
+        }
+
+        function enableAnswers(enable) {
+            const textareas = document.querySelectorAll('#examContainer textarea');
+            textareas.forEach(ta => {
+                if (enable) {
+                    ta.disabled = false;
+                    ta.classList.remove('disabled-input');
+                    lastValues.set(ta, ta.value);
+                } else {
+                    ta.disabled = true;
+                    ta.classList.add('disabled-input');
+                }
+            });
+
+            if (enable) {
+                startPastePolling();
+                startAutoSave(); // ⭐ جديد
             } else {
+                stopPastePolling();
+                stopAutoSave(); // ⭐ جديد
+            }
+        }
+
+        function updateTimerDisplay() {
+            if (!endTime) return;
+            const remaining = Math.max(0, endTime - Date.now());
+            const hours = Math.floor(remaining / 3600000);
+            const minutes = Math.floor((remaining % 3600000) / 60000);
+            const seconds = Math.floor((remaining % 60000) / 1000);
+            timerDisplay.innerText = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            if (remaining <= 0) {
+                localStorage.setItem(STATUS_KEY, 'finished');
+                clearInterval(timerInterval);
+                enableAnswers(false);
+                startBtn.disabled = true;
+                printBtn.disabled = false;
+                if (window.bottomPrint) window.bottomPrint.disabled = false;
+                examStarted = false;
+                const timerBar = document.querySelector('.timer-bar');
+                if (timerBar && !timerBar.querySelector('.expired-msg')) {
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = 'expired-msg';
+                    msgDiv.innerHTML = '<i class="fas fa-hourglass-end"></i> انتهى الوقت! يمكنك مراجعة إجاباتك وطباعتها فقط.';
+                    timerBar.appendChild(msgDiv);
+                }
+                alert("انتهى الوقت المحدد! تم تعطيل حقول الإجابة. يمكنك طباعة إجاباتك.");
+            }
+        }
+
+        function startTimer() {
+            // const duration = 4200 * 1000; // 70 دقيقة
+            const duration = 5 * 60 * 1000;
+            endTime = Date.now() + duration;
+            updateTimerDisplay();
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = setInterval(updateTimerDisplay, 1000);
+        }
+
+        function startExam() {
+            console.log("Exam start triggered");
+            console.log("Container children:", examContainer.children.length);
+            const studentName = studentNameInput.value.trim();
+            const studentId = studentIdInput.value.trim();
+            if (studentName === "" || studentId === "") {
+                alert("يرجى إدخال الاسم الكامل والرقم الجامعي قبل بدء الاختبار.");
+                return;
+            }
+            // ⭐ مهم جدًا: تأكد أن الواجهة مبنية
+            if (examContainer.children.length === 0 || examContainer.innerHTML.includes("الرجاء إدخال الاسم")) {
+                buildQuestionsUI();
+            }
+            if (examStarted) return;
+
+            if (examContainer.innerHTML.includes("الرجاء إدخال الاسم")) {
+                buildQuestionsUI();
+            }
+            studentNameInput.disabled = true;
+            studentIdInput.disabled = true;
+            updatePrintStudentData();
+            enableAnswers(true);
+            startTimer();
+            examStarted = true;
+            startBtn.disabled = true;
+            printBtn.disabled = false;
+            if (window.bottomPrint) window.bottomPrint.disabled = false;
+            // localStorage.setItem('ethicsExamStarted', 'true');
+            localStorage.setItem(STATUS_KEY, 'running');
+
+            localStorage.setItem('ethicsStartTime', Date.now());
+            localStorage.setItem('ethicsStudentName', studentName);
+            localStorage.setItem('ethicsStudentId', studentId);
+            // استعادة الإجابات المحفوظة
+            for (let i = 1; i <= 12; i++) {
+                const saved = localStorage.getItem(`answer_${i}`);
+                if (saved !== null) {
+                    const ta = document.getElementById(`answer_${i}`);
+                    if (ta && ta.value !== saved) {
+                        ta.value = saved;
+                        const printSpan = document.getElementById(`print_answer_${i}`);
+                        if (printSpan) printSpan.innerText = saved;
+                        lastValues.set(ta, saved);
+                    }
+                }
+            }
+        }
+
+        function updatePrintStudentData() {
+            printNameSpan.innerText = studentNameInput.value;
+            printIdSpan.innerText = studentIdInput.value;
+        }
+        studentNameInput.addEventListener('input', updatePrintStudentData);
+        studentIdInput.addEventListener('input', updatePrintStudentData);
+
+        function restoreExamState() {
+            const status = localStorage.getItem(STATUS_KEY);
+            if (status === 'running') {
+                const startTime = parseInt(localStorage.getItem('ethicsStartTime'), 10);
+                const elapsed = Date.now() - startTime;
+                // const duration = 4200 * 1000;
+                const duration = 5 * 60 * 1000;
+                if (elapsed < duration) {
+                    const savedName = localStorage.getItem('ethicsStudentName') || '';
+                    const savedId = localStorage.getItem('ethicsStudentId') || '';
+                    studentNameInput.value = savedName;
+                    studentIdInput.value = savedId;
+                    studentNameInput.disabled = true;
+                    studentIdInput.disabled = true;
+                    updatePrintStudentData();
+                    buildQuestionsUI();
+                    enableAnswers(true);
+                    endTime = startTime + duration;
+                    updateTimerDisplay();
+                    if (timerInterval) clearInterval(timerInterval);
+                    timerInterval = setInterval(updateTimerDisplay, 1000);
+                    examStarted = true;
+                    startBtn.disabled = true;
+                    printBtn.disabled = false;
+                    if (window.bottomPrint) window.bottomPrint.disabled = false;
+                    for (let i = 1; i <= 12; i++) {
+                        const savedAnswer = localStorage.getItem(`answer_${i}`);
+                        if (savedAnswer !== null) {
+                            const ta = document.getElementById(`answer_${i}`);
+                            if (ta) {
+                                ta.value = savedAnswer;
+                                const printSpan = document.getElementById(`print_answer_${i}`);
+                                if (printSpan) printSpan.innerText = savedAnswer;
+                                lastValues.set(ta, savedAnswer);
+                            }
+                        }
+                    }
+                } else {
+                    if (examContainer.innerHTML.includes("الرجاء إدخال الاسم") || examContainer.innerHTML === '' || examContainer.children.length === 0) {
+                        buildQuestionsUI();
+                    }
+                    for (let i = 1; i <= 12; i++) {
+                        const savedAnswer = localStorage.getItem(`answer_${i}`);
+                        if (savedAnswer !== null) {
+                            const ta = document.getElementById(`answer_${i}`);
+                            if (ta) {
+                                ta.value = savedAnswer;
+                                const printSpan = document.getElementById(`print_answer_${i}`);
+                                if (printSpan) printSpan.innerText = savedAnswer;
+                                lastValues.set(ta, savedAnswer);
+                            }
+                        }
+                    }
+                    enableAnswers(false);
+                    startBtn.disabled = true;
+                    printBtn.disabled = false;
+                    if (window.bottomPrint) window.bottomPrint.disabled = false;
+                    studentNameInput.disabled = true;
+                    studentIdInput.disabled = true;
+                    timerDisplay.innerText = "00:00:00";
+                    const timerBar = document.querySelector('.timer-bar');
+                    if (timerBar && !timerBar.querySelector('.expired-msg')) {
+                        const msgDiv = document.createElement('div');
+                        msgDiv.className = 'expired-msg';
+                        msgDiv.innerHTML = '<i class="fas fa-hourglass-end"></i> انتهت مدة الاختبار سابقاً. يمكنك الاطلاع على إجاباتك وطباعتها فقط (لا يمكن التعديل).';
+                        timerBar.appendChild(msgDiv);
+                    }
+                    examStarted = false;
+                }
+            } else if (status === 'finished') {
                 if (examContainer.innerHTML.includes("الرجاء إدخال الاسم") || examContainer.innerHTML === '' || examContainer.children.length === 0) {
                     buildQuestionsUI();
                 }
+
                 for (let i = 1; i <= 12; i++) {
                     const savedAnswer = localStorage.getItem(`answer_${i}`);
                     if (savedAnswer !== null) {
@@ -534,34 +825,43 @@
                     }
                 }
                 enableAnswers(false);
-                startBtn.disabled = true;
-                printBtn.disabled = false;
-                if(window.bottomPrint) window.bottomPrint.disabled = false;
                 studentNameInput.disabled = true;
                 studentIdInput.disabled = true;
                 timerDisplay.innerText = "00:00:00";
+
                 const timerBar = document.querySelector('.timer-bar');
+
                 if (timerBar && !timerBar.querySelector('.expired-msg')) {
                     const msgDiv = document.createElement('div');
                     msgDiv.className = 'expired-msg';
-                    msgDiv.innerHTML = '<i class="fas fa-hourglass-end"></i> انتهت مدة الاختبار سابقاً. يمكنك الاطلاع على إجاباتك وطباعتها فقط (لا يمكن التعديل).';
+                    msgDiv.innerHTML = 'انتهى الامتحان سابقًا - يمكنك فقط المراجعة';
                     timerBar.appendChild(msgDiv);
                 }
                 examStarted = false;
             }
-        } else {
-            examContainer.innerHTML = '<div class="info-message"><i class="fas fa-lock"></i> الرجاء إدخال الاسم والرقم الجامعي ثم الضغط على "بدء الاختبار" لعرض الأسئلة.</div>';
+            else {
+                examContainer.innerHTML = '<div class="info-message"><i class="fas fa-lock"></i> الرجاء إدخال الاسم والرقم الجامعي ثم الضغط على "بدء الاختبار" لعرض الأسئلة.</div>';
+            }
         }
-    }
 
-    window.onload = () => {
-        restoreExamState();
-        startBtn.addEventListener('click', startExam);
-        printBtn.addEventListener('click', () => {
-            if (examStarted || localStorage.getItem('ethicsExamStarted') === 'true') window.print();
-            else alert("لا يمكن الطباعة قبل بدء الاختبار.");
+        window.onload = () => {
+            restoreExamState();
+            startBtn.addEventListener('click', startExam);
+            printBtn.addEventListener('click', () => {
+                if (examStarted || localStorage.getItem(STATUS_KEY) === 'running' || localStorage.getItem(STATUS_KEY) === 'finished') window.print();
+                else alert("لا يمكن الطباعة قبل بدء الاختبار.");
+            });
+        };
+
+        window.addEventListener("beforeunload", () => {
+            const textareas = document.querySelectorAll('#examContainer textarea');
+
+            textareas.forEach(ta => {
+                const id = ta.id.split('_')[1];
+                localStorage.setItem(`answer_${id}`, ta.value);
+            });
         });
-    };
-</script>
+    </script>
 </body>
+
 </html>
