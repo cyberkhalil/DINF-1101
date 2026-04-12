@@ -565,7 +565,21 @@
                 });
                 textarea.addEventListener('drop', (e) => { e.preventDefault(); clearField(textarea, q.id); showPasteWarning(); });
                 // ربط حدث input عادي للحفظ
+                let lastLen = 0;
+
                 textarea.addEventListener('input', () => {
+
+                    const currentLen = textarea.value.length;
+
+                    // إذا زاد النص بشكل كبير فجأة = لصق
+                    if (currentLen - lastLen > 8) {
+                        clearField(textarea, q.id);
+                        showPasteWarning();
+                        return;
+                    }
+
+                    lastLen = currentLen;
+
                     // if (examStarted) {
                     //     localStorage.setItem(`answer_${q.id}`, textarea.value);
                     //     const printSpan = document.getElementById(`print_answer_${q.id}`);
@@ -573,21 +587,27 @@
                     //     lastValues.set(textarea, textarea.value);
                     // }
 
-                    const value = textarea.value;
+                    // const value = textarea.value;
 
-                    const printSpan = document.getElementById(`print_answer_${q.id}`);
-                    if (printSpan) printSpan.innerText = value;
+                    // const printSpan = document.getElementById(`print_answer_${q.id}`);
+                    // if (printSpan) printSpan.innerText = value;
 
-                    lastValues.set(textarea, value);
+                    // lastValues.set(textarea, value);
 
-                    clearTimeout(saveTimeout);
-                    saveTimeout = setTimeout(() => {
-                        if (examStarted) {
-                            localStorage.setItem(`answer_${q.id}`, value);
-                        }
-                    }, 300);
+                    // clearTimeout(saveTimeout);
+                    // saveTimeout = setTimeout(() => {
+                    //     if (examStarted) {
+                    //         localStorage.setItem(`answer_${q.id}`, value);
+                    //     }
+                    // }, 300);
                 });
             });
+            textarea.setAttribute("autocomplete", "off");
+            textarea.setAttribute("autocorrect", "off");
+            textarea.setAttribute("autocapitalize", "off");
+            textarea.setAttribute("spellcheck", "false");
+
+            
             const bottomBtnDiv = document.createElement('div');
             bottomBtnDiv.className = 'button-group no-print';
             const bottomPrint = document.createElement('button');
