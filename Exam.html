@@ -496,7 +496,12 @@
                     const currentLen = currentVal.length;
                     const previousLen = previousVal.length;
                     // إذا زاد الطول بأكثر من 5 أحرف دفعة واحدة => لصق
-                    if (currentLen - previousLen > 5 && currentLen > previousLen) {
+                    const now = Date.now();
+                    const lastTime = ta._lastTime || now;
+                    const timeDiff = now - lastTime;
+
+                    if ((currentLen - previousLen > 20) && timeDiff < 80) {
+                        ta._lastTime = now;
                         const match = ta.id.match(/answer_(\d+)/);
                         if (match) {
                             const qId = match[1];
@@ -565,49 +570,41 @@
                 });
                 textarea.addEventListener('drop', (e) => { e.preventDefault(); clearField(textarea, q.id); showPasteWarning(); });
                 // ربط حدث input عادي للحفظ
+                // let lastLen = 0;
+                // textarea.addEventListener('input', () => {
+                //     const currentLen = textarea.value.length;
+                //     // إذا زاد النص بشكل كبير فجأة = لصق
+                //     if (currentLen - lastLen > 8) {
+                //         clearField(textarea, q.id);
+                //         showPasteWarning();
+                //         return;
+                //     }
+                //     lastLen = currentLen;
+
+                // });
+
                 let lastLen = 0;
+                let lastTime = Date.now();
 
                 textarea.addEventListener('input', () => {
-
+                    const now = Date.now();
                     const currentLen = textarea.value.length;
 
-                    // إذا زاد النص بشكل كبير فجأة = لصق
-                    if (currentLen - lastLen > 8) {
+                    const charDiff = currentLen - lastLen;
+                    const timeDiff = now - lastTime;
+
+                    // 👇 الشرط يمنع أحرف كثيرة خلال وقت قصير جداً (أدق بكثير)
+                    if (charDiff > 15 && timeDiff < 50) {
                         clearField(textarea, q.id);
                         showPasteWarning();
                         return;
                     }
 
                     lastLen = currentLen;
-
-                    // if (examStarted) {
-                    //     localStorage.setItem(`answer_${q.id}`, textarea.value);
-                    //     const printSpan = document.getElementById(`print_answer_${q.id}`);
-                    //     if (printSpan) printSpan.innerText = textarea.value;
-                    //     lastValues.set(textarea, textarea.value);
-                    // }
-
-                    // const value = textarea.value;
-
-                    // const printSpan = document.getElementById(`print_answer_${q.id}`);
-                    // if (printSpan) printSpan.innerText = value;
-
-                    // lastValues.set(textarea, value);
-
-                    // clearTimeout(saveTimeout);
-                    // saveTimeout = setTimeout(() => {
-                    //     if (examStarted) {
-                    //         localStorage.setItem(`answer_${q.id}`, value);
-                    //     }
-                    // }, 300);
+                    lastTime = now;
                 });
             });
-            // textarea.setAttribute("autocomplete", "off");
-            // textarea.setAttribute("autocorrect", "off");
-            // textarea.setAttribute("autocapitalize", "off");
-            // textarea.setAttribute("spellcheck", "false");
 
-            
             const bottomBtnDiv = document.createElement('div');
             bottomBtnDiv.className = 'button-group no-print';
             const bottomPrint = document.createElement('button');
@@ -677,6 +674,7 @@
             timerDisplay.innerText = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
             if (remaining <= 0) {
                 localStorage.setItem(STATUS_KEY, 'finished');
+                localStorage.setItem(`${EXAM_ID}_finishedAt`, Date.now());
                 clearInterval(timerInterval);
                 enableAnswers(false);
                 startBtn.disabled = true;
@@ -695,7 +693,7 @@
         }
 
         function startTimer() {
-            const duration = 4200 * 1000; // 70 دقيقة
+            const duration = 4200 * 1000; // 70 دقيقة 
             // const duration = 5 * 60 * 1000;
             endTime = Date.now() + duration;
             updateTimerDisplay();
@@ -763,7 +761,7 @@
             if (status === 'running') {
                 const startTime = parseInt(localStorage.getItem('ethicsStartTime'), 10);
                 const elapsed = Date.now() - startTime;
-                const duration = 4200 * 1000;
+                const duration = 4200 * 1000; //
                 // const duration = 5 * 60 * 1000;
                 if (elapsed < duration) {
                     const savedName = localStorage.getItem('ethicsStudentName') || '';
@@ -828,6 +826,19 @@
                     examStarted = false;
                 }
             } else if (status === 'finished') {
+                const finishedAt = parseInt(localStorage.getItem(`${EXAM_ID}_finishedAt`), 10);
+                const now = Date.now();
+                const hours24 = 24 * 60 * 60 * 1000; // فترة الاختبار (للتجربة)
+
+                if (finishedAt && (now - finishedAt >= hours24)) {
+                    // 🧹 تنظيف كل شيء
+                    localStorage.clear(); // أهم تعديل
+
+                    // 🔄 إعادة تحميل الصفحة بالكامل (الحل الذهبي)
+                    location.reload();
+
+                    return;
+                }
                 if (examContainer.innerHTML.includes("الرجاء إدخال الاسم") || examContainer.innerHTML === '' || examContainer.children.length === 0) {
                     buildQuestionsUI();
                 }
@@ -862,6 +873,22 @@
             else {
                 examContainer.innerHTML = '<div class="info-message"><i class="fas fa-lock"></i> الرجاء إدخال الاسم والرقم الجامعي ثم الضغط على "بدء الاختبار" لعرض الأسئلة.</div>';
             }
+        }
+
+        function resetExamData() {
+
+            Object.keys(localStorage).forEach(key => {
+                if (key.startsWith(EXAM_ID) || key.startsWith("answer_") || key.startsWith("ethics")) {
+                    localStorage.removeItem(key);
+                }
+            });
+
+
+            // Object.keys(localStorage).forEach(key => {
+            //     if (key.startsWith(EXAM_ID) || key.startsWith("answer_")) {
+            //         localStorage.removeItem(key);
+            //     }
+            // });
         }
 
         window.onload = () => {
