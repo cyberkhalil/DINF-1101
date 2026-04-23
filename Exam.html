@@ -382,7 +382,7 @@
             <div><i class="fas fa-hourglass-half"></i> الوقت المتبقي:</div>
             <div class="timer" id="timerDisplay">01:10:00</div>
             <button id="startExamBtn" class="btn btn-success"><i class="fas fa-play"></i> بدء الاختبار</button>
-            <button id="printPdfBtn" class="btn btn-primary"><i class="fas fa-print"></i> تحميل الحل كـ
+            <button id="printPdfBtn" class="btn btn-primary" disabled><i class="fas fa-print"></i> تحميل الحل كـ
                 PDF</button>
         </div>
 
@@ -428,22 +428,31 @@
         // ------------------- بيانات الأسئلة ------------------
 
         const questions = [
-            { id: 1, text: "بناءً على المحاضرة الأولى، وضح العلاقة التكاملية بين 'الأخلاق'، 'الآداب'، و'القانون'. كيف يمكن لعمل معين أن يكون 'قانونياً' ولكنه 'غير أخلاقي' في سياق أمن المعلومات؟ اذكر مثالاً توضيحياً." },
-            { id: 2, text: "بناءً على المحاضرة الثانية، يحتاج خبير تكنولوجيا المعلومات إلى مزيج من 'الخبرة العملية' و'المعرفة المتخصصة'. اشرح الفرق بينهما باختصار، واذكر مثالاً واحداً لمهنة في مجال تكنولوجيا المعلومات تتطلب توفر هذين الشرطين معاً." },
-            { id: 3, text: "تحدثت المحاضرة الثانية عن 'العلاقات المهنية'. اختر ثلاث علاقات (مثلاً: مع صاحب العمل، مع العميل، مع المجتمع) واذكر تحدياً أخلاقياً واحداً يواجه الخبير في كل منها، وكيف تعالجه مدونات السلوك مثل ACM؟" },
-            { id: 4, text: "ما هي العناصر الثلاثة الأساسية التي يجب تحقيق توازن بينها لتحقيق الأمن المعلوماتي؟" },
-            { id: 5, text: "ناقش مفهوم 'الموافقة المستنيرة'، ولماذا تعتبر مهمة عند جمع بيانات المستخدمين؟ " },
-            { id: 6, text: " اذكر ثلاثة أنواع من البيانات الشخصية التي يجب حمايتها وفق قوانين حماية الخصوصية. " },
-            { id: 7, text: " ما هو التصيد الاحتيالي (Phishing)، وكيف يتم استخدامه لسرقة البيانات الشخصية؟ " },
-            { id: 8, text: "اشرح لماذا يعترض بعض المستخدمين على عملية جمع البيانات، وما تأثير ذلك على استخدام الإنترنت والتجارة الإلكترونية؟" },
-            { id: 9, text: " اذكر طريقتين يستخدمهما مجرمو الإنترنت للحصول على البيانات الشخصية، مع شرح بسيط لكل طريقة. " },
-            { id: 10, text: "في مثال غرفة السيرفرات، تم ذكر عدة مخاطر. اذكر خطرين على الأقل من هذه المخاطر كما وردت في الشرح." },
-            { id: 11, text: " اشرح كيف تستخدم مواقع التواصل الاجتماعي بيانات المستخدمين لبناء نماذج تنبؤية، وما الهدف من ذلك؟" },
-            { id: 12, text: "اذكر طريقتين من استراتيجيات المواجهة التي تساعد على تقليل إدمان مواقع التواصل، مع توضيح كيف تساعد كل طريقة. " }
-        ];
+            { id: 1, text: "وضح متى يمكن أن يتصادم القانون مع الأخلاق في مهنة تكنولوجيا المعلومات؟" },
+            { id: 2, text: " اشرح كيف يساهم كل من (التحضير الأكاديمي) و(الممارسة العملية) في تمكين الخبير من حل 'المشكلات المعقدة' وفقاً لما ورد في المحاضرات" },
+            { id: 3, text: " اذكر طريقتين يستخدمهما مجرمو الإنترنت للحصول على البيانات الشخصية، مع شرح بسيط لكل طريقة" },
+            { id: 4, text: "اشرح كيف تستخدم مواقع التواصل الاجتماعي بيانات المستخدمين لبناء نماذج تنبؤية، وما الهدف من ذلك؟" },
+            { id: 5, text: "اذكر متطلبات الخبرة في تكنولوجيا المعلومات، هناك ركيزتان أساسيتان، ما هما؟" },
+            { id: 6, text: " تختلف حساسية البيانات الشخصية باختلاف نوعها. وضح لماذا تعتبر 'البيانات السلوكية' (عادات التصفح) منجماً للذهب لشركات التسويق، وكيف ترتبط بمفهوم 'الأرشفة' (Cookies)؟" },
+            { id: 7, text: "ذكر طريقتين من استراتيجيات المواجهة التي تساعد على تقليل إدمان مواقع التواصل، مع توضيح كيف تساعد كل طريقة." },
+            { id: 8, text: "ضمن 'نموذج المراحل الست'، لماذا يعتبر 'تثقيف وتدريب المستخدمين' حلقة وصل لا يمكن الاستغناء عنها بالتكنولوجيا وحدها؟ وما هو الفرق الجوهري بين التدريب الفعّال وغير الفعّال؟" },
+            { id: 9, text: "ما هو التصيد الاحتيالي (Phishing)، وكيف يتم استخدامه لسرقة البيانات الشخصية؟ " },
+            {
+                id: 10, text: `أركان الأمان الثلاثة
+اذكر العناصر الثلاثة التي يجب التوازن بينها لتحقيق "الأمان الشامل" في أي مؤسسة.
+اشرح لماذا لا تكفي "التكنولوجيا" وحدها لحماية البيانات إذا كان "المستخدم" غير مدرب؟` },
+            {
+                id: 11, text: `في بيئة العمل الحديثة، يستخدم المديرون تقنيات لمراقبة تحركات الموظفين ونشاطهم على أجهزة الحاسوب لضمان الإنتاجية وحماية أسرار الشركة.
+1- وضح كيف يمكن أن يتحول هذا الإجراء الأمني (المراقبة) إلى انتهاك للخصوصية من وجهة نظر الموظف؟
+2- اقترح "قاعدة أخلاقية" واحدة يمكن للشركة اتباعها لتراقب الأنظمة بدون أن تشعر الموظف بأنه محاصر أو أن خصوصيته منتهكة.` },
+            {
+                id: 12, text: ` يقول الخبراء: "إذا كنت لا تدفع ثمن المنتج، فأنت هو المنتج"، وهذا ينطبق تماماً على منصات التواصل الاجتماعي التي توفر خدماتها مجاناً.
+1- بناءً على ما درست، كيف تجني هذه الشركات أرباحاً هائلة رغم أن المستخدم لا يدفع مالاً مقابل إنشاء الحساب؟ (اشرح فكرة بيع "اليقين" للمعلنين).
+2- وضح كيف يساهم "السكرول اللانهائي" (Infinite Scroll) و "التشغيل التلقائي للفيديو" في زيادة قيمة المستخدم كـ "منتج" بالنسبة لهذه الشركات؟` }];
+
 
         // ثابت عام
-        const EXAM_ID = "ethics_exam_2026";
+        const EXAM_ID = "ethics_second_term_exam_2026";
         const STATUS_KEY = `${EXAM_ID}_status`;
 
         let examStarted = false;
@@ -612,7 +621,7 @@
             bottomPrint.id = 'bottomPrintBtn';
             bottomPrint.innerHTML = '<i class="fas fa-print"></i> تحميل الحل كـ PDF';
             bottomPrint.disabled = true;
-            bottomPrint.addEventListener('click', () => { if (examStarted) window.print(); else alert("لا يمكن الطباعة قبل بدء الاختبار."); });
+            bottomPrint.addEventListener('click', () => { if (examStarted) { updatePrintAnswers(); window.print(); } else alert("لا يمكن الطباعة قبل بدء الاختبار."); });
             bottomBtnDiv.appendChild(bottomPrint);
             examContainer.appendChild(bottomBtnDiv);
             window.bottomPrint = bottomPrint;
@@ -753,8 +762,23 @@
             printNameSpan.innerText = studentNameInput.value;
             printIdSpan.innerText = studentIdInput.value;
         }
+
+        function updatePrintAnswers() {
+            questions.forEach(q => {
+                const answerInput = document.getElementById(`answer_${q.id}`);
+                const printAnswer = document.getElementById(`print_answer_${q.id}`);
+
+                if (answerInput && printAnswer) {
+                    printAnswer.innerText = answerInput.value.trim() || "لم تتم الإجابة";
+                }
+            });
+        }
+
         studentNameInput.addEventListener('input', updatePrintStudentData);
         studentIdInput.addEventListener('input', updatePrintStudentData);
+        document.querySelectorAll("textarea").forEach((textarea) => {
+            textarea.addEventListener("input", updatePrintAnswers)
+        })
 
         function restoreExamState() {
             const status = localStorage.getItem(STATUS_KEY);
@@ -895,7 +919,7 @@
             restoreExamState();
             startBtn.addEventListener('click', startExam);
             printBtn.addEventListener('click', () => {
-                if (examStarted || localStorage.getItem(STATUS_KEY) === 'running' || localStorage.getItem(STATUS_KEY) === 'finished') window.print();
+                if (examStarted || localStorage.getItem(STATUS_KEY) === 'running' || localStorage.getItem(STATUS_KEY) === 'finished') { updatePrintAnswers(); window.print(); }
                 else alert("لا يمكن الطباعة قبل بدء الاختبار.");
             });
         };
